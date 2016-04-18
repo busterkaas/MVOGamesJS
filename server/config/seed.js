@@ -6,54 +6,92 @@
 'use strict';
 import Thing from '../api/thing/thing.model';
 import User from '../api/user/user.model';
+import Game from '../api/game/game.model';
+import Crew from '../api/crew/crew.model';
 
-Thing.find({}).removeAsync()
+Crew.find({}).removeAsync()
   .then(() => {
-    Thing.create({
-      name: 'Development Tools',
-      info: 'Integration with popular tools such as Bower, Grunt, Babel, Karma, ' +
-             'Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, ' +
-             'Stylus, Sass, and Less.'
-    }, {
-      name: 'Server and Client integration',
-      info: 'Built with a powerful and fun stack: MongoDB, Express, ' +
-             'AngularJS, and Node.'
-    }, {
-      name: 'Smart Build System',
-      info: 'Build system ignores `spec` files, allowing you to keep ' +
-             'tests alongside code. Automatic injection of scripts and ' +
-             'styles into your index.html'
-    }, {
-      name: 'Modular Structure',
-      info: 'Best practice client and server structures allow for more ' +
-             'code reusability and maximum scalability'
-    }, {
-      name: 'Optimized Build',
-      info: 'Build process packs up your templates as a single JavaScript ' +
-             'payload, minifies your scripts/css/images, and rewrites asset ' +
-             'names for caching.'
-    }, {
-      name: 'Deployment Ready',
-      info: 'Easily deploy your app to Heroku or Openshift with the heroku ' +
-             'and openshift subgenerators'
-    });
+    Crew.createAsync({
+        name: 'SOB',
+        crewImgUrl: 'http://prod.cloud.rockstargames.com/crews/sc/1510/10088/publish/emblem/emblem_128.png',
+      }, {
+        name: 'Esbjerg Homies',
+        crewImgUrl: 'http://prod.cloud.rockstargames.com/crews/sc/1510/10088/publish/emblem/emblem_128.png',
+      }, {
+        name: 'MVO Crew',
+        crewImgUrl: 'http://prod.cloud.rockstargames.com/crews/sc/1510/10088/publish/emblem/emblem_128.png',
+      })
+      .then(() => {
+        console.log('finished populating crews');
+      });
   });
 
 User.find({}).removeAsync()
   .then(() => {
     User.createAsync({
-      provider: 'local',
-      name: 'Test User',
-      email: 'test@example.com',
-      password: 'test'
-    }, {
-      provider: 'local',
-      role: 'admin',
-      name: 'Admin',
-      email: 'admin@example.com',
-      password: 'admin'
-    })
-    .then(() => {
-      console.log('finished populating users');
-    });
+        provider: 'local',
+        name: 'Test User',
+        email: 'test@example.com',
+        password: 'test'
+
+      }, {
+        provider: 'local',
+        role: 'admin',
+        name: 'Admin',
+        email: 'admin@example.com',
+        password: 'admin'
+      })
+      .then(() => {
+        console.log('finished populating users');
+      });
+  });
+
+Game.find({}).removeAsync()
+  .then(() => {
+    Game.createAsync({
+        _id: '56e94071a98dc4d0042f5cad',
+        title: 'Game example',
+        info: 'This is some info about the game. It is a good game...',
+        releaseDate: new Date(),
+        coverUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/1/1a/Uncharted_4_box_artwork.jpg/260px-Uncharted_4_box_artwork.jpg',
+        trailerUrl: 'thisIsATrailerUrl.dk',
+
+        platforms: [{
+          name: 'Playstation 4',
+          price: 400,
+          stock: 3
+        }],
+
+        genres: [{
+          name: 'FPS'
+        }, {
+          name: 'Kvazi gaaaamse'
+        }]
+      }, {
+        _id: '56e94071a98dc4d0042f5c00',
+        title: 'Game example 2',
+        info: 'This is some info about the game. It is a good game...',
+        releaseDate: new Date(),
+        coverUrl: 'http://allgames4.me/wp-content/uploads/2014/11/Battlefield-4.png',
+        trailerUrl: 'thisIsATrailerUrl.dk',
+
+        platforms: [{
+          name: 'XBOX ONE',
+          price: 450,
+          stock: 100
+        }, {
+          name: 'Playstation 4',
+          price: 300,
+          stock: 3
+        }],
+
+        genres: [{
+          name: 'FPS'
+        }, {
+          name: 'Kvazi gaaaamse'
+        }]
+      })
+      .then(() => {
+        console.log('finished populating games');
+      });
   });

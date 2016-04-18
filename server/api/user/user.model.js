@@ -5,6 +5,17 @@ var mongoose = require('bluebird').promisifyAll(require('mongoose'));
 import {Schema} from 'mongoose';
 
 var UserSchema = new Schema({
+  firstName: String,
+  lastName: String,
+  addresses: [{
+  city: String,
+  zipCode: Number,
+  streetName: String,
+  houseNumber: String
+}],
+phoneNumber: Number,
+
+//Name is equal to "username"
   name: String,
   email: {
     type: String,

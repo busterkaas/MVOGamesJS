@@ -4,7 +4,6 @@
  */
 
 'use strict';
-import Thing from '../api/thing/thing.model';
 import User from '../api/user/user.model';
 import Game from '../api/game/game.model';
 import Crew from '../api/crew/crew.model';

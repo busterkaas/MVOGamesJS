@@ -1,0 +1,16 @@
+.gameItem{
+  background: rgba(255, 71, 26, 0.7);
+  max-height: 500px;
+  max-width: 250px;
+
+}
+.gameItem img{
+  max-height: 280px;
+}
+.gameItem p, h1, h2, h3,{
+  color:white;
+}
+.btnGameItem{
+  background-color: black;
+  color:white;
+}

@@ -3,18 +3,106 @@
   <div class="row">
     <div class="col-sm-12">
       <h1>Sign up</h1>
+
+
+
     </div>
-    <div class="col-sm-12">
-      <form class="form" name="form" ng-submit="vm.register(form)" novalidate>
+    <form class="form" name="form" ng-submit="vm.register(form)" novalidate>
+      <div class="col-sm-6" style="border-right: 1px solid #cdd0d4;">
+        <h2 style="border-bottom: 1px solid #cdd0d4;">Personal Information</h2>
 
         <div class="form-group" ng-class="{ 'has-success': form.name.$valid && vm.submitted,
                                             'has-error': form.name.$invalid && vm.submitted }">
-          <label>Name</label>
+          <label>First Name</label>
+
+            <input type="text" name="firstName" class="form-control" ng-model="vm.user.firstName"
+                 required/>
+          <p class="help-block" ng-show="form.name.$error.required && vm.submitted">
+            A first name is required
+          </p>
+        </div>
+
+
+        <div class="form-group" ng-class="{ 'has-success': form.lastName.$valid && vm.submitted,
+                                            'has-error': form.lastName.$invalid && vm.submitted }">
+          <label>Last Name</label>
+
+            <input type="text" name="lastName" class="form-control" ng-model="vm.user.lastName"
+                 required/>
+          <p class="help-block" ng-show="form.lastName.$error.required && vm.submitted">
+            A last name is required
+          </p>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-success': form.bDay.$valid && vm.submitted,
+                                            'has-error': form.bDay.$invalid && vm.submitted }">
+          <label>Birth Year</label>
+
+            <input type="Number" name="bDay" class="form-control" ng-model="vm.user.bDay"
+                 required/>
+          <p class="help-block" ng-show="form.bDay.$error.required && vm.submitted">
+            A birth year is required
+          </p>
+        </div>
+
+        <br>
+        <h3>Address</h3>
+
+        <div class="form-group" ng-class="{ 'has-success': form.city.$valid && vm.submitted,
+                                            'has-error': form.city.$invalid && vm.submitted }">
+          <label>City</label>
+
+            <input type="text" name="city" class="form-control" ng-model="vm.user.city"
+                 required/>
+          <p class="help-block" ng-show="form.city.$error.required && vm.submitted">
+            A city is required
+          </p>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-success': form.zipCode.$valid && vm.submitted,
+                                            'has-error': form.zipCode.$invalid && vm.submitted }">
+          <label>Zip code</label>
+
+            <input type="text" name="zipCode" class="form-control" ng-model="vm.user.zipCode"
+                 required/>
+          <p class="help-block" ng-show="form.zipCode.$error.required && vm.submitted">
+            A zip code is required
+          </p>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-success': form.streetName.$valid && vm.submitted,
+                                            'has-error': form.streetName.$invalid && vm.submitted }">
+          <label>Street name</label>
+
+            <input type="text" name="streetName" class="form-control" ng-model="vm.user.streetName"
+                 required/>
+          <p class="help-block" ng-show="form.streetName.$error.required && vm.submitted">
+            A street name is required
+          </p>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-success': form.houseNumber.$valid && vm.submitted,
+                                            'has-error': form.houseNumber.$invalid && vm.submitted }">
+          <label>House nr.</label>
+
+            <input type="text" name="houseNumber" class="form-control" ng-model="vm.user.houseNumber"
+                 required/>
+          <p class="help-block" ng-show="form.houseNumber.$error.required && vm.submitted">
+            A house nr. is required
+          </p>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <h2 style="border-bottom: 1px solid #cdd0d4;">User Information</h2>
+        <div class="form-group" ng-class="{ 'has-success': form.name.$valid && vm.submitted,
+                                            'has-error': form.name.$invalid && vm.submitted }">
+          <label>Username</label>
 
           <input type="text" name="name" class="form-control" ng-model="vm.user.name"
                  required/>
           <p class="help-block" ng-show="form.name.$error.required && vm.submitted">
-            A name is required
+            A Username is required
           </p>
         </div>
 
@@ -64,18 +152,16 @@
             Passwords must match.
           </p>
         </div>
-
-        <div>
-          <button class="btn btn-inverse btn-lg btn-register" type="submit">
-            Sign up
-          </button>
-          <a class="btn btn-default btn-lg btn-login" ui-sref="login">
-            Login
-          </a>
-        </div>
-
+      </div>
+      <div align="right">
+        <button class="btn btn-inverse btn-lg btn-register" type="submit">
+          Sign up
+        </button>
+        <a class="btn btn-default btn-lg btn-login" ui-sref="login">
+          Login
+        </a>
+      </div>
       </form>
-    </div>
   </div>
   <hr>
 </div>

@@ -7,6 +7,7 @@ import {Schema} from 'mongoose';
 var UserSchema = new Schema({
   firstName: String,
   lastName: String,
+  bDay: Number,
   addresses: [{
   city: String,
   zipCode: Number,

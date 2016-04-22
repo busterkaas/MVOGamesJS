@@ -3,6 +3,16 @@
   height: 30px;
 }
 
+.bgMain{
+  background-color: rgba(6, 40, 50, 0.8);
+}
+
+.headerDiv{
+padding:60px;
+width: 100%;
+  text-align: center;
+}
+
 .navbar{
   margin-bottom: 0;
   padding-bottom: 0;

@@ -1,0 +1,66 @@
+<navbar></navbar>
+<admin-navbar></admin-navbar>
+
+<div ng-if="!editingGame">
+<div class="headerDiv"><h1>This is the adminGame view.</h1></div>
+<md-list>
+<md-subheader class="md-no-sticky adminSubhead">Manage games</md-subheader>
+ <md-divider></md-divider>
+ <md-list-item ng-repeat="game in Games" ng-click="goToPerson(person.name, $event)" class="noright adminGameItem">
+   <div class="imgContainer">
+   <img alt="{{ game.title }}" ng-src="{{ game.coverUrl }}" class="md-user-avatar agImg" />
+ </div>
+   <p>{{ game.title }}</p>
+
+   <md-button ng-click="editGame(game)" class="md-icon-button" aria-label="Open sample menu">
+     <i class="glyphicon glyphicon-pencil"></i>
+   </md-button>
+ <md-divider class="listDevider"></md-divider>
+ </md-list-item>
+</md-list>
+</div>
+
+
+<div class="editGameContent" ng-if="editingGame">
+  <div class="headerDiv "><h1>This is the EDIT GAME view.</h1></div>
+     <div class="bgMain">
+       <form name="editGameForm">
+         <br/>
+
+         <md-input-container flex="50" class="md-block">
+         <label>Title</label>
+         <input md-maxlength="25" required ng-model="editingGame.title" name="gameTitle">
+       <div ng-messages="editGameForm.title.$error" role="alert">
+         <div ng-message="required">Game title is REQUIRED!</div>
+         <div ng-message="md-maxlength">The title has be less than 25 characters long.</div>
+       </div>
+       </md-input-container>
+
+
+       <md-input-container flex="50" class="md-block">
+       <label>Game description</label>
+       <input md-maxlength="200" required ng-model="editingGame.info" name="gameTitle">
+     <div ng-messages="editGameForm.info.$error" role="alert">
+       <div ng-message="required">Game description is REQUIRED!</div>
+       <div ng-message="md-maxlength">The description has be less than 200 characters long.</div>
+     </div>
+     </md-input-container>
+
+
+       </form>
+     </div>
+     <div layout-gt-xs="row">
+     <md-button aria-label="Undo changes" ng-click="undoEditGame()" class="md-raised md-warning">
+       <i class="glyphicon glyphicon-backward"></i>
+       Cancel
+     </md-button>
+     <p flex></p>
+     <md-button aria-label="Delete game" class="md-raised md-danger" ng-click="confirmDeleteDialog(editingGame, $event)">
+       <i class="glyphicon glyphicon-trash"></i> Delete
+     </md-button>
+
+   </div>
+ </div>
+
+
+<footer></footer>

@@ -1,0 +1,37 @@
+.adminSubhead{
+  background-color: inherit;
+  color:white;
+}
+
+.adminGameItem{
+  background-color:  rgba(50, 50, 50, 0.3);
+  color:white;
+}
+
+.listDevider{
+  background-color: black;
+  color:black;
+}
+
+.imgContainer{
+  max-height: auto;
+  max-width: 90px;
+  margin:4px;
+  padding-right: 20px;
+}
+
+.agImg{
+  max-width:100%;
+  max-height:auto;
+}
+.btnAdmin{
+  background-color: rgba(255, 71, 26, 0.5);
+}
+
+.bgInherit{
+  background-color: inherit;
+}
+
+.bgMain label{
+  color:white;
+}

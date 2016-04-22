@@ -6,7 +6,7 @@ angular.module('mvogamesJsApp')
     $scope.adminMenu = [
       {
       'title': 'Games',
-      'state': 'game'
+      'state': 'adminGame'
     },{
     'title': 'Crews',
     'state': 'admin'

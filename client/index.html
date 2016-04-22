@@ -24,9 +24,13 @@
   <link rel="stylesheet" href="app/app.css">
   <!-- injector:css -->
   <link rel="stylesheet" href="app/admin/admin.css">
+  <link rel="stylesheet" href="app/admin/adminGame/adminGame.css">
   <link rel="stylesheet" href="app/app.css">
+  <link rel="stylesheet" href="app/crew/crew.css">
+  <link rel="stylesheet" href="app/game/dialog.css">
   <link rel="stylesheet" href="app/game/game.css">
   <link rel="stylesheet" href="app/main/main.css">
+  <link rel="stylesheet" href="components/adminNavbar/adminNavbar.css">
   <link rel="stylesheet" href="components/footer/footer.css">
   <link rel="stylesheet" href="components/modal/modal.css">
   <!-- endinjector -->
@@ -40,7 +44,9 @@
     <![endif]-->
 
   <!-- Add your site or application content here -->
+
   <md-content ui-view="" class="backgroundL" ></md-content>
+
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
   <script>
@@ -86,20 +92,27 @@
   <!-- build:js(.tmp) app/app.js -->
   <script src="app/app.js"></script>
   <!-- injector:js -->
-  <script src="components/auth/auth.module.js"></script>
   <script src="app/admin/admin.module.js"></script>
+  <script src="components/auth/auth.module.js"></script>
   <script src="components/util/util.module.js"></script>
-  <script src="app/account/signup/signup.controller.js"></script>
+  <script src="app/main/main.controller.js"></script>
   <script src="app/admin/admin.controller.js"></script>
   <script src="app/account/account.js"></script>
   <script src="app/admin/admin.router.js"></script>
+  <script src="app/admin/adminGame/adminGame.controller.js"></script>
+  <script src="app/admin/adminGame/adminGame.js"></script>
   <script src="app/app.constant.js"></script>
+  <script src="app/crew/crew.controller.js"></script>
+  <script src="app/crew/crew.js"></script>
+  <script src="app/crew/crew.service.js"></script>
   <script src="app/game/game.controller.js"></script>
   <script src="app/game/game.js"></script>
   <script src="app/game/game.service.js"></script>
-  <script src="app/main/main.controller.js"></script>
-  <script src="app/main/main.js"></script>
   <script src="app/account/login/login.controller.js"></script>
+  <script src="app/main/main.js"></script>
+  <script src="components/adminNavbar/adminNavbar.controller.js"></script>
+  <script src="components/adminNavbar/adminNavbar.directive.js"></script>
+  <script src="app/account/settings/settings.controller.js"></script>
   <script src="components/auth/auth.service.js"></script>
   <script src="components/auth/interceptor.service.js"></script>
   <script src="components/auth/router.decorator.js"></script>
@@ -110,7 +123,7 @@
   <script src="components/navbar/navbar.controller.js"></script>
   <script src="components/navbar/navbar.directive.js"></script>
   <script src="components/socket/socket.service.js"></script>
-  <script src="app/account/settings/settings.controller.js"></script>
+  <script src="app/account/signup/signup.controller.js"></script>
   <script src="components/util/util.service.js"></script>
   <!-- endinjector -->
   <!-- endbuild -->

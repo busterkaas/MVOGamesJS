@@ -1,0 +1,60 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="dialog.css">
+</head>
+
+
+<md-dialog aria-label="MVO Games"  ng-cloak>
+
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{selectedGame.title}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <div layout="row" layout-xs="column">
+          <div flex>
+            <img class="dialogImg" src="{{selectedGame.coverUrl}}">
+          </div>
+          <div flex>
+            <h2>Shit</h2>
+            <p>
+            {{selectedGame.info}}
+            </p>
+          </div>
+          <div flex>
+<h3>
+Available on
+</h3>
+<h4>
+  PS4
+  XBOX
+</h4>
+          </div>
+
+
+
+
+      </div>
+    </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row" class="btnArea backgroundL">
+      <md-button class="md-warn" ng-click="cancel()">
+        Close
+      </md-button>
+      <span flex></span>
+      <md-button ng-click="answer('not useful')" class="btnDialog">
+        Buy with your crew
+      </md-button>
+      <md-button ng-click="answer('useful')" class="btnDialog">
+        Buy
+      </md-button>
+    </md-dialog-actions>
+  </form>
+
+</md-dialog>

@@ -3,15 +3,12 @@
 
 <div layout="row" layout-xs="column">
   <div flex="20">
-    MENU ITEMS
+
   </div>
   <div flex="70">
 
 
-
-
       <div class="md-padding" layout-xs="column" layout="row" layout-wrap class="gameContainer">
-
         <div flex="20" ng-repeat="game in Games">
               <md-card class="gameItem">
                 <md-card-header>
@@ -20,14 +17,14 @@
                   </md-card-header-text>
                 </md-card-header>
                  <img ng-src="{{game.coverUrl}}" class="md-card-image" alt="Washed Out">
-                <md-card-title>
+              <md-card-title>
                   <md-card-title-text>
                     <span class="md-subhead">{{game.info}}</span>
                   </md-card-title-text>
                 </md-card-title>
                 <md-card-actions layout="row" layout-align="start center">
-                  <md-button class="btnGameItem">Action 1</md-button>
-                  <md-button class="btnGameItem">Action 2</md-button>
+                  <md-button class="btnGameItem" ng-click="showAdvanced(game, $event)">Details</md-button>
+                  <md-button ng-if="isLoggedIn()" class="btnGameItem">Add to basket</md-button>
                 </md-card-actions>
               </md-card>
             </div>
@@ -37,6 +34,8 @@
         <div flex="10">
         </div>
       </div>
+
+
 
 
 <footer></footer>

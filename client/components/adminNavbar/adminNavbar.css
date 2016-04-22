@@ -1,0 +1,12 @@
+.adminNavbar{
+  background-color: rgba(255, 71, 26, 0.8);
+}
+.adminNavbar h4{
+  padding-top: 5px;
+  padding-right: 20px;
+  color:black;
+}
+
+.adminNavbar ul li a{
+  color:black;
+}

@@ -8,6 +8,9 @@ class NavbarController {
   },{
     'title': 'Games',
     'state': 'game'
+  },{
+    'title': 'Crews',
+    'state': 'crew'
   },
 ];
 

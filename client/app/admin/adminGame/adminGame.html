@@ -2,9 +2,9 @@
 <admin-navbar></admin-navbar>
 
 <div ng-if="!editingGame">
-<div class="headerDiv"><h1>This is the adminGame view.</h1></div>
+<div class="headerDiv"><h1>Manage Games</h1></div>
 <md-list>
-<md-subheader class="md-no-sticky adminSubhead">Manage games</md-subheader>
+
  <md-divider></md-divider>
  <md-list-item ng-repeat="game in Games" ng-click="goToPerson(person.name, $event)" class="noright adminGameItem">
    <div class="imgContainer">
@@ -22,7 +22,7 @@
 
 
 <div class="editGameContent" ng-if="editingGame">
-  <div class="headerDiv "><h1>This is the EDIT GAME view.</h1></div>
+  <div class="headerDiv "><h1>Edit {{editingGame.title}}</h1></div>
      <div class="bgMain">
        <form name="editGameForm">
          <br/>

@@ -4,12 +4,29 @@
 <div layout="row" layout-xs="column">
   <div flex="20">
 
+    <div class="form group">
+      <label for="searchText">Search</label>
+      <input ng-model="search" class="form-control" id="searchText" placeholder="What are you looking for?">
+    </div>
+
+    <div class="form group">
+      <md-button class="md-raised md-primary" ng-click="sort('title')">Sort on title
+        <i class="fa" ng-show="propToSortOn=='title'" ng-class="{'fa-arrow-down':reverse,'fa-arrow-up':!reverse}"></i>
+      </md-button>
+    </div>
+    <div class="form group">
+      <md-button class="md-raised md-primary" ng-click="sort('releaseDate')">Sort on date
+<i class="fa" ng-show="propToSortOn=='releaseDate'" ng-class="{'fa-arrow-down':reverse,'fa-arrow-up':!reverse}"></i>
+      </md-button>
+    </div>
+
+
   </div>
   <div flex="70">
 
 
       <div class="md-padding" layout-xs="column" layout="row" layout-wrap class="gameContainer">
-        <div flex="20" ng-repeat="game in Games">
+        <div flex="20" dir-paginate="game in Games | orderBy:propToSortOn:reverse | filter:{title:search} | itemsPerPage:20">
               <md-card class="gameItem">
                 <md-card-header>
                   <md-card-header-text>
@@ -24,10 +41,15 @@
                 </md-card-title>
                 <md-card-actions layout="row" layout-align="start center">
                   <md-button class="btnGameItem" ng-click="showAdvanced(game, $event)">Details</md-button>
-                  <md-button ng-if="isLoggedIn()" class="btnGameItem">Add to basket</md-button>
+                  <md-button ng-if="isCustomer()" class="btnGameItem">Add to basket</md-button>
                 </md-card-actions>
               </md-card>
             </div>
+            <dir-pagination-controls
+            max-size="7"
+            direction-links="true"
+            boundary-links="true">
+          </dir-pagination-controls>
           </div>
 
         </div>

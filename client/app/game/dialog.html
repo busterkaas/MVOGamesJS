@@ -48,10 +48,10 @@ Available on
         Close
       </md-button>
       <span flex></span>
-      <md-button ng-click="answer('not useful')" class="btnDialog">
+      <md-button ng-if="isCustomer()" ng-click="answer('not useful')" class="btnDialog">
         Buy with your crew
       </md-button>
-      <md-button ng-click="answer('useful')" class="btnDialog">
+      <md-button ng-if="isCustomer()" ng-click="answer('useful')" class="btnDialog">
         Buy
       </md-button>
     </md-dialog-actions>

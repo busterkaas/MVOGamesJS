@@ -1,0 +1,15 @@
+<nav class="navbar navbar-default adminNavbar">
+  <div class="container">
+
+    <div class="navbar-header ">
+        <h4>
+          <span>User menu</span>
+        </h4>
+      </div>
+        <ul class="nav navbar-nav">
+          <li ng-repeat="item in userMenu" ui-sref-active="active">
+            <a ng-click="goToState(item)">{{item.title}}</a>
+          </li>
+        </ul>
+</div>
+</nav>

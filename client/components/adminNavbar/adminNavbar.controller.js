@@ -9,7 +9,7 @@ angular.module('mvogamesJsApp')
       'state': 'adminGame'
     },{
     'title': 'Crews',
-    'state': 'admin'
+    'state': 'adminCrew'
   },{
   'title': 'Users',
   'state': 'admin'

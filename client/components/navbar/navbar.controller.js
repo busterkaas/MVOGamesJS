@@ -21,6 +21,14 @@ class NavbarController {
     this.isLoggedIn = Auth.isLoggedIn;
     this.isAdmin = Auth.isAdmin;
     this.getCurrentUser = Auth.getCurrentUser;
+
+
+          this.isCustomer = function() {
+            if(Auth.isAdmin()){
+              return false;
+            }
+            return Auth.isLoggedIn();
+          };
   }
 }
 

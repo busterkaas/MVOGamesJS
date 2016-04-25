@@ -11,9 +11,12 @@ angular.module('mvogamesJsApp')
 
 
   angular.module('mvogamesJsApp')
-    .controller('GameCtrl', function($scope, GameService, socket, $mdDialog, $mdMedia) {
+    .controller('GameCtrl', function($scope, GameService, socket, $mdDialog, $mdMedia, Auth) {
 
       $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
+      $scope.propToSortOn = 'releaseDate';
+      $scope.reverse = false;
+
 
 
       GameService.query(function(games) {
@@ -21,10 +24,31 @@ angular.module('mvogamesJsApp')
         socket.syncUpdates('game', $scope.Games);
       });
 
+      $scope.sort = function(keyname){
+        $scope.propToSortOn = keyname;
+        $scope.reverse = !$scope.reverse;
+      };
+
+
+      $scope.isCustomer = function() {
+        if(Auth.isAdmin()){
+          return false;
+        }
+        return Auth.isLoggedIn();
+      };
+
+
       function DialogController($scope, $mdDialog, game) {
       if (game != null) {
         $scope.selectedGame = game;
       }
+
+      $scope.isCustomer = function() {
+        if(Auth.isAdmin()){
+          return false;
+        }
+        return Auth.isLoggedIn();
+      };
 
       $scope.hide = function () {
         $mdDialog.hide();
@@ -63,5 +87,7 @@ angular.module('mvogamesJsApp')
       $scope.$on('$destroy', function(){
         socket.unsyncUpdates('game');
       });
+
+
 
     });

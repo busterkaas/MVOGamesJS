@@ -3,6 +3,7 @@
 
 <div ng-if="!editingGame">
 <div class="headerDiv"><h1>This is the adminGame view.</h1></div>
+
 <md-list>
 <md-subheader class="md-no-sticky adminSubhead">Manage games</md-subheader>
  <md-divider></md-divider>
@@ -10,15 +11,23 @@
    <div class="imgContainer">
    <img alt="{{ game.title }}" ng-src="{{ game.coverUrl }}" class="md-user-avatar agImg" />
  </div>
+ <div class="col-md-3">
    <p>{{ game.title }}</p>
-
+ </div>
+ <div class="col-md-8">
+   <p>{{game.info}}</p>
+ </div>
+ <div class="col-md-1">
    <md-button ng-click="editGame(game)" class="md-icon-button" aria-label="Open sample menu">
+
      <i class="glyphicon glyphicon-pencil"></i>
+        </div>
    </md-button>
  <md-divider class="listDevider"></md-divider>
  </md-list-item>
 </md-list>
 </div>
+
 
 
 <div class="editGameContent" ng-if="editingGame">

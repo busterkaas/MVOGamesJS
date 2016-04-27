@@ -58,12 +58,15 @@ Game.find({}).removeAsync()
         platforms: [{
           name: 'Playstation 4',
           price: 400,
-          stock: 3
+          stock: 3,
+          platformImgUrl:"http://oi63.tinypic.com/21e3og6.jpg"
+
         },
       {
       name: 'PC',
       price: 350,
-      stock: 160
+      stock: 160,
+      platformImgUrl: "http://i.imgur.com/7ZQgwGH.png"
       }],
         genres: [{
           name: 'FPS'
@@ -83,7 +86,8 @@ Game.find({}).removeAsync()
         platforms: [{
           name: 'Playstation 4',
           price: 400,
-          stock: 3
+          stock: 3,
+          platformImgUrl:"http://oi63.tinypic.com/21e3og6.jpg"
         }],
 
         genres: [{
@@ -104,11 +108,13 @@ Game.find({}).removeAsync()
         platforms: [{
           name: 'XBOX ONE',
           price: 450,
-          stock: 100
+          stock: 100,
+          platformImgUrl: "http://images.vectorhq.com/images/previews/a55/xbox-one-logo-psd-413264.png"
         }, {
           name: 'Playstation 4',
           price: 300,
-          stock: 3
+          stock: 3,
+          platformImgUrl:"http://oi63.tinypic.com/21e3og6.jpg"
         }],
 
         genres: [{

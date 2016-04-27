@@ -12,7 +12,8 @@ var GameSchema = new mongoose.Schema({
   platforms:[{
     name: String,
     price: Number,
-    stock: Number
+    stock: Number,
+    platformImgUrl: String
   }],
 
   genres:[{

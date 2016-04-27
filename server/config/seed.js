@@ -12,7 +12,7 @@ Crew.find({}).removeAsync()
   .then(() => {
     Crew.createAsync({
         name: 'SOB',
-        crewImgUrl: 'http://prod.cloud.rockstargames.com/crews/sc/1510/10088/publish/emblem/emblem_128.png',
+        crewImgUrl: 'http://prod.cloud.rockstargames.com/crews/sc/1510/10088/publish/emblem/emblem_128.png'
       }, {
         name: 'Esbjerg Homies',
         crewImgUrl: 'http://prod.cloud.rockstargames.com/crews/sc/1510/10088/publish/emblem/emblem_128.png',

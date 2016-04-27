@@ -31,7 +31,7 @@ angular.module('mvogamesJsApp')
 
       $scope.confirmDeleteDialog = function(game, ev){
         var confirm = $mdDialog.confirm()
-        .title('Delete Game')
+        .title('Delete Crew')
         .textContent('Are you sure you want to delete '+ game.title)
         .ariaLabel('Delete')
         .targetEvent(ev)

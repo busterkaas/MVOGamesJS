@@ -101,6 +101,46 @@
 
 
 
+<h2 class="md-title">Select genres</h2>
+   <md-chips ng-model="editingGame.genres" md-autocomplete-snap
+             md-transform-chip="transformChip($chip)"
+             md-require-match="autocompleteDemoRequireMatch">
+     <md-autocomplete
+         md-selected-item="selectedGenre"
+         md-search-text="genreSearchText"
+         md-items="item in querySearch(searchText)"
+         md-item-text="item.name"
+         placeholder="Search for a genre">
+       <span md-highlight-text="searchText">{{item.name}}</span>
+     </md-autocomplete>
+     <md-chip-template>
+       <span>
+         <strong>{{$chip.name}}</strong>
+       </span>
+     </md-chip-template>
+   </md-chips>
+   <p>
+     <md-checkbox ng-model="autocompleteDemoRequireMatch">
+       Tell the autocomplete to require a match (when enabled you cannot create new chips)
+     </md-checkbox>
+   </p>
+   <br />
+   <h2 class="md-title">Genre Options</h2>
+   <md-list>
+     <md-list-item class="md-2-line veggie-option" ng-repeat="g in genres" layout="row"
+         layout-wrap>
+       <div class="md-item-text" flex>
+         <h3>{{g.name}}</h3>
+       </div>
+     </md-list-item>
+   </md-list>
+
+
+
+
+
+
+
 
 
        </form>

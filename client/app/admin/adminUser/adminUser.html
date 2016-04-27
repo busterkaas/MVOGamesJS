@@ -1,1 +1,15 @@
-<div>This is the adminUser view.</div>
+<navbar></navbar>
+<admin-navbar></admin-navbar>
+
+<div class="headerDiv"><h1>This is the Admin User view.</h1></div>
+  <div class="headerDiv"><h1>Manage Users</h1></div>
+  <md-list>
+    <md-list-item ng-repeat="user in Users" ng-click="editCrew(crew)" class="noright adminUserItem">
+      <div class="col-md-4">
+        <p>{{ user.firstName }}</p>
+      </div>
+      <md-divider class="listDevider"></md-divider>
+    </md-list-item>
+  </md-list>
+
+<footer></footer>

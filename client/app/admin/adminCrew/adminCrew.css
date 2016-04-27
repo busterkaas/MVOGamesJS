@@ -7,6 +7,9 @@
   background-color:  rgba(50, 50, 50, 0.3);
   color:white;
 }
+.editLabelColor{
+  color:white;
+}
 
 .listDevider{
   background-color: black;

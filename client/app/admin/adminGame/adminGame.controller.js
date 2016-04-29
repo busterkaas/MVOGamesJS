@@ -11,11 +11,22 @@ angular.module('mvogamesJsApp')
     .controller('AdminGameCtrl', function($scope, GameService, socket, $mdDialog) {
 
 
-
+      //Load all games and genres (Filter genres)
       GameService.query(function(games) {
         $scope.Games = games;
-        socket.syncUpdates('game', $scope.Games);
+        var allGenres = [];
+        $scope.filterGenres = [];
+        angular.forEach(games, function(game, key){
+        angular.forEach(game.genres, function(genre, key){
+        allGenres.push(genre);
+          });
+        });
+        _(allGenres).uniq(g => g.name).forEach(g => $scope.filterGenres.push(g));
+
+        socket.syncUpdates('Game', $scope.Games);
       });
+
+
 
       $scope.editGame = function(game){
         $scope.editingGame = game;
@@ -46,10 +57,23 @@ angular.module('mvogamesJsApp')
           });
       };
 
+      //update game
+      $scope.updateGame = function () {
+      GameService.update({id: $scope.editingGame._id}, $scope.editingGame,
+        function (game) {
+          $scope.editingGame = game;
+        });
+    }
+
+
+
+
+
       //This is for genre chips
 
+
       function querySearch (query) {
-         var results = query ? self.genres.filter(createFilterFor(query)) : [];
+         var results = query ? $scope.genres.filter(createFilterFor(query)) : [];
          return results;
        };
 
@@ -62,8 +86,9 @@ angular.module('mvogamesJsApp')
       return chip;
     }
     // Otherwise, create a new one
-    return { name: chip }
+    return { name: chip };
   }
+
 
            function loadGenres() {
              var genries = [
@@ -87,6 +112,9 @@ angular.module('mvogamesJsApp')
                },
                {
                  'name': 'Racing',
+               },
+               {
+                 'name': 'Third Person',
                }
              ];
              return genries.map(function (g) {

@@ -51,7 +51,7 @@ Game.find({}).removeAsync()
         gameArray.push({
         title: 'Battlefield 4',
         info: 'Be a soldier and compete against your opponents in this realistic war game',
-        releaseDate: new Date(),
+        releaseDate: new Date(2010, 10, 10),
         coverUrl: 'http://static.europosters.cz/image/750/plakater/battlefield-4-cover-i14536.jpg',
         trailerUrl: 'https://www.youtube.com/embed/JOddp-nlNvQ',
 
@@ -79,7 +79,7 @@ Game.find({}).removeAsync()
     gameArray.push({
         title: 'GTA V',
         info: 'Go crazy ín los santos!! The city of oppotunities.',
-        releaseDate: new Date(),
+        releaseDate: new Date(2012, 11, 11),
         coverUrl: 'http://media.rockstargames.com/rockstargames/img/global/news/upload/actual_1364906194.jpg',
         trailerUrl: 'https://www.youtube.com/embed/JOddp-nlNvQ',
 
@@ -101,7 +101,7 @@ Game.find({}).removeAsync()
     gameArray.push({
         title: 'Rainbow Six - Siege',
         info: 'Become an terrorist or fight the terrorrists in this new and exiting FPS game.',
-        releaseDate: new Date(),
+        releaseDate: new Date(2016, 1, 1),
         coverUrl: 'https://upload.wikimedia.org/wikipedia/en/4/47/Tom_Clancy%27s_Rainbow_Six_Siege_cover_art.jpg',
         trailerUrl: 'https://www.youtube.com/embed/JOddp-nlNvQ',
 

@@ -11,7 +11,17 @@
 padding:60px;
 width: 100%;
   text-align: center;
+
 }
+.headerDiv h1{
+  text-shadow: 0 0 20px #ff471a, 1px 1px 20px #ff471a, 2px 2px 20px #ff471a, -1px -1px 20px orange, -2px -2px 20px #ff471a;
+}
+
+
+md-list-item:hover{
+  background-color: rgba(255, 71, 26, 0.7);
+}
+
 
 .navbar{
   margin-bottom: 0;

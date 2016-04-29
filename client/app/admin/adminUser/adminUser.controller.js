@@ -8,4 +8,17 @@ angular.module('mvogamesJsApp')
       $scope.Users = users;
       socket.syncUpdates('user', $scope.Users);
     });
+
+    $scope.editUser = function(user){
+      $scope.editingUser = user;
+    };
+
+    $scope.undoEditUser = function(){
+      $scope.editingUser = undefined;
+    };
+
+    $scope.deleteUser = function(user){
+      UserService.delete({id: user._id});
+      $scope.editingUser = undefined;
+    };
   });

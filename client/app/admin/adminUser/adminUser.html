@@ -1,24 +1,172 @@
 <navbar></navbar>
 <admin-navbar></admin-navbar>
 
+<div ng-if="!editingUser">
 <div class="headerDiv"><h1>This is the Admin User view.</h1></div>
   <div class="headerDiv"><h1>Manage Users</h1></div>
   <md-list>
-    <md-list-item ng-repeat="user in Users" class="noright adminUserItem">
-      <div class="col-md-1">
+    <div layout="row">
+    <div flex = "5"></div>
+    <div flex = "90">
+      <div class="col-md-2 bgListHeaderColor">
+        <h4 class="frontListHeaderColor">First name</h4>
+      </div>
+      <div class="col-md-2 bgListHeaderColor">
+        <h4 class="frontListHeaderColor">Last name</h4>
+      </div>
+      <div class="col-md-4 bgListHeaderColor">
+        <h4 class="frontListHeaderColor">Email</h4>
+      </div>
+      <div class="col-md-4 bgListHeaderColor">
+        <h4 class="frontListHeaderColor">User name</h4>
+    </div>
+  </div>
+      <div flex = "5"></div>
+    </div>
+
+    <div layout="row">
+    <div flex = "5"></div>
+    <div flex = "90">
+    <md-list-item ng-repeat="user in Users" ng-click="editUser(user)" class="noright adminUserItem">
+      <div class="col-md-2">
         <p>{{ user.firstName }}</p>
       </div>
       <div class="col-md-2">
         <p>{{ user.lastName }}</p>
       </div>
-      <div class="col-md-2">
-        <p>{{ user.name }}</p>
-      </div>
-      <div class="col-md-2">
+      <div class="col-md-4">
         <p>{{ user.email }}</p>
+      </div>
+      <div class="col-md-4">
+        <p>{{ user.name }}</p>
+        <p>{{ user.streetName }}</p>
       </div>
       <md-divider class="listDevider"></md-divider>
     </md-list-item>
+  </div>
+      <div flex = "5"></div>
+    </div>
   </md-list>
+    </div>
+
+    <div ng-if="editingUser">
+      <div class="headerDiv"><h1>Edit {{editingUser.email}} ( {{editingUser.name}} )</h1></div>
+      <div class="bgMain">
+        <div layout="row">
+        <div flex = "5"></div>
+        <div flex = "90">
+        <form name="editUserForm">
+        <br/>
+        <div class="col-sm-6" style="border-right: 1px solid #cdd0d4;">
+          <h2 style="border-bottom: 1px solid #cdd0d4;">Personal Information</h2>
+          <br>
+          <md-input-container flex="90" class="md-block">
+            <label>First name</label>
+            <input md-maxlength="25" required ng-model="editingUser.firstName" name="userFirstName">
+              <div ng-messages="editUserForm.firstName.$error" role="alert">
+                <div ng-message="required">First name is REQUIRED!</div>
+                <div ng-message="md-maxlength">First name has be less than 25 characters long.</div>
+              </div>
+          </md-input-container>
+
+          <md-input-container flex="90" class="md-block">
+            <label>Last name</label>
+            <input md-maxlength="25" required ng-model="editingUser.lastName" name="userLastName">
+              <div ng-messages="editUserForm.lastName.$error" role="alert">
+                <div ng-message="required">Last name is REQUIRED!</div>
+                <div ng-message="md-maxlength">Last name has be less than 25 characters long.</div>
+              </div>
+          </md-input-container>
+
+          <md-input-container flex="90" class="md-block">
+            <label>Birth year</label>
+            <input md-maxlength="25" required ng-model="editingUser.bDay" name="userbDay">
+              <div ng-messages="editUserForm.bDay.$error" role="alert">
+                <div ng-message="required">Birth year is REQUIRED!</div>
+                <div ng-message="md-maxlength">Birth Year has be less than 25 characters long.</div>
+              </div>
+          </md-input-container>
+
+          <md-input-container flex="90" class="md-block">
+            <label>Phone number</label>
+            <input md-maxlength="25" required ng-model="editingUser.phoneNumber" name="userPhoneNumber">
+              <div ng-messages="editUserForm.phoneNumber.$error" role="alert">
+                <div ng-message="required">Phone number is REQUIRED!</div>
+                <div ng-message="md-maxlength">Phone number has be less than 25 characters long.</div>
+              </div>
+          </md-input-container>
+          <br>
+          <h3>Address</h3>
+
+          <md-input-container flex="90" class="md-block">
+            <label>Street name</label>
+            <input md-maxlength="25" required ng-model="editingUser.addresses.streetName" name="userStreetName">
+              <div ng-messages="editUserForm.addresses.streetName.$error" role="alert">
+                <div ng-message="required">Street name is REQUIRED!</div>
+                <div ng-message="md-maxlength">Street name has be less than 25 characters long.</div>
+              </div>
+          </md-input-container>
+
+          <md-input-container flex="90" class="md-block">
+            <label>House nr.</label>
+            <input md-maxlength="25" required ng-model="editingUser.houseNumber" name="userHouseNumber">
+              <div ng-messages="editUserForm.houseNumber.$error" role="alert">
+                <div ng-message="required">House number is REQUIRED!</div>
+                <div ng-message="md-maxlength">House number has be less than 25 characters long.</div>
+              </div>
+          </md-input-container>
+
+          <md-input-container flex="90" class="md-block">
+            <label>City</label>
+            <input md-maxlength="25" required ng-model="editingUser.city" name="userCity">
+              <div ng-messages="editUserForm.city.$error" role="alert">
+                <div ng-message="required">city is REQUIRED!</div>
+                <div ng-message="md-maxlength">city has be less than 25 characters long.</div>
+              </div>
+          </md-input-container>
+
+          <md-input-container flex="90" class="md-block">
+            <label>Zip code</label>
+            <input md-maxlength="25" required ng-model="editingUser.zipCode" name="userZipCode">
+              <div ng-messages="editUserForm.zipCode.$error" role="alert">
+                <div ng-message="required">Zip code is REQUIRED!</div>
+                <div ng-message="md-maxlength">Zip code has be less than 25 characters long.</div>
+              </div>
+          </md-input-container>
+
+
+      </div>
+      <div class="col-sm-6">
+        <h2 style="border-bottom: 1px solid #cdd0d4;">User Information</h2>
+        <br>
+        <md-input-container flex="90" class="md-block">
+          <label>User name</label>
+          <input md-maxlength="25" required ng-model="editingUser.name" name="userName">
+            <div ng-messages="editUserForm.name.$error" role="alert">
+              <div ng-message="required">User name is REQUIRED!</div>
+              <div ng-message="md-maxlength">User name has be less than 25 characters long.</div>
+            </div>
+        </md-input-container>
+
+        <md-input-container flex="90" class="md-block">
+          <label>Email</label>
+          <input md-maxlength="25" required ng-model="editingUser.email" name="userEmail">
+            <div ng-messages="editUserForm.email.$error" role="alert">
+              <div ng-message="required">Email is REQUIRED!</div>
+              <div ng-message="md-maxlength">Email has be less than 25 characters long.</div>
+            </div>
+        </md-input-container>
+
+
+      </div>
+      </form>
+      <div align="center">
+      <button ui-sref="settings">Change Password</button>
+    </div>
+        </div>
+        <div flex = "5"></div>
+      </div>
+      </div>
+    </div>
 
 <footer></footer>

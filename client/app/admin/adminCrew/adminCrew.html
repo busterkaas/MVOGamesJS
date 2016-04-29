@@ -36,7 +36,7 @@
       <md-input-container flex="50" class="md-block">
         <label>Name</label>
         <input md-maxlength="25" required ng-model="editingCrew.name" name="crewName">
-          <div ng-messages="editGameForm.name.$error" role="alert">
+          <div ng-messages="editCrewForm.name.$error" role="alert">
             <div ng-message="required">Crew name is REQUIRED!</div>
             <div ng-message="md-maxlength">The name has be less than 25 characters long.</div>
           </div>
@@ -44,7 +44,7 @@
       <md-input-container flex="100" class="md-block">
         <label>Image</label>
         <input required ng-model="editingCrew.crewImgUrl" name="crewimg">
-          <div ng-messages="editGameForm.crewImgUrl.$error" role="alert">
+          <div ng-messages="editCrewForm.crewImgUrl.$error" role="alert">
             <div ng-message="required">Crew image is REQUIRED!</div>
           </div>
       </md-input-container>

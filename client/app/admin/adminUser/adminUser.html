@@ -4,9 +4,18 @@
 <div class="headerDiv"><h1>This is the Admin User view.</h1></div>
   <div class="headerDiv"><h1>Manage Users</h1></div>
   <md-list>
-    <md-list-item ng-repeat="user in Users" ng-click="editCrew(crew)" class="noright adminUserItem">
-      <div class="col-md-4">
+    <md-list-item ng-repeat="user in Users" class="noright adminUserItem">
+      <div class="col-md-1">
         <p>{{ user.firstName }}</p>
+      </div>
+      <div class="col-md-2">
+        <p>{{ user.lastName }}</p>
+      </div>
+      <div class="col-md-2">
+        <p>{{ user.name }}</p>
+      </div>
+      <div class="col-md-2">
+        <p>{{ user.email }}</p>
       </div>
       <md-divider class="listDevider"></md-divider>
     </md-list-item>

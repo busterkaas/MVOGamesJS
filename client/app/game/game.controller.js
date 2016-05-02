@@ -37,7 +37,7 @@ angular.module('mvogamesJsApp')
 
 
       function DialogController($scope, $mdDialog, game) {
-      if (game != null) {
+      if (game !== null) {
         $scope.selectedGame = game;
       }
 
@@ -79,12 +79,14 @@ angular.module('mvogamesJsApp')
       };
 
 
-
-
-
       $scope.$on('$destroy', function(){
         socket.unsyncUpdates('game');
       });
+
+
+      $scope.AddtoCart = function(){
+
+      };
 
 
 

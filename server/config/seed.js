@@ -28,17 +28,66 @@ Crew.find({}).removeAsync()
 User.find({}).removeAsync()
   .then(() => {
     User.createAsync({
+        _id:'5726edd9ea894ae41c83091e',
         provider: 'local',
         name: 'Test User',
         email: 'test@example.com',
         password: 'test'
-
-      }, {
+      },{
+        _id:'5726f33e735f71fc0ab92ca3',
         provider: 'local',
         role: 'admin',
         name: 'Admin',
         email: 'admin@example.com',
         password: 'admin'
+      },{
+        _id:'5726edd9ea894ae41c83091a',
+        firstName: 'Kennie',
+        lastName: 'Anker',
+        bDay: 1992,
+        addresses: [{
+        city: 'Esbjerg',
+        zipCode: 6700,
+        streetName: 'ST136',
+        houseNumber: '136'
+      }],
+        phoneNumber: 20361212,
+        provider: 'local',
+        name: 'Kennie',
+        email: 'kennie@mvo.com',
+        password: 'kennie'
+      },{
+        _id:'5726edd9ea894ae41c83091d',
+        firstName: 'Dennis',
+        lastName: 'PP',
+        bDay: 1991,
+        addresses: [{
+        city: 'Esbjerg',
+        zipCode: 6700,
+        streetName: 'ST108',
+        houseNumber: '108'
+        }],
+        phoneNumber: 10101010,
+        provider: 'local',
+        name: 'Dennis',
+        email: 'dennis@mvo.com',
+        password: 'dennis'
+      },{
+        _id:'5726edd9ea894ae41c83091f',
+        firstName: 'Hardy',
+        lastName: 'Dragemand',
+        bDay: 0,
+        addresses: [{
+        city: 'DeDust2',
+        zipCode: 9999,
+        streetName: 'A Long',
+        houseNumber: '1'
+      }],
+        phoneNumber: 99999999,
+        provider: 'local',
+        name: 'Hardy',
+        email: 'hardy@mvo.com',
+        password: 'hardy'
       })
       .then(() => {
         console.log('finished populating users');

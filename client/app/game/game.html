@@ -41,7 +41,7 @@
                 </md-card-title>
                 <md-card-actions layout="row" layout-align="start center">
                   <md-button class="btnGameItem" ng-click="showAdvanced(game, $event)">Details</md-button>
-                  <md-button ng-if="isCustomer()" class="btnGameItem">Add to basket</md-button>
+                  <md-button ng-if="isCustomer()" class="btnGameItem" ng-click="AddToCart()">Add to basket</md-button>
                 </md-card-actions>
               </md-card>
             </div>

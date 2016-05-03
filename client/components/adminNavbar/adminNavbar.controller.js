@@ -13,6 +13,9 @@ angular.module('mvogamesJsApp')
   },{
   'title': 'Users',
   'state': 'adminUser'
+},{
+'title': 'Orders',
+'state': 'adminOrder'
 }
     ];
 

@@ -12,13 +12,91 @@ Crew.find({}).removeAsync()
   .then(() => {
     Crew.createAsync({
         name: 'SOB',
-        crewImgUrl: 'http://prod.cloud.rockstargames.com/crews/sc/1510/10088/publish/emblem/emblem_128.png'
+        crewImgUrl: 'http://prod.cloud.rockstargames.com/crews/sc/1510/10088/publish/emblem/emblem_128.png',
+        leader:{
+          _id: '5726edd9ea894ae41c83091a'
+        },
+        users:[{
+          _id:'5726edd9ea894ae41c83091f'
+        },{
+          _id: '5726edd9ea894ae41c83091d'
+        },{
+          _id:'5726edd9ea894ae41c83091a'
+        }],
+        applicants:[{
+          _id:'5726edd9ea894ae41c83091j'
+        }],
+        gameSuggestions:[{
+          _id:'5726edd9eah7kj341c83091e',
+          discount: 0,
+          expiration: new Date(2017, 10, 10),
+          users:[{
+            _id:'5726edd9ea894ae41c83091f',
+            confirmed: 'false'
+          },
+          {
+            _id:'5726edd9ea894ae41c83091j',
+            confirmed: 'true'
+          }]
+        }]
       }, {
         name: 'Esbjerg Homies',
         crewImgUrl: 'http://prod.cloud.rockstargames.com/crews/sc/1510/10088/publish/emblem/emblem_128.png',
+        leader:{
+          _id: '5726edd9ea894ae41c83091a'
+        },
+        users:[{
+          _id:'5726edd9ea894ae41c83091f'
+        },{
+          _id: '5726edd9ea894ae41c83091d'
+        },{
+          _id:'5726edd9ea894ae41c83091a'
+        }],
+        applicants:[{
+          _id:'5726edd9ea894ae41c83091j'
+        }],
+        gameSuggestions:[{
+          _id:'5726edd9eah7kj341c83091e',
+          discount: 0,
+          expiration: new Date(2017, 10, 10),
+          users:[{
+            _id:'5726edd9ea894ae41c83091f',
+            confirmed: 'false'
+          },
+          {
+            _id:'5726edd9ea894ae41c83091j',
+            confirmed: 'true'
+          }]
+        }]
       }, {
         name: 'MVO Crew',
         crewImgUrl: 'http://prod.cloud.rockstargames.com/crews/sc/1510/10088/publish/emblem/emblem_128.png',
+        leader:{
+          _id: '5726edd9ea894ae41c83091a'
+        },
+        users:[{
+          _id:'5726edd9ea894ae41c83091f'
+        },{
+          _id: '5726edd9ea894ae41c83091d'
+        },{
+          _id:'5726edd9ea894ae41c83091a'
+        }],
+        applicants:[{
+          _id:'5726edd9ea894ae41c83091j'
+        }],
+        gameSuggestions:[{
+          _id:'5726edd9eah7kj341c83091e',
+          discount: 0,
+          expiration: new Date(2017, 10, 10),
+          users:[{
+            _id:'5726edd9ea894ae41c83091f',
+            confirmed: 'false'
+          },
+          {
+            _id:'5726edd9ea894ae41c83091j',
+            confirmed: 'true'
+          }]
+        }]
       })
       .then(() => {
         console.log('finished populating crews');
@@ -88,6 +166,22 @@ User.find({}).removeAsync()
         name: 'Hardy',
         email: 'hardy@mvo.com',
         password: 'hardy'
+      },{
+        _id:'5726edd9ea894ae41c83091j',
+        firstName: 'Buster',
+        lastName: 'Kaas',
+        bDay: 1980,
+        addresses: [{
+        city: 'KBH',
+        zipCode: 3000,
+        streetName: 'KillerG',
+        houseNumber: '5'
+      }],
+        phoneNumber: 25236584,
+        provider: 'local',
+        name: 'Buster',
+        email: 'buster@mvo.com',
+        password: 'buster'
       })
       .then(() => {
         console.log('finished populating users');
@@ -180,4 +274,37 @@ Game.find({}).removeAsync()
       .then(() => {
         console.log('finished populating games');
       });
+
+//This is one game for test order and crews.
+Game.createAsync({
+  _id: '5726edd9eah7kj341c83091e',
+  title: 'Rocket league',
+  info: 'Very very nice game',
+  releaseDate: new Date(2000, 1, 1),
+  coverUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Rocket_League_coverart.jpg',
+  trailerUrl: 'https://youtu.be/hT21dzS-IQ4',
+
+  platforms: [{
+    name: 'PC',
+    price: 450,
+    stock: 10,
+    platformImgUrl: "http://images.vectorhq.com/images/previews/a55/xbox-one-logo-psd-413264.png"
+  }, {
+    name: 'Playstation 4',
+    price: 300,
+    stock: 3,
+    platformImgUrl:"http://oi63.tinypic.com/21e3og6.jpg"
+  }],
+
+  genres: [{
+    name: 'Racing'
+  },
+  {
+    name:'Action'
+  }]
+})
+.then(() => {
+  console.log('finished populating one game for testing with specific _id');
+});
+
   });

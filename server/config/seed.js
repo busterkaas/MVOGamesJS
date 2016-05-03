@@ -28,9 +28,11 @@ Crew.find({}).removeAsync()
           _id:'5726edd9ea894ae41c83091j'
         }],
         gameSuggestions:[{
-          _id:'5726edd9eah7kj341c83091e',
           discount: 0,
           expiration: new Date(2017, 10, 10),
+          game:{
+          _id:'5726edd9eah7kj341c83091e'
+          },
           users:[{
             _id:'5726edd9ea894ae41c83091f',
             confirmed: 'false'
@@ -57,9 +59,11 @@ Crew.find({}).removeAsync()
           _id:'5726edd9ea894ae41c83091j'
         }],
         gameSuggestions:[{
-          _id:'5726edd9eah7kj341c83091e',
           discount: 0,
           expiration: new Date(2017, 10, 10),
+          game:{
+            _id:'5726edd9eah7kj341c83091e'
+          },
           users:[{
             _id:'5726edd9ea894ae41c83091f',
             confirmed: 'false'
@@ -317,13 +321,30 @@ Order.find({}).removeAsync()
       comment: 'This is a test order',
 
       orderlines: [{
-        _id: '5726edd9eah7kj341c83091e',
-        amount: 3,
+        amount: 5,
+        game: {
+          _id: '5726edd9eah7kj341c83091e'
+        },
+
         platform: {
           _id: '57286c95135cdd18167957fb'
           }
       }]
 
+  }, {
+    date: new Date(2009, 3, 6),
+    comment: 'this is a comment.. blaah',
+
+    orderlines: [{
+      amount: 3,
+      game: {
+        _id: '5726edd9eah7kj341c83091e'
+      },
+
+      platform: {
+        _id: '57286c95135cdd18167957fa'
+        }
+    }]
   })
 })
 .then(() => {

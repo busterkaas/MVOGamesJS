@@ -18,7 +18,11 @@ phoneNumber: Number,
 
 shoppingCart: [{
   type: mongoose.Schema.ObjectId,
-  ref: 'Game'
+  ref: 'Game',
+  platform: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'Game.Platform'
+  }
 }],
 
 //Name is equal to "username"

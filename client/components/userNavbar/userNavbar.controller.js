@@ -17,4 +17,5 @@ angular.module('mvogamesJsApp')
       $state.go(item.state,{id:null});
     };
 
+
   });

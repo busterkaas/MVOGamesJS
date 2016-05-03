@@ -1,5 +1,19 @@
 <navbar></navbar>
 <admin-navbar></admin-navbar>
-
+<div class="headerDiv"><h1>Manage Orders</h1></div>
+<md-list>
+  <md-list-item ng-repeat="order in Orders">
+    <div class="col-md-3">
+      <p>
+        {{order.date}}
+      </p>
+    </div>
+    <div class="col-md-6">
+      <p>
+        {{order.comment}}
+      </p>
+    </div>
+  </md-list-item>
+</md-list>
 
 <footer></footer>

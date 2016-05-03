@@ -6,9 +6,11 @@ var OrderSchema = new mongoose.Schema({
   date: Date,
   comment: String,
   orderlines:[{
-    type: mongoose.Schema.ObjectId,
-    ref: 'Game',
     amount: Number,
+    game:{
+      type: mongoose.Schema.ObjectId,
+      ref: 'Game',
+    },
     platform: {
       type: mongoose.Schema.ObjectId,
       ref: 'Game.Platform'

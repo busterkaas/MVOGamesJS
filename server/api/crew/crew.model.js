@@ -18,10 +18,12 @@ var CrewSchema = new mongoose.Schema({
     ref: 'User'
   }],
   gameSuggestions:[{
-    type: mongoose.Schema.ObjectId,
-    ref: 'Game',
     discount: Number,
     expiration: Date,
+    game:{
+      type: mongoose.Schema.ObjectId,
+      ref: 'Game'
+    },
     users:[{
       type: mongoose.Schema.ObjectId,
       ref: 'User',

@@ -1,5 +1,33 @@
 <navbar></navbar>
 <admin-navbar></admin-navbar>
+<div class="headerDiv"><h1>Manage Orders</h1></div>
+<md-list>
+  <div layout="row">
+  <div flex=10></div>
+  <div flex=80>
+  <md-list-item ng-repeat="order in Orders" class="adminGameItem">
+    <div flex=20>
+      <p>
+        {{order.date}}
+      </p>
+    </div>
+    <div flex=20>
+      <p>
+        {{order.comment}}
+      </p>
+    </div>
+    <div flex ng-repeat="orderline in order.orderlines">
+      <p>
+      
+      </p>
+    </div>
+  </md-list-item>
+  </div>
+  <div flex></div>
+  </div>
+</md-list>
+
+
 
 
 <footer></footer>

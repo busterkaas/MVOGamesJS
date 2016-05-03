@@ -19,7 +19,7 @@ phoneNumber: Number,
 shoppingCart: [{
   type: mongoose.Schema.ObjectId,
   ref: 'Game',
-  Platform: {
+  platform: {
     type: mongoose.Schema.ObjectId,
     ref: 'Game.Platform'
   }
@@ -50,8 +50,7 @@ UserSchema
   .get(function() {
     return {
       'name': this.name,
-      'role': this.role,
-      'cart': this.shoppingCart
+      'role': this.role
     };
   });
 

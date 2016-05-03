@@ -7,6 +7,7 @@
 import User from '../api/user/user.model';
 import Game from '../api/game/game.model';
 import Crew from '../api/crew/crew.model';
+import Order from '../api/order/order.model';
 
 Crew.find({}).removeAsync()
   .then(() => {
@@ -285,11 +286,13 @@ Game.createAsync({
   trailerUrl: 'https://youtu.be/hT21dzS-IQ4',
 
   platforms: [{
+    _id: '57286c95135cdd18167957fb',
     name: 'PC',
     price: 450,
     stock: 10,
     platformImgUrl: "http://images.vectorhq.com/images/previews/a55/xbox-one-logo-psd-413264.png"
   }, {
+    _id: '57286c95135cdd18167957fa',
     name: 'Playstation 4',
     price: 300,
     stock: 3,
@@ -306,5 +309,43 @@ Game.createAsync({
 .then(() => {
   console.log('finished populating one game for testing with specific _id');
 });
+
+Order.find({}).removeAsync()
+  .then(() => {
+    Order.createAsync({
+      date: new Date(2016, 1, 1),
+      comment: 'This is a test order',
+
+      orderlines: [{
+        amount: 5,
+        game: {
+          _id: '5726edd9eah7kj341c83091e'
+        },
+
+        platform: {
+          _id: '57286c95135cdd18167957fb'
+          }
+      }]
+
+  }, {
+    date: new Date(2009, 3, 6),
+    comment: 'this is a comment.. blaah',
+
+    orderlines: [{
+      amount: 3,
+      game: {
+        _id: '5726edd9eah7kj341c83091e'
+      },
+
+      platform: {
+        _id: '57286c95135cdd18167957fa'
+        }
+    }]
+  })
+})
+.then(() => {
+  console.log('finished populating orders');
+});
+
 
   });

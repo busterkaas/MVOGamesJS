@@ -18,7 +18,11 @@ phoneNumber: Number,
 
 shoppingCart: [{
   type: mongoose.Schema.ObjectId,
-  ref: 'Game'
+  ref: 'Game',
+  Platform: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'Game.Platform'
+  }
 }],
 
 //Name is equal to "username"
@@ -46,7 +50,8 @@ UserSchema
   .get(function() {
     return {
       'name': this.name,
-      'role': this.role
+      'role': this.role,
+      'cart': this.shoppingCart
     };
   });
 

@@ -23,6 +23,7 @@ class NavbarController {
     this.getCurrentUser = Auth.getCurrentUser;
 
 
+
           this.isCustomer = function() {
             if(Auth.isAdmin()){
               return false;

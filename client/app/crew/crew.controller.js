@@ -1,20 +1,7 @@
-/*'use strict';
-
-angular.module('mvogamesJsApp')
-  .controller('CrewCtrl', function ($scope) {
-    $scope.message = 'Hello';
-  });
-  */
-  'use strict';
-
-
-
+'use strict';
 
     angular.module('mvogamesJsApp')
-      .controller('CrewCtrl', function($scope, CrewService, socket, $mdDialog, $mdMedia) {
-
-        $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
-
+      .controller('CrewCtrl', function($scope, CrewService, socket) {
 
         CrewService.query(function(crews) {
           $scope.Crews = crews;

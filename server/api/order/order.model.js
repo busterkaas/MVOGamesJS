@@ -9,7 +9,7 @@ var OrderSchema = new mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: 'Game',
     amount: Number,
-    Platform: {
+    platform: {
       type: mongoose.Schema.ObjectId,
       ref: 'Game.Platform'
     }

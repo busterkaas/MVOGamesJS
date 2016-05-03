@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('mvogamesJsApp')
-  .controller('AdminNavbarController', function ($scope,$state, Auth) {
+  .controller('AdminNavbarController', function ($scope,$state) {
 
     $scope.adminMenu = [
       {
@@ -12,12 +12,12 @@ angular.module('mvogamesJsApp')
     'state': 'adminCrew'
   },{
   'title': 'Users',
-  'state': 'admin'
+  'state': 'adminUser'
 }
     ];
 
     $scope.goToState = function(item){
       $state.go(item.state,{id:null});
-    }
+    };
 
   });

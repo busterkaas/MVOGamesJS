@@ -27,7 +27,7 @@
 
       <div class="md-padding" layout-xs="column" layout="row" layout-wrap class="gameContainer">
         <div flex="20" dir-paginate="game in Games | orderBy:propToSortOn:reverse | filter:{title:search} | itemsPerPage:20">
-              <md-card class="gameItem">
+              <md-card class="gameItem  md-whiteframe-13dp">
                 <md-card-header>
                   <md-card-header-text>
                     <span class="md-title">{{game.title}}</span>
@@ -41,7 +41,7 @@
                 </md-card-title>
                 <md-card-actions layout="row" layout-align="start center">
                   <md-button class="btnGameItem" ng-click="showAdvanced(game, $event)">Details</md-button>
-                  <md-button ng-if="isCustomer()" class="btnGameItem">Add to basket</md-button>
+                  <md-button ng-if="isCustomer()" class="btnGameItem" ng-click="AddToCart()">Add to basket</md-button>
                 </md-card-actions>
               </md-card>
             </div>

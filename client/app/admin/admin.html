@@ -1,15 +1,28 @@
 <navbar></navbar>
 <admin-navbar></admin-navbar>
 
-<div class="container">
-  <p>The delete user and user index api routes are restricted to users with the 'admin' role.</p>
-  <ul class="list-group user-list">
-    <li class="list-group-item" ng-repeat="user in admin.users">
-	    <div class="user-info">
-	        <strong>{{user.name}}</strong><br>
-	        <span class="text-muted">{{user.email}}</span>
-	    </div>
-        <a ng-click="admin.delete(user)" class="trash"><span class="fa fa-trash fa-2x"></span></a>
-    </li>
-  </ul>
+<img src="assets/images/MainMenuBG.jpg" class="adminMenuBg">
+
+<div layout="row">
+<div flex="20"></div>
+<div flex="60" class="">
+<div class="col-md-8">
+  <br><br><br><br>
+  <button class="adminMenuButton"><h2>Manage Games</h2></button>
+  <br><br><br>
+  <button class="adminMenuButton"><h2>Manage Crews</h2></button>
+  <br><br><br>
+  <button class="adminMenuButton"><h2>Manage Users</h2></button>
+  <br><br><br>
+  <button class="adminMenuButton"><h2>Dont Know yet</h2></button>
+  <br>
+  <br>
+  <br>
 </div>
+
+</div>
+<div flex="20"></div>
+</div>
+
+
+<footer></footer>

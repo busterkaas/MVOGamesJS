@@ -11,10 +11,22 @@ angular.module('mvogamesJsApp')
     .controller('AdminGameCtrl', function($scope, GameService, socket, $mdDialog) {
 
 
+      //Load all games and genres (Filter genres)
       GameService.query(function(games) {
         $scope.Games = games;
-        socket.syncUpdates('game', $scope.Games);
+        var allGenres = [];
+        $scope.filterGenres = [];
+        angular.forEach(games, function(game, key){
+        angular.forEach(game.genres, function(genre, key){
+        allGenres.push(genre);
+          });
+        });
+        _(allGenres).uniq(g => g.name).forEach(g => $scope.filterGenres.push(g));
+
+        socket.syncUpdates('Game', $scope.Games);
       });
+
+
 
       $scope.editGame = function(game){
         $scope.editingGame = game;
@@ -31,7 +43,7 @@ angular.module('mvogamesJsApp')
 
       $scope.confirmDeleteDialog = function(game, ev){
         var confirm = $mdDialog.confirm()
-        .title('Delete Game')
+        .title('Delete Crew')
         .textContent('Are you sure you want to delete '+ game.title)
         .ariaLabel('Delete')
         .targetEvent(ev)
@@ -45,4 +57,94 @@ angular.module('mvogamesJsApp')
           });
       };
 
-    });
+      //update game
+      $scope.updateGame = function () {
+      GameService.update({id: $scope.editingGame._id}, $scope.editingGame,
+        function (game) {
+          $scope.editingGame = game;
+        });
+    }
+
+
+
+
+
+      //This is for genre chips
+
+
+      function querySearch (query) {
+         var results = query ? $scope.genres.filter(createFilterFor(query)) : [];
+         return results;
+       };
+
+         /**
+          * Return the proper object when the append is called.
+          */
+          function transformChip(chip) {
+    // If it is an object, it's already a known chip
+    if (angular.isObject(chip)) {
+      return chip;
+    }
+    // Otherwise, create a new one
+    return { name: chip };
+  }
+
+
+           function loadGenres() {
+             var genries = [
+               {
+                 'name': 'Action',
+               },
+               {
+                 'name': 'FPS',
+               },
+               {
+                 'name': 'Shooter',
+               },
+               {
+                 'name': 'RPG',
+               },
+               {
+                 'name': 'RTS',
+               },
+               {
+                 'name': 'Sport',
+               },
+               {
+                 'name': 'Racing',
+               },
+               {
+                 'name': 'Third Person',
+               }
+             ];
+             return genries.map(function (g) {
+               g._lowername = g.name.toLowerCase();
+               return genries;
+             });
+         }
+
+
+   $scope.readonly = false;
+   $scope.selectedGenre = null;
+   $scope.genreSearchText = null;
+   $scope.querySearch = querySearch;
+   $scope.genres = loadGenres();
+   $scope.selectedGenres = [];
+   $scope.numberChips = [];
+   $scope.numberChips2 = [];
+   $scope.numberBuffer = '';
+   $scope.autocompleteDemoRequireMatch = true;
+   $scope.transformChip = transformChip;
+
+
+   /**
+      * Create filter function for a query string
+      */
+     function createFilterFor(query) {
+       var lowercaseQuery = angular.lowercase(query);
+       return function filterFn(genre) {
+         return (genre._lowername.indexOf(lowercaseQuery) === 0);
+       };
+     }
+
+   });

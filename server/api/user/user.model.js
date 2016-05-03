@@ -16,6 +16,11 @@ var UserSchema = new Schema({
 }],
 phoneNumber: Number,
 
+shoppingCart: [{
+  type: mongoose.Schema.ObjectId,
+  ref: 'Game'
+}],
+
 //Name is equal to "username"
   name: String,
   email: {

@@ -35,3 +35,12 @@
 .bgMain label{
   color:white;
 }
+
+
+div.bgMain * {
+  color:white;
+}
+
+div.bgMain {
+  color:white;
+}

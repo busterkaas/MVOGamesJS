@@ -17,3 +17,17 @@
 	align-items: center;
 	text-decoration: none;
 }
+
+.adminMenuBg{
+	position: absolute;
+	width: 1920px;
+	height: 700px;
+	opacity: 0.1;
+}
+
+.adminMenuButton{
+	width: 700px;
+	height: 100px;
+ 	background-color: #00131a;
+ 	border: 3pt ridge OrangeRed;
+}

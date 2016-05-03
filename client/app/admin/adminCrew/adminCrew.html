@@ -41,13 +41,23 @@
             <div ng-message="md-maxlength">The name has be less than 25 characters long.</div>
           </div>
       </md-input-container>
+      <md-input-container flex="50" class="md-block">
+        <label>Crew Leader</label>
+        <input required ng-model="editingCrew.leader" name="crewLeader">
+          <div ng-messages="editCrewForm.leader.$error" role="alert">
+            <div ng-message="required">Crew Leader is REQUIRED!</div>
+          </div>
+      </md-input-container>
       <md-input-container flex="100" class="md-block">
         <label>Image</label>
-        <input required ng-model="editingCrew.crewImgUrl" name="crewimg">
+        <input required ng-model="editingCrew.crewImgUrl" name="crewImg">
           <div ng-messages="editCrewForm.crewImgUrl.$error" role="alert">
             <div ng-message="required">Crew image is REQUIRED!</div>
           </div>
       </md-input-container>
+
+
+
     </form>
     </div>
     <div flex = "20"></div>

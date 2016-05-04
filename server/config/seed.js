@@ -326,9 +326,13 @@ Order.find({}).removeAsync()
           _id: '5726edd9eah7kj341c83091e'
         },
 
-        platform: {
-          _id: '57286c95135cdd18167957fb'
-          }
+        platform:{
+          name: 'Playstation 4',
+          price: 400,
+          stock: 3,
+          platformImgUrl:"http://oi63.tinypic.com/21e3og6.jpg"
+
+        }
       }]
 
   }, {
@@ -341,9 +345,13 @@ Order.find({}).removeAsync()
         _id: '5726edd9eah7kj341c83091e'
       },
 
-      platform: {
-        _id: '57286c95135cdd18167957fa'
-        }
+      platform:{
+        name: 'Playstation 4',
+        price: 400,
+        stock: 3,
+        platformImgUrl:"http://oi63.tinypic.com/21e3og6.jpg"
+
+      }
     }]
   })
 })

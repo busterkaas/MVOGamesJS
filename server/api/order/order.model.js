@@ -10,10 +10,12 @@ var OrderSchema = new mongoose.Schema({
     game:{
       type: mongoose.Schema.ObjectId,
       ref: 'Game',
-    },
-    platform: {
-      type: mongoose.Schema.ObjectId,
-      ref: 'Game.Platform'
+    }, 
+    platform:{
+      name: String,
+      price: Number,
+      stock: Number,
+      platformImgUrl: String
     }
   }]
 });

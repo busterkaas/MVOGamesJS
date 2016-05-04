@@ -11,7 +11,7 @@ angular.module('mvogamesJsApp')
 
 
   angular.module('mvogamesJsApp')
-    .controller('GameCtrl', function($scope, GameService, socket, $mdDialog, $mdMedia, Auth) {
+    .controller('GameCtrl', function($scope, GameService, socket, $mdDialog, $mdMedia, Auth, $stateParams, UserService) {
 
       $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
       $scope.propToSortOn = 'releaseDate';
@@ -85,7 +85,7 @@ angular.module('mvogamesJsApp')
 
 
       $scope.AddtoCart = function(){
-
+      
       };
 
 

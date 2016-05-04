@@ -15,34 +15,28 @@
         </md-button>
       </div>
     </md-toolbar>
+
     <md-dialog-content>
       <div class="md-dialog-content">
         <div layout="row" layout-xs="column">
-          <div flex>
+          <div flex="40">
             <img class="dialogImg" src="{{selectedGame.coverUrl}}">
           </div>
-          <div flex>
+          <div flex="50">
             <h2>Shit</h2>
             <p>
             {{selectedGame.info}}
             </p>
           </div>
-          <div flex>
-<h3>
-Available on
-</h3>
-<h4>
-  PS4
-  XBOX
-</h4>
+
+          <div flex="10" ng-repeat="platform in selectedGame.platforms">
+            <h4>{{platform.name}}</h4>
           </div>
-
-
-
-
       </div>
     </div>
     </md-dialog-content>
+
+
     <md-dialog-actions layout="row" class="btnArea backgroundL">
       <md-button class="md-warn" ng-click="cancel()">
         Close

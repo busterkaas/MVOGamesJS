@@ -5,9 +5,9 @@ angular.module('mvogamesJsApp')
 
     User.get({name: $stateParams.name}, function(user){
       $scope.me = user;
-    })
+    });
 
-
+    
 
 
   });

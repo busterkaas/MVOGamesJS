@@ -40,7 +40,7 @@ angular.module('mvogamesJsApp')
 
     $scope.editGameSuggestion = function(gameSuggestions) {
       $scope.editingCrewGameSuggestion = gameSuggestions;
-    }
+    };
 
     $scope.undoEditGameSuggestion = function(){
       $scope.editingCrewGameSuggestion = undefined;

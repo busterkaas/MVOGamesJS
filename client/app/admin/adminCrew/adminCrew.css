@@ -43,3 +43,14 @@
   width: 200px;
   color: red;
 }
+
+.gamesuggBG{
+  background-color: rgba(255, 71, 26, 0.7);
+  opacity: 0.9;
+
+}
+
+
+.mousePointer{
+  style="cursor:pointer;
+}

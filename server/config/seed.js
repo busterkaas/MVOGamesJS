@@ -28,7 +28,7 @@ Crew.find({}).removeAsync()
           _id:'5726edd9ea894ae41c83091j'
         }],
         gameSuggestions:[{
-          discount: 0,
+          discount: 5,
           expiration: new Date(2017, 10, 10),
           game:{
           _id:'5726edd9eah7kj341c83091e'
@@ -72,6 +72,20 @@ Crew.find({}).removeAsync()
             _id:'5726edd9ea894ae41c83091j',
             confirmed: 'true'
           }]
+        },{
+          discount: 0,
+          expiration: new Date(2017, 10, 10),
+          game:{
+            _id:'5726edd9eah7kj341c83091e'
+          },
+          users:[{
+            _id:'5726edd9ea894ae41c83091a',
+            confirmed: 'false'
+          },
+          {
+            _id:'5726edd9ea894ae41c83091j',
+            confirmed: 'true'
+          }]
         }]
       }, {
         name: 'MVO Crew',
@@ -90,9 +104,11 @@ Crew.find({}).removeAsync()
           _id:'5726edd9ea894ae41c83091j'
         }],
         gameSuggestions:[{
-          _id:'5726edd9eah7kj341c83091e',
           discount: 0,
           expiration: new Date(2017, 10, 10),
+          game:{
+            _id:'5726edd9eah7kj341c83091e'
+          },
           users:[{
             _id:'5726edd9ea894ae41c83091f',
             confirmed: 'false'

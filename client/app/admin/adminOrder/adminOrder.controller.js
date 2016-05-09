@@ -8,9 +8,7 @@ angular.module('mvogamesJsApp')
       socket.syncUpdates('order', $scope.Orders);
     });
 
-    $scope.getGame = function(gameid){
-      GameService.get({id:gameid},function(game){
-        return game;
-      });
-    };
+
+
+
   });

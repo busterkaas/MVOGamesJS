@@ -61,7 +61,7 @@ function removeEntity(res) {
 
 // Gets a list of Crews
 export function index(req, res) {
-  Crew.findAsync()
+  Crew.find().populate('leader users applicants gameSuggestions.game gameSuggestions.users').execAsync()
     .then(responseWithResult(res))
     .catch(handleError(res));
 }

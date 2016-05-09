@@ -11,17 +11,17 @@ var OrderSchema = new mongoose.Schema({
       type: mongoose.Schema.ObjectId,
       ref: 'Game'
     },
-    user:{
-      type: mongoose.Schema.ObjectId,
-      ref: 'User'
-    },
     platform:{
       name: String,
       price: Number,
       stock: Number,
       platformImgUrl: String
     }
-  }]
+  }],
+  user:{
+    type: mongoose.Schema.ObjectId,
+    ref: 'User'
+  }
 });
 
 export default mongoose.model('Order', OrderSchema);

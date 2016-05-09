@@ -341,9 +341,7 @@ Order.find({}).removeAsync()
         game: {
           _id: '5726edd9eah7kj341c83091e'
         },
-        user: {
-          _id:'5726edd9ea894ae41c83091d'
-        },
+
         platform:{
           name: 'Playstation 4',
           price: 400,
@@ -351,7 +349,10 @@ Order.find({}).removeAsync()
           platformImgUrl:"http://oi63.tinypic.com/21e3og6.jpg"
 
         }
-      }]
+      }],
+      user: {
+        _id:'5726edd9ea894ae41c83091d'
+      }
 
   }, {
     date: new Date(2009, 3, 6),
@@ -362,9 +363,6 @@ Order.find({}).removeAsync()
       game: {
         _id: '5726edd9eah7kj341c83091e'
       },
-      user: {
-        _id:'5726edd9ea894ae41c83091d'
-      },
       platform:{
         name: 'Playstation 4',
         price: 400,
@@ -372,7 +370,10 @@ Order.find({}).removeAsync()
         platformImgUrl:"http://oi63.tinypic.com/21e3og6.jpg"
 
       }
-    }]
+    }],
+    user: {
+      _id:'5726edd9ea894ae41c83091d'
+    }
   })
 })
 .then(() => {

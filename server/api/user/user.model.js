@@ -17,8 +17,10 @@ var UserSchema = new Schema({
 phoneNumber: Number,
 
 shoppingCart: [{
-  type: mongoose.Schema.ObjectId,
-  ref: 'Game',
+  game:{
+    type: mongoose.Schema.ObjectId,
+    ref: 'Game'
+},
   platform: {
     type: mongoose.Schema.ObjectId,
     ref: 'Game.Platform'

@@ -85,7 +85,7 @@ angular.module('mvogamesJsApp')
 
 
       $scope.AddtoCart = function(){
-      
+
       };
 
 

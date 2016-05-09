@@ -17,6 +17,7 @@ angular.module('mvogamesJsApp')
         var allGenres = [];
         $scope.filterGenres = [];
         angular.forEach(games, function(game, key){
+        game.releaseDate = new Date(game.releaseDate);
         angular.forEach(game.genres, function(genre, key){
         allGenres.push(genre);
           });
@@ -119,7 +120,7 @@ angular.module('mvogamesJsApp')
              ];
              return genries.map(function (g) {
                g._lowername = g.name.toLowerCase();
-               return genries;
+               return g;
              });
          }
 

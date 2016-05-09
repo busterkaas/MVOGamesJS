@@ -9,104 +9,7 @@ import Game from '../api/game/game.model';
 import Crew from '../api/crew/crew.model';
 import Order from '../api/order/order.model';
 
-Crew.find({}).removeAsync()
-  .then(() => {
-    Crew.createAsync({
-        name: 'SOB',
-        crewImgUrl: 'http://prod.cloud.rockstargames.com/crews/sc/1510/10088/publish/emblem/emblem_128.png',
-        leader:{
-          _id: '5726edd9ea894ae41c83091a'
-        },
-        users:[{
-          _id:'5726edd9ea894ae41c83091f'
-        },{
-          _id: '5726edd9ea894ae41c83091d'
-        },{
-          _id:'5726edd9ea894ae41c83091a'
-        }],
-        applicants:[{
-          _id:'5726edd9ea894ae41c83091j'
-        }],
-        gameSuggestions:[{
-          discount: 0,
-          expiration: new Date(2017, 10, 10),
-          game:{
-          _id:'5726edd9eah7kj341c83091e'
-          },
-          users:[{
-            _id:'5726edd9ea894ae41c83091f',
-            confirmed: 'false'
-          },
-          {
-            _id:'5726edd9ea894ae41c83091j',
-            confirmed: 'true'
-          }]
-        }]
-      }, {
-        name: 'Esbjerg Homies',
-        crewImgUrl: 'http://prod.cloud.rockstargames.com/crews/sc/1510/10088/publish/emblem/emblem_128.png',
-        leader:{
-          _id: '5726edd9ea894ae41c83091a'
-        },
-        users:[{
-          _id:'5726edd9ea894ae41c83091f'
-        },{
-          _id: '5726edd9ea894ae41c83091d'
-        },{
-          _id:'5726edd9ea894ae41c83091a'
-        }],
-        applicants:[{
-          _id:'5726edd9ea894ae41c83091j'
-        }],
-        gameSuggestions:[{
-          discount: 0,
-          expiration: new Date(2017, 10, 10),
-          game:{
-            _id:'5726edd9eah7kj341c83091e'
-          },
-          users:[{
-            _id:'5726edd9ea894ae41c83091f',
-            confirmed: 'false'
-          },
-          {
-            _id:'5726edd9ea894ae41c83091j',
-            confirmed: 'true'
-          }]
-        }]
-      }, {
-        name: 'MVO Crew',
-        crewImgUrl: 'http://prod.cloud.rockstargames.com/crews/sc/1510/10088/publish/emblem/emblem_128.png',
-        leader:{
-          _id: '5726edd9ea894ae41c83091a'
-        },
-        users:[{
-          _id:'5726edd9ea894ae41c83091f'
-        },{
-          _id: '5726edd9ea894ae41c83091d'
-        },{
-          _id:'5726edd9ea894ae41c83091a'
-        }],
-        applicants:[{
-          _id:'5726edd9ea894ae41c83091j'
-        }],
-        gameSuggestions:[{
-          _id:'5726edd9eah7kj341c83091e',
-          discount: 0,
-          expiration: new Date(2017, 10, 10),
-          users:[{
-            _id:'5726edd9ea894ae41c83091f',
-            confirmed: 'false'
-          },
-          {
-            _id:'5726edd9ea894ae41c83091j',
-            confirmed: 'true'
-          }]
-        }]
-      })
-      .then(() => {
-        console.log('finished populating crews');
-      });
-  });
+
 
 User.find({}).removeAsync()
   .then(() => {
@@ -326,9 +229,13 @@ Order.find({}).removeAsync()
           _id: '5726edd9eah7kj341c83091e'
         },
 
-        platform: {
-          _id: '57286c95135cdd18167957fb'
-          }
+        platform:{
+          name: 'Playstation 4',
+          price: 400,
+          stock: 3,
+          platformImgUrl:"http://oi63.tinypic.com/21e3og6.jpg"
+
+        }
       }]
 
   }, {
@@ -341,15 +248,117 @@ Order.find({}).removeAsync()
         _id: '5726edd9eah7kj341c83091e'
       },
 
-      platform: {
-        _id: '57286c95135cdd18167957fa'
-        }
+      platform:{
+        name: 'Playstation 4',
+        price: 400,
+        stock: 3,
+        platformImgUrl:"http://oi63.tinypic.com/21e3og6.jpg"
+
+      }
     }]
   })
 })
 .then(() => {
   console.log('finished populating orders');
 });
+
+Crew.find({}).removeAsync()
+  .then(() => {
+    Crew.createAsync({
+        name: 'SOB',
+        crewImgUrl: 'http://prod.cloud.rockstargames.com/crews/sc/1510/10088/publish/emblem/emblem_128.png',
+        leader: '5726edd9ea894ae41c83091a'
+        ,
+        users:[{
+          _id:'5726edd9ea894ae41c83091f'
+        },{
+          _id: '5726edd9ea894ae41c83091d'
+        },{
+          _id:'5726edd9ea894ae41c83091a'
+        }],
+        applicants:[{
+          _id:'5726edd9ea894ae41c83091j'
+        }],
+        gameSuggestions:[{
+          discount: 0,
+          expiration: new Date(2017, 10, 10),
+          game:{
+          _id:'5726edd9eah7kj341c83091e'
+          },
+          users:[{
+            _id:'5726edd9ea894ae41c83091f',
+            confirmed: 'false'
+          },
+          {
+            _id:'5726edd9ea894ae41c83091j',
+            confirmed: 'true'
+          }]
+        }]
+      }, {
+        name: 'Esbjerg Homies',
+        crewImgUrl: 'http://prod.cloud.rockstargames.com/crews/sc/1510/10088/publish/emblem/emblem_128.png',
+        leader:
+         '5726edd9ea894ae41c83091a'
+        ,
+        users:[{
+          _id:'5726edd9ea894ae41c83091f'
+        },{
+          _id: '5726edd9ea894ae41c83091d'
+        },{
+          _id:'5726edd9ea894ae41c83091a'
+        }],
+        applicants:[{
+          _id:'5726edd9ea894ae41c83091j'
+        }],
+        gameSuggestions:[{
+          discount: 0,
+          expiration: new Date(2017, 10, 10),
+          game:{
+            _id:'5726edd9eah7kj341c83091e'
+          },
+          users:[{
+            _id:'5726edd9ea894ae41c83091f',
+            confirmed: 'false'
+          },
+          {
+            _id:'5726edd9ea894ae41c83091j',
+            confirmed: 'true'
+          }]
+        }]
+      }, {
+        name: 'MVO Crew',
+        crewImgUrl: 'http://prod.cloud.rockstargames.com/crews/sc/1510/10088/publish/emblem/emblem_128.png',
+        leader:
+           '5726edd9ea894ae41c83091a'
+        ,
+        users:[{
+          _id:'5726edd9ea894ae41c83091f'
+        },{
+          _id: '5726edd9ea894ae41c83091d'
+        },{
+          _id:'5726edd9ea894ae41c83091a'
+        }],
+        applicants:[{
+          _id:'5726edd9ea894ae41c83091j'
+        }],
+        gameSuggestions:[{
+          _id:'5726edd9eah7kj341c83091e',
+          discount: 0,
+          expiration: new Date(2017, 10, 10),
+          users:[{
+            _id:'5726edd9ea894ae41c83091f',
+            confirmed: 'false'
+          },
+          {
+            _id:'5726edd9ea894ae41c83091j',
+            confirmed: 'true'
+          }]
+        }]
+      })
+      .then(() => {
+        console.log('finished populating crews');
+      });
+  });
 
 
   });

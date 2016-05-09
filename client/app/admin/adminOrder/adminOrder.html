@@ -16,11 +16,18 @@
         {{order.comment}}
       </p>
     </div>
-    <div flex ng-repeat="orderline in order.orderlines">
-      <p>
-        {{orderline.game.title}}
-      </p> 
+    <div flex=20>
+        {{order.user.name}}
     </div>
+    <div flex=20 ng-repeat="orderline in order.orderlines">
+      <p>
+        {{orderline.game.title}} - {{orderline.platform.name}}
+      </p>
+    </div>
+
+    </div>
+
+
   </md-list-item>
   </div>
   <div flex></div>

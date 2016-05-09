@@ -228,7 +228,9 @@ Order.find({}).removeAsync()
         game: {
           _id: '5726edd9eah7kj341c83091e'
         },
-
+        user: {
+          _id:'5726edd9ea894ae41c83091d'
+        },
         platform:{
           name: 'Playstation 4',
           price: 400,
@@ -247,7 +249,9 @@ Order.find({}).removeAsync()
       game: {
         _id: '5726edd9eah7kj341c83091e'
       },
-
+      user: {
+        _id:'5726edd9ea894ae41c83091d'
+      },
       platform:{
         name: 'Playstation 4',
         price: 400,

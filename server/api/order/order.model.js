@@ -9,8 +9,12 @@ var OrderSchema = new mongoose.Schema({
     amount: Number,
     game:{
       type: mongoose.Schema.ObjectId,
-      ref: 'Game',
-    }, 
+      ref: 'Game'
+    },
+    user:{
+      type: mongoose.Schema.ObjectId,
+      ref: 'User'
+    },
     platform:{
       name: String,
       price: Number,

@@ -5,7 +5,7 @@
   <div layout="row">
   <div flex=10></div>
   <div flex=80>
-  <md-list-item ng-repeat="order in Orders" class="adminGameItem">
+  <md-list-item ng-repeat="order in Orders" ng-repeat="orderline in order.orderlines" class="adminGameItem">
     <div flex=20>
       <p>
         {{order.date}}
@@ -16,12 +16,18 @@
         {{order.comment}}
       </p>
     </div>
-    <div flex ng-repeat="orderline in order.orderlines">
+    <div flex=20>
+        {{order.user.name}}
+    </div>
+    <div flex=20 ng-repeat="orderline in order.orderlines">
       <p>
-        {{orderline.game.title}}
+        {{orderline.game.title}} - {{orderline.platform.name}}
       </p>
+    </div>
 
     </div>
+
+
   </md-list-item>
   </div>
   <div flex></div>

@@ -61,7 +61,7 @@ function removeEntity(res) {
 
 // Gets a list of Orders
 export function index(req, res) {
-  Order.find().populate('orderlines.game').execAsync()
+  Order.find().populate('orderlines.game user').execAsync()
     .then(responseWithResult(res))
     .catch(handleError(res));
 }

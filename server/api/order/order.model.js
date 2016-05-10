@@ -9,15 +9,19 @@ var OrderSchema = new mongoose.Schema({
     amount: Number,
     game:{
       type: mongoose.Schema.ObjectId,
-      ref: 'Game',
-    }, 
+      ref: 'Game'
+    },
     platform:{
       name: String,
       price: Number,
       stock: Number,
       platformImgUrl: String
     }
-  }]
+  }],
+  user:{
+    type: mongoose.Schema.ObjectId,
+    ref: 'User'
+  }
 });
 
 export default mongoose.model('Order', OrderSchema);

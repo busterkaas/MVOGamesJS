@@ -1,9 +1,24 @@
 <navbar></navbar>
 
-<div>This is the crew view.</div>
-
-
-<div flex="20" ng-repeat="crew in Crews">
-  <h1>{{crew.name}}</h1>
+<div class="headerDiv"><h1>There are currently {{Crews.length}} crews on MVO Games</h1></div>
+    <md-list>
+      <md-list-item class="md-3-line" ng-repeat="crew in Crews" ng-click="showCrewMemberNamesDialog($event)">
+        <div class="md-list-item-text">
+        <div layout="row">
+<div flex="10" class="container">
+<img  class="iconify" src="{{crew.crewImgUrl}}"></img>
 </div>
+<div flex>
+        <h3 id="crewNames">crew tag: {{crew.name}}</h3>
+<p id="crewInfo">
+  <span>leader name: {{getLeaderName(crew)}}</span>
+  <span>members count: {{getMembersCount(crew)}}</span>
+  <span>applicants count: {{getApplicantsCount(crew)}}</span>
+  </p>
+</div>
+    </div>
+        </div>
+      </md-list-item>
+    </md-list>
+
   <footer></footer>

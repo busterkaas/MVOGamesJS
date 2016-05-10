@@ -22,6 +22,7 @@ angular.module('mvogamesJsApp')
 
     $scope.showCrewMemberNamesDialog = function(event) {
       $mdDialog.show({
+        controller: 'CrewCtrl',
         templateUrl: '/app/crew/crewMemberNamesDialog.html',
         parent: angular.element(document.body),
         targetEvent: event,
@@ -32,5 +33,27 @@ angular.module('mvogamesJsApp')
     $scope.getCrewMemberName = function(user) {
       return user.firstName;
     };
+
+
+
+
+    $scope.showAlert = function(event) {
+      $mdDialog.show(
+        $mdDialog.alert()
+        .title('Members...')
+        .content('list all members here')
+        .ariaLabel('Password notification')
+        .ok('OK')
+        .targetEvent(event)
+      );
+    };
+
+
+
+
+
+
+
+
 
   });

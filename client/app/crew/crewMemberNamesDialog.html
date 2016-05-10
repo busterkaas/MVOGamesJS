@@ -1,1 +1,17 @@
-<div>TEST</div>
+<div ng-repeat="crew in Crews"></div>
+<div>crew repeat</div>
+<span>{{getLeaderName(crew)}}</span>
+
+<div ng-repeat="user in crew.users"></div>
+<div>user repeat</div>
+<span>{{getApplicantsCount(crew)}}</span>
+
+<div>user repeat 2</div>
+<div>user repeat 3</div>
+<div>user repeat 4</div>
+<div>user repeat 5</div>
+<div>user repeat 6</div>
+<span>{{getCrewMemberName(user)}}</span>
+
+
+<md-button class="md-raised md-warn">OK</md-button>

@@ -252,7 +252,6 @@ Game.find({}).removeAsync()
         }, {
           date: new Date(2009, 3, 6),
           comment: 'this is a comment.. blaah',
-
           orderlines: [{
             amount: 3,
             game: {

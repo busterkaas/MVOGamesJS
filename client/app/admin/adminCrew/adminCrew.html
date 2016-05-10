@@ -57,24 +57,33 @@
 
       <md-list>
         <label>Users</label>
-
         <md-list-item ng-repeat="user in editingCrew.users" class="gamesuggBG">
+          <div flex="5"></div>
+          <div flex="75">
             <p>{{ user.name }}</p>
+          </div>
           <md-divider class="listDevider"></md-divider>
-          <md-button  ng-click="">
+          <div flex="10">
+          <md-button ng-click="deleteUserFromCrew(editingCrew, $event)">
             <i class="glyphicon glyphicon-trash"></i>
           </md-button>
+          </div>
         </md-list-item>
       </md-list>
 
       <md-list>
         <label>Applicants</label>
-        <md-list-item ng-repeat="crew in editingCrew.applicants" class="gamesuggBG">
+        <md-list-item ng-repeat="crew in editingCrew.applicants" class="gamesuggBG" >
+        <div flex="5"></div>
+        <div flex="75">
           <p>{{crew.name}}</p>
+        </div>
           <md-divider class="listDevider"></md-divider>
+        <div flex="10">
           <md-button  ng-click="">
             <i class="glyphicon glyphicon-trash"></i>
           </md-button>
+        </div>
         </md-list-item>
       </md-list>
 
@@ -86,7 +95,6 @@
       <md-list>
       <label>Games suggestion: </label>
       <md-list-item ng-repeat="gamesugg in editingCrew.gameSuggestions" ng-click="editGameSuggestion(gamesugg)"  name="CrewGameSuggestion" class="mousePointer">
-
           <p>{{gamesugg.game.title}}</p>
       </md-list-item>
       </md-list>
@@ -140,18 +148,20 @@
     <div flex = "10"></div>
   </div>
   </form>
+<br>
+  <div layout-gt-xs="row">
+    <div flex="15"></div>
+    <div flex="75">
+      <md-button aria-label="Undo changes" ng-click="undoEditCrew()" class="btnGameItem">Cancel</md-button>
+      <md-button aria-label="Save changes" ng-click="editCrew()" class="btnGameItem">Save</md-button>
+      <md-button aria-label="Delete game"  ng-click="confirmDeleteDialog(editingCrew, $event)" class="btnGameItem"> Delete</md-button>
+    </div>
+    <div flex="10"></div>
+  </div>
+
   </div>
 </div>
 
 
-  <div layout-gt-xs="row">
-  <md-button aria-label="Undo changes" ng-click="undoEditCrew()" class="md-raised md-warning">
-    <i class="glyphicon glyphicon-backward"></i>
-    Cancel
-  </md-button>
-  <p flex></p>
-  <md-button aria-label="Delete game" class="md-raised md-danger" ng-click="confirmDeleteDialog(editingCrew, $event)">
-    <i class="glyphicon glyphicon-trash"></i> Delete
-  </md-button>
-</div>
+
 <footer></footer>

@@ -42,9 +42,9 @@
         Close
       </md-button>
       <span flex></span>
-      <md-button ng-if="isCustomer()" ng-click="answer('not useful')" class="btnDialog">
-        Buy with your crew
-      </md-button>
+      <md-select placeholder="Buy with your crew" ng-model="crew" md-on-open="loadCrews()" style="min-width: 200px;">
+      <md-option ng-value="crew" ng-repeat="crew in crews">{{crew.name}}</md-option>
+    </md-select>
       <md-button ng-if="isCustomer()" ng-click="answer('useful')" class="btnDialog">
         Buy
       </md-button>

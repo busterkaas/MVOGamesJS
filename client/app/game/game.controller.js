@@ -57,6 +57,16 @@ angular.module('mvogamesJsApp')
       $scope.answer = function (result) {
         $mdDialog.hide(result);
       };
+
+      $scope.loadCrews = function(){
+        return $setTimeout(function () {
+          $scope.crews = { id: 1, name: 'Scooby Doo' },
+        { id: 2, name: 'Shaggy Rodgers' },
+        { id: 3, name: 'Fred Jones' },
+        { id: 4, name: 'Daphne Blake' },
+        { id: 5, name: 'Velma Dinkley' }
+        }, 500);
+      }
     }
 
 

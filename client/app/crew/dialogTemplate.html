@@ -1,0 +1,7 @@
+<h4 id="dialogCrewNames">Registered users</h4>
+<span id="dialogCrewInfo" ng-repeat="crewUser in crewMembers">{{crewUser.firstName}} {{crewUser.lastName}}</span>
+
+<h4 id="dialogCrewNames">Applicant users</h4>
+<span id="dialogCrewInfo" ng-repeat="applicantUser in crewApplicants">{{applicantUser.firstName}} {{applicantUser.lastName}}</span>
+</br>
+<md-button class="md-raised md-warn" ng-click="cancel()">OK</md-button>

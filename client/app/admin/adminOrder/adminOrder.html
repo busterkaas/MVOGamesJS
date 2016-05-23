@@ -35,14 +35,16 @@
 
 <div ng-if="orderDetails">
 <div class="headerDiv"><h1>Order Details</h1></div>
+<div class="headerDiv"><h2>{{orderDetails.user.name}} - {{orderDetails.date}}</h2></div>
 
   <md-list>
     <div layout="row">
     <div flex=20></div>
     <div flex=60>
+    <h4 class="specialh4">Comment</h4>
   <md-list-item class="adminGameItem">
   <div>
-      {{orderDetails.comment}}
+    {{orderDetails.comment}}
   </div>
   </md-list-item>
   </div>
@@ -54,18 +56,20 @@
     <div layout="row">
     <div flex=20></div>
     <div flex=60>
-      <div class="col-mid-3 bgListHeaderColor">
+      <div layout="row">
+      <div flex=25 class="bgListHeaderColor">
         <h4 class="frontListHeaderColor">Game</h4>
       </div>
-      <div class="col-md-3 bgListHeaderColor">
+      <div flex=25 class="bgListHeaderColor">
         <h4 class="frontListHeaderColor">Platform</h4>
       </div>
-      <div  class="col-md-3 bgListHeaderColor">
+      <div flex=25 class="bgListHeaderColor">
         <h4 class="frontListHeaderColor">Amount</h4>
       </div>
-      <div  class="col-md-3 bgListHeaderColor">
+      <div flex=25 class="bgListHeaderColor">
         <h4 class="frontListHeaderColor">Price</h4>
     </div>
+  </div>
   </div>
   <div flex = "5"></div>
 </div>
@@ -74,16 +78,16 @@
 <div flex=20></div>
 <div flex=60>
   <md-list-item ng-repeat="orderline in orderDetails.orderlines" class="adminGameItem">
-  <div class="col-md-3" >
+  <div flex=25 >
       {{orderline.game.title}}
   </div>
-  <div class="col-md-3" >
+  <div flex=25 >
       {{orderline.platform.name}}
   </div>
-  <div class="col-md-3">
+  <div flex=25 >
       {{orderline.amount}}
   </div>
-  <div class="col-md-3">
+  <div flex=25 >
       {{orderline.platform.price}} kr
   </div>
 </md-list-item>

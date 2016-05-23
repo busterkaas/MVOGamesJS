@@ -8,5 +8,11 @@
         update: {
           method: 'PUT'
         }
+      })
+    })
+      .factory('SpecialCrewService', function($resource){
+        return $resource('/api/crews/user/:id',
+        {'query': { method: 'GET' }},{
+          id: '@id'
+        })
       });
-    });

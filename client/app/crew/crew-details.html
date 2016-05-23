@@ -1,0 +1,36 @@
+<navbar></navbar>
+<user-navbar></user-navbar>
+
+
+<div class="headerDiv largeHeader">
+<h1>{{crew.name}} CREW</h1>
+</div>
+<div layout="row" class="crewDetailContent">
+
+  <div class="contentLeft" flex="20">
+    <h2 class="specialh4">Crewmembers   ({{crew.users.length}}/10)</h2>
+    <md-list-item ng-repeat="user in crew.users">
+      <div flex="5"></div>
+      <div flex="75">
+        <p>{{ user.name }}</p>
+      </div>
+      <md-divider class="listDevider"></md-divider>
+      <div flex="10">
+      <md-button ng-click="deleteUserFromCrew(editingCrew, $event)">
+        <i class="glyphicon glyphicon-trash"></i>
+      </md-button>
+      </div>
+    </md-list-item>
+  </div>
+
+  <div class="contentMid" flex="60">
+
+  </div>
+
+  <div class="contentRight" flex="20">
+
+  </div>
+</div>
+
+
+<footer></footer>

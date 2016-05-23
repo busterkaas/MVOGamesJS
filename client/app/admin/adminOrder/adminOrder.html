@@ -1,39 +1,117 @@
 <navbar></navbar>
 <admin-navbar></admin-navbar>
+<div ng-if="!orderDetails">
+
+
 <div class="headerDiv"><h1>Manage Orders</h1></div>
 <md-list>
   <div layout="row">
-  <div flex=10></div>
-  <div flex=80>
+  <div flex=20></div>
+  <div flex=60>
   <md-list-item ng-repeat="order in Orders" class="adminGameItem">
     <div flex=20>
       <p>
         {{order.date}}
       </p>
     </div>
-    <div flex=20>
-      <p>
-        {{order.comment}}
-      </p>
-    </div>
+
     <div flex=20>
         {{order.user.name}}
     </div>
-    <div flex=20 ng-repeat="orderline in order.orderlines">
-      <p>
-        {{orderline.game.title}} - {{orderline.platform.name}}
-      </p>
-    </div>
 
+    <div flex>
+    <md-button ng-click="editDetails(order)" class="md-icon-button" aria-label="Open sample menu">
+      <i class="glyphicon glyphicon-pencil"></i>
+    </md-button>
     </div>
-
 
   </md-list-item>
   </div>
-  <div flex></div>
   </div>
-</md-list>
+  </md-list>
+  </div>
 
+
+
+<div ng-if="orderDetails">
+<div class="headerDiv"><h1>Order Details</h1></div>
+
+  <md-list>
+    <div layout="row">
+    <div flex=20></div>
+    <div flex=60>
+  <md-list-item class="adminGameItem">
+  <div>
+      {{orderDetails.comment}}
+  </div>
+  </md-list-item>
+  </div>
+  </div>
+  </md-list>
+
+
+  <md-list>
+    <div layout="row">
+    <div flex=20></div>
+    <div flex=60>
+      <div class="col-mid-3 bgListHeaderColor">
+        <h4 class="frontListHeaderColor">Game</h4>
+      </div>
+      <div class="col-md-3 bgListHeaderColor">
+        <h4 class="frontListHeaderColor">Platform</h4>
+      </div>
+      <div  class="col-md-3 bgListHeaderColor">
+        <h4 class="frontListHeaderColor">Amount</h4>
+      </div>
+      <div  class="col-md-3 bgListHeaderColor">
+        <h4 class="frontListHeaderColor">Price</h4>
+    </div>
+  </div>
+  <div flex = "5"></div>
+</div>
+
+<div layout="row">
+<div flex=20></div>
+<div flex=60>
+  <md-list-item ng-repeat="orderline in orderDetails.orderlines" class="adminGameItem">
+  <div class="col-md-3" >
+      {{orderline.game.title}}
+  </div>
+  <div class="col-md-3" >
+      {{orderline.platform.name}}
+  </div>
+  <div class="col-md-3">
+      {{orderline.amount}}
+  </div>
+  <div class="col-md-3">
+      {{orderline.platform.price}} kr
+  </div>
+</md-list-item>
+<md-list-item class="adminGameItem">
+  <div flex=80></div>
+  <div flex=20>
+    Total Price {{calculateTotalPrice(orderDetails)}} kr
+  </div>
+</md-list-item>
+</div>
+</div>
+</md-list>
+<div layout="row">
+  <div flex=70></div>
+  <md-button aria-label="Undo changes" ng-click="undoOrderDetails()" class="md-raised md-warning">
+    <i class="glyphicon glyphicon-backward"></i>
+    Back
+  </md-button>
+
+  <md-button aria-label="Delete game" class="md-raised md-danger" ng-click="confirmDeleteDialog(orderDetails, $event)">
+    <i class="glyphicon glyphicon-trash"></i> Delete
+  </md-button>
+</div>
+
+
+
+
+</div>
 
 
 

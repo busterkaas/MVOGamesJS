@@ -30,28 +30,28 @@ User.find({}).removeAsync()
         firstName: 'Tasin',
         lastName: 'Akdeniz',
         bDay: 2016,
-        addresses: [{
+        addresses: {
           city: 'Varde',
           zipCode: 1234,
           streetName: 'Vardevej',
           houseNumber: '123'
-        }],
+        },
         phoneNumber: 99887766,
         provider: 'local',
         name: 'Tasin',
         email: 'tasin@mvo.com',
         password: 'tasin'
       }, {
-        _id: '5726edd9ea894ae41c83091a',
+        _id: '5726edd9ea333ae55c83091a',
         firstName: 'Kennie',
         lastName: 'Anker',
         bDay: 1992,
-        addresses: [{
+        addresses: {
           city: 'Esbjerg',
           zipCode: 6700,
           streetName: 'ST136',
           houseNumber: '136'
-        }],
+        },
         phoneNumber: 20361212,
         provider: 'local',
         name: 'Kennie',
@@ -62,12 +62,12 @@ User.find({}).removeAsync()
         firstName: 'Dennis',
         lastName: 'PP',
         bDay: 1991,
-        addresses: [{
+        addresses: {
           city: 'Esbjerg',
           zipCode: 6700,
           streetName: 'ST108',
           houseNumber: '108'
-        }],
+        },
         phoneNumber: 10101010,
         provider: 'local',
         name: 'Dennis',
@@ -78,12 +78,12 @@ User.find({}).removeAsync()
         firstName: 'Hardy',
         lastName: 'Drachmann',
         bDay: 1981,
-        addresses: [{
+        addresses: {
           city: 'Esbjerg',
           zipCode: 6700,
           streetName: 'Stormgade',
           houseNumber: '18, 3.th'
-        }],
+        },
         phoneNumber: 123456789,
         provider: 'local',
         name: 'Hardy',
@@ -94,12 +94,13 @@ User.find({}).removeAsync()
         firstName: 'Buster',
         lastName: 'Kaas',
         bDay: 1980,
-        addresses: [{
+        addresses: {
           city: 'KBH',
           zipCode: 3000,
           streetName: 'KillerG',
           houseNumber: '5'
-        }],
+        },
+        shoppingCartItems:[{game:'5726edd9eah7kj341c83091e', platform: {name: 'Playstation 4', price: 300}, amount:5 },{game:'5726edd9eah7kj341c83091e', platform:{name: 'PC', price: 450}, amount:1}],
         phoneNumber: 25236584,
         provider: 'local',
         name: 'Buster',
@@ -280,14 +281,14 @@ Game.find({}).removeAsync()
         Crew.createAsync({
             name: 'SOB',
             crewImgUrl: 'http://prod.cloud.rockstargames.com/crews/sc/1510/10088/publish/emblem/emblem_128.png',
-            leader: '5726edd9ea894ae41c83091f',
+            leader: '5726edd9ea894ae41c83091j',
             users: [{
-              _id: '5726edd9ea894ae41c83091f'
+              _id: '5726edd9ea894ae41c83091j'
             }, {
               _id: '5726edd9ea894ae41c83091a'
             }],
             applicants: [{
-              _id: '5726edd9ea894ae41c83091j'
+              _id: '5726edd9ea894ae41c83091f'
             }, {
               _id: '5726edd9ea894ae41c83091d'
             }, {

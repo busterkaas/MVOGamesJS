@@ -2,42 +2,46 @@
 
 
 <div layout="row" layout-xs="column">
-  <div flex="20">
+  <div class="gameLeftDiv" flex="20">
 
     <div class="form group">
-      <label for="searchText">Search</label>
+
+      <h1 class="specialh4" for="searchText">Search</h1>
       <input ng-model="search" class="form-control" id="searchText" placeholder="What are you looking for?">
     </div>
+  </br>
+  </br>
 
     <div class="form group">
-      <md-button class="md-raised md-primary" ng-click="sort('title')">Sort on title
+      <md-button class="md-raised" ng-click="sort('title')">Sort on title
         <i class="fa" ng-show="propToSortOn=='title'" ng-class="{'fa-arrow-down':reverse,'fa-arrow-up':!reverse}"></i>
       </md-button>
     </div>
+    </br>
     <div class="form group">
-      <md-button class="md-raised md-primary" ng-click="sort('releaseDate')">Sort on date
+      <md-button class="md-raised" ng-click="sort('releaseDate')">Sort on date
 <i class="fa" ng-show="propToSortOn=='releaseDate'" ng-class="{'fa-arrow-down':reverse,'fa-arrow-up':!reverse}"></i>
       </md-button>
     </div>
-
-
   </div>
-  <div flex="70">
-      <div class="md-padding" layout-xs="column" layout="row" layout-wrap class="gameContainer">
-        <div flex="20" dir-paginate="game in Games | orderBy:propToSortOn:reverse | filter:{title:search} | itemsPerPage:20">
-              <md-card class="gameItem  md-whiteframe-13dp">
+  <div flex>
+  </div>
+  <div flex="80" class="gameContainer">
+      <div class="md-padding" layout-xs="column" layout="row" layout-wrap >
+        <div dir-paginate="game in Games | orderBy:propToSortOn:reverse | filter:{title:search} | itemsPerPage:20">
+              <md-card class="gameItem md-whiteframe-13dp">
                 <md-card-header>
                   <md-card-header-text>
                     <span class="md-title">{{game.title}}</span>
                   </md-card-header-text>
                 </md-card-header>
-                 <img ng-src="{{game.coverUrl}}" class="md-card-image" alt="Washed Out">
-              <md-card-title>
-                  <md-card-title-text>
+                 <img ng-click="showAdvanced(game, $event)" ng-src="{{game.coverUrl}}" class="md-card-image" alt="Washed Out">
+              <md-card-header>
+                  <md-card-header-text>
                     <span class="md-subhead">{{game.info}}</span>
-                  </md-card-title-text>
-                </md-card-title>
-                <md-card-actions layout="row" layout-align="start center">
+                  </md-card-header-text>
+                </md-card-header>
+                <md-card-actions layout="row" layout-align="center">
                   <md-button class="btnGameItem" ng-click="showAdvanced(game, $event)">Details</md-button>
                   <md-button ng-if="isCustomer()" class="btnGameItem" ng-click="AddToCart()">Add to basket</md-button>
                 </md-card-actions>
@@ -51,7 +55,7 @@
           </div>
 
         </div>
-        <div flex="10">
+        <div flex>
         </div>
       </div>
 

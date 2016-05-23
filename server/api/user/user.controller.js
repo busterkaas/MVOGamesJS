@@ -1,5 +1,6 @@
 'use strict';
 
+import _ from 'lodash';
 import User from './user.model';
 import passport from 'passport';
 import config from '../../config/environment';
@@ -15,7 +16,18 @@ function validationError(res, statusCode) {
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
   return function(err) {
+    console.log(err);
     res.status(statusCode).send(err);
+  };
+}
+
+function handleEntityNotFound(res) {
+  return function(entity) {
+    if (!entity) {
+      res.status(404).end();
+      return null;
+    }
+    return entity;
   };
 }
 
@@ -26,12 +38,20 @@ function respondWith(res, statusCode) {
   };
 }
 
+function responseWithResult(res, statusCode) {
+  statusCode = statusCode || 200;
+  return function(entity) {
+    if (entity) {
+      res.status(statusCode).json(entity);
+    }
+  };
+}
 /**
  * Get list of users
  * restriction: 'admin'
  */
 export function index(req, res) {
-  User.find({}, '-salt -password').populate('addresses').execAsync()
+  User.find({}, '-salt -password')
     .then(users => {
       res.status(200).json(users);
     })
@@ -106,13 +126,35 @@ export function changePassword(req, res, next) {
     });
 }
 
+// Updates an existing User in the DB
+export function update(req, res) {
+  if (req.body._id) {
+    delete req.body._id;
+  }
+  User.findByIdAsync(req.params.id)
+    .then(handleEntityNotFound(res))
+    .then(saveUpdates(req.body))
+    .then(responseWithResult(res))
+    .catch(handleError(res));
+}
+
+function saveUpdates(updates) {
+  return function(entity) {
+    var updated = _.merge(entity, updates);
+    return updated.saveAsync()
+      .spread(updated => {
+        return updated;
+      });
+  };
+}
+
 /**
  * Get my info
  */
 export function me(req, res, next) {
   var userId = req.user._id;
 
-  User.findOneAsync({ _id: userId }, '-salt -password')
+  User.findOne({ _id: userId }, '-salt -password').populate('shoppingCartItem.game').execAsync()
     .then(user => { // don't ever give out the password or salt
       if (!user) {
         return res.status(401).end();

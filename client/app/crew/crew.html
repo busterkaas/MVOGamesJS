@@ -2,19 +2,21 @@
 
 <div class="headerDiv"><h1>There are currently {{Crews.length}} crews on MVO Games</h1></div>
     <md-list>
-      <md-list-item class="md-3-line" ng-repeat="crew in Crews" ng-click="showCrewMemberNamesDialog($event)">
+      <md-list-item class="md-3-line" ng-repeat="crew in Crews" ng-click="showMembersDialog(crew, $event)">
         <div class="md-list-item-text">
         <div layout="row">
 <div flex="10" class="container">
 <img  class="iconify" src="{{crew.crewImgUrl}}"></img>
 </div>
 <div flex>
-        <h3 id="crewNames">crew tag: {{crew.name}}</h3>
-<p id="crewInfo">
-  <span>leader name: {{getLeaderName(crew)}}</span>
-  <span>members count: {{getMembersCount(crew)}}</span>
-  <span>applicants count: {{getApplicantsCount(crew)}}</span>
-  </p>
+        <h3 id="crewNames">crew tag : {{crew.name}}</h3>
+
+  <ul id="crewInfo">
+   <li>leader name : <font color="orange">{{getLeaderName(crew)}}</font></li>
+   <li>members count : <font color="orange">{{getMembersCount(crew)}}</font></li>
+   <li>applicants count : <font color="orange">{{getApplicantsCount(crew)}}</font></li>
+ </ul>
+
 </div>
     </div>
         </div>

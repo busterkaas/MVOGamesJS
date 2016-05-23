@@ -13,24 +13,34 @@ angular.module('mvogamesJsApp')
     };
 
     $scope.getLeaderName = function(crew) {
-      return crew.leader.firstName;
+      return crew.leader.firstName + " " + crew.leader.lastName;
     };
 
     $scope.getApplicantsCount = function(crew) {
       return crew.applicants.length;
     };
 
-    $scope.showCrewMemberNamesDialog = function(event) {
-      $mdDialog.show({
-        templateUrl: '/app/crew/crewMemberNamesDialog.html',
-        parent: angular.element(document.body),
-        targetEvent: event,
-        clickOutsideToClose: true
-      });
-    };
+    function DialogController($scope, $mdDialog, crew) {
+      if (crew !== null) {
+        $scope.crewMembers = crew.users;
+        $scope.crewApplicants = crew.applicants;
+      }
+      $scope.cancel = function() {
+        $mdDialog.cancel();
+      };
+    }
 
-    $scope.getCrewMemberName = function(user) {
-      return user.firstName;
+    $scope.showMembersDialog = function(chosenCrew, ev) {
+      $mdDialog.show({
+        controller: DialogController,
+        templateUrl: '/app/crew/dialogTemplate.html',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        locals: {
+          crew: chosenCrew
+        },
+        clickOutsideToClose: false
+      });
     };
 
   });

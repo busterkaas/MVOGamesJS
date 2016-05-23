@@ -1,34 +1,7 @@
 <navbar></navbar>
 <admin-navbar></admin-navbar>
-
-<div ng-if="!editingGame">
-
-<div class="headerDiv"><h1>Manage Games</h1></div>
-
-<md-list>
- <md-divider></md-divider>
- <md-list-item ng-repeat="game in Games" ng-click="goToGame(game)"  class="adminGameItem">
-   <div class="imgContainer">
-   <img alt="{{ game.title }}" ng-src="{{ game.coverUrl }}" class="md-user-avatar agImg" />
- </div>
- <div class="col-md-3">
-   <p>{{ game.title }}</p>
- </div>
- <div class="col-md-8">
-   <p>{{game.info}}</p>
- </div>
- <div class="col-md-1">
-   <md-button ng-click="editGame(game)" class="md-icon-button" aria-label="Open sample menu">
-     <i class="glyphicon glyphicon-pencil"></i>
-        </div>
-   </md-button>
- <md-divider class="listDevider"></md-divider>
- </md-list-item>
-</md-list>
-</div>
-
-<div class="editGameContent" ng-if="editingGame">
-  <div class="headerDiv"><h1>Edit {{editingGame.title}}</h1></div>
+<div class="editGameContent">
+  <div class="headerDiv"><h1>Edit {{Game.title}}</h1></div>
      <div class="bgMain">
        <div layout="row">
          <div flex="15">
@@ -42,7 +15,7 @@
 
          <md-input-container class="md-block">
          <label>Title</label>
-         <input md-maxlength="25" required ng-model="editingGame.title" type="text" name="gameTitle">
+         <input md-maxlength="25" required ng-model="Game.title" type="text" name="gameTitle">
        <div ng-messages="editGameForm.title.$error" role="alert">
          <div ng-message="required">Game title is REQUIRED!</div>
          <div ng-message="md-maxlength">The title has be less than 25 characters long.</div>
@@ -51,7 +24,7 @@
 
        <md-input-container class="md-block">
        <label>Game description</label>
-       <input md-maxlength="200" required ng-model="editingGame.info" type="text" name="gameTitle">
+       <input md-maxlength="200" required ng-model="Game.info" type="text" name="gameTitle">
      <div ng-messages="editGameForm.info.$error" role="alert">
        <div ng-message="required">Game description is REQUIRED!</div>
        <div ng-message="md-maxlength">The description has be less than 200 characters long.</div>
@@ -60,7 +33,7 @@
 
      <md-input-container class="md-block">
      <label>Game Cover Url</label>
-     <input md-maxlength="200" required ng-model="editingGame.coverUrl" type="text" name="gameCoverUrl">
+     <input md-maxlength="200" required ng-model="Game.coverUrl" type="text" name="gameCoverUrl">
    <div ng-messages="editGameForm.coverUrl.$error" role="alert">
      <div ng-message="required">Game cover is REQUIRED!</div>
      <div ng-message="md-maxlength">The cover url has be less than 120 characters long.</div>
@@ -69,7 +42,7 @@
 
    <md-input-container class="md-block">
    <label>Game Trailer Url</label>
-   <input md-maxlength="200" required ng-model="editingGame.trailerUrl" type="text" name="gameTrailerUrl">
+   <input md-maxlength="200" required ng-model="Game.trailerUrl" type="text" name="gameTrailerUrl">
  <div ng-messages="editGameForm.trailerUrl.$error" role="alert">
    <div ng-message="required">Game trailer is REQUIRED!</div>
    <div ng-message="md-maxlength">The trailer url has be less than 120 characters long.</div>
@@ -120,13 +93,13 @@
  </br>
  <label>Release date</label>
 
-   <md-datepicker class="bgInherit" ng-model="editingGame.releaseDate" md-placeholder="Enter date">
+   <md-datepicker class="bgInherit" ng-model="Game.releaseDate" md-placeholder="Enter date">
    </md-datepicker>
 
    <md-input-container class="md-block">
    <label>Choose available platforms</label>
    </br>
-    <md-list-item ng-repeat="platform in editingGame.platforms">
+    <md-list-item ng-repeat="platform in Game.platforms">
       <img class="md-avatar" src="{{platform.platformImgUrl}}"></img>
       <p> {{ platform.name }} </p>
       <md-switch class="md-warn" active></md-switch>
@@ -142,7 +115,7 @@
    </div>
      </div>
      <div layout-gt-xs="row">
-     <md-button aria-label="Undo changes" ng-click="undoEditGame()" class="md-raised md-warning">
+     <md-button aria-label="Undo changes" ng-click="back()" class="md-raised md-warning">
        <i class="glyphicon glyphicon-backward"></i>
        Back
      </md-button>
@@ -155,6 +128,4 @@
      </md-button>
    </div>
  </div>
-
-
-<footer></footer>
+ <footer></footer>

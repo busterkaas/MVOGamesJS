@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
   <!-- endbower -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet' type='text/css'>
   <!-- endbuild -->
   <!-- build:css({.tmp,client}) app/app.css -->
   <link rel="stylesheet" href="app/app.css">
@@ -30,6 +31,7 @@
   <link rel="stylesheet" href="app/admin/adminOrder/adminOrder.css">
   <link rel="stylesheet" href="app/admin/adminUser/adminUser.css">
   <link rel="stylesheet" href="app/app.css">
+  <link rel="stylesheet" href="app/crew/crew-details.css">
   <link rel="stylesheet" href="app/crew/crew.css">
   <link rel="stylesheet" href="app/game/dialog.css">
   <link rel="stylesheet" href="app/game/game.css">
@@ -46,7 +48,11 @@
 </head>
 
 
-<body ng-app="mvogamesJsApp">
+<body ng-app="mvogamesJsApp" class="backgroundL">
+  <div class="hero" id="top">
+        <div class="hero-image"></div>
+      <h1>MVO Games</h1>
+      </div>
   <!--[if lt IE 7]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -104,12 +110,13 @@
   <script src="app/admin/admin.module.js"></script>
   <script src="components/auth/auth.module.js"></script>
   <script src="components/util/util.module.js"></script>
-  <script src="app/main/main.js"></script>
+  <script src="app/main/main.controller.js"></script>
   <script src="app/admin/admin.controller.js"></script>
   <script src="app/account/account.js"></script>
   <script src="app/admin/admin.router.js"></script>
   <script src="app/admin/adminCrew/adminCrew.controller.js"></script>
   <script src="app/admin/adminCrew/adminCrew.js"></script>
+  <script src="app/admin/adminGame/adminGame-details.controller.js"></script>
   <script src="app/admin/adminGame/adminGame.controller.js"></script>
   <script src="app/admin/adminGame/adminGame.js"></script>
   <script src="app/admin/adminOrder/adminOrder.controller.js"></script>
@@ -118,14 +125,16 @@
   <script src="app/admin/adminUser/adminUser.controller.js"></script>
   <script src="app/admin/adminUser/adminUser.js"></script>
   <script src="app/app.constant.js"></script>
+  <script src="app/crew/crew-details.controller.js"></script>
   <script src="app/crew/crew.controller.js"></script>
   <script src="app/crew/crew.js"></script>
   <script src="app/crew/crew.service.js"></script>
+  <script src="app/designJs.js"></script>
   <script src="app/game/game.controller.js"></script>
   <script src="app/game/game.js"></script>
   <script src="app/game/game.service.js"></script>
-  <script src="app/main/main.controller.js"></script>
   <script src="app/account/login/login.controller.js"></script>
+  <script src="app/main/main.js"></script>
   <script src="app/user/checkout/checkout.controller.js"></script>
   <script src="app/user/checkout/checkout.js"></script>
   <script src="app/user/myCrew/myCrew.controller.js"></script>

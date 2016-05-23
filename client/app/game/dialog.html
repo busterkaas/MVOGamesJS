@@ -11,7 +11,7 @@
         <h2>{{selectedGame.title}}</h2>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="cancel()">
-          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+          <md-icon aria-label="Close dialog"></md-icon>
         </md-button>
       </div>
     </md-toolbar>
@@ -19,18 +19,35 @@
     <md-dialog-content>
       <div class="md-dialog-content">
         <div layout="row" layout-xs="column">
-          <div flex="40">
+          <div flex="25" class="dialogRight">
             <img class="dialogImg" src="{{selectedGame.coverUrl}}">
           </div>
-          <div flex="50">
-            <h2>Shit</h2>
+          <div flex="50" class="dialogMid">
+            <h2>Game info</h2>
+            </br>
             <p>
             {{selectedGame.info}}
             </p>
-          </div>
+          </br>
+            <h2>Game price: </h2>
+            <p ng-if="!selectedPlatform">Please select a platform</p>
+            <p ng-if="selectedPlatform">DKK {{selectedPlatform.price}},-</p>
 
-          <div flex="10" ng-repeat="platform in selectedGame.platforms">
-            <h4>{{platform.name}}</h4>
+
+
+
+          </div>
+          <div flex="25" class="dialogRight" >
+            <h2>Available platforms</h2>
+          </br>
+            <md-radio-group ng-model="selectedPlatform">
+      <md-radio-button ng-repeat="platform in selectedGame.platforms"
+                      ng-value="platform"
+                       aria-label="{{platform.name}}">
+
+          <img id="platformLogo" src="{{platform.platformImgUrl}}"></img>
+      </md-radio-button>
+    </md-radio-group>
           </div>
       </div>
     </div>
@@ -42,10 +59,7 @@
         Close
       </md-button>
       <span flex></span>
-      <md-select placeholder="Buy with your crew" ng-model="crew" md-on-open="loadCrews()" style="min-width: 200px;">
-      <md-option ng-value="crew" ng-repeat="crew in crews">{{crew.name}}</md-option>
-    </md-select>
-      <md-button ng-if="isCustomer()" ng-click="answer('useful')" class="btnDialog">
+      <md-button ng-if="isCustomer()" ng-click="answer()" class="btnDialog">
         Buy
       </md-button>
     </md-dialog-actions>

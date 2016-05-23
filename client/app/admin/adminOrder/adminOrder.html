@@ -6,8 +6,8 @@
 <div class="headerDiv"><h1>Manage Orders</h1></div>
 <md-list>
   <div layout="row">
-  <div flex=10></div>
-  <div flex=80>
+  <div flex=20></div>
+  <div flex=60>
   <md-list-item ng-repeat="order in Orders" class="adminGameItem">
     <div flex=20>
       <p>
@@ -54,7 +54,7 @@
     <div layout="row">
     <div flex=20></div>
     <div flex=60>
-      <div class="col-md-3 bgListHeaderColor">
+      <div class="col-mid-3 bgListHeaderColor">
         <h4 class="frontListHeaderColor">Game</h4>
       </div>
       <div class="col-md-3 bgListHeaderColor">
@@ -88,9 +88,9 @@
   </div>
 </md-list-item>
 <md-list-item class="adminGameItem">
-  <div flex=90></div>
-  <div flex=10>
-    calculateTotalPrice(order)
+  <div flex=80></div>
+  <div flex=20>
+    Total Price {{calculateTotalPrice(orderDetails)}} kr
   </div>
 </md-list-item>
 </div>
@@ -103,7 +103,7 @@
     Back
   </md-button>
 
-  <md-button aria-label="Delete game" class="md-raised md-danger" ng-click="confirmDeleteDialog(editingGame, $event)">
+  <md-button aria-label="Delete game" class="md-raised md-danger" ng-click="confirmDeleteDialog(orderDetails, $event)">
     <i class="glyphicon glyphicon-trash"></i> Delete
   </md-button>
 </div>

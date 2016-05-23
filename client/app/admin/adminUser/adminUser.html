@@ -180,30 +180,20 @@
             <br>
             <div layout="row" style="border-bottom: 1px solid #cdd0d4;" class="bgListHeaderColor">
               <div flex="5"></div>
-              <div flex="35">
-                <h3>Game Title</h3></div>
-              <div flex="25">
-                <h3>Genre</h3></div>
-              <div flex="15">
-                <h3>Amount</h3></div>
+              <div flex="35"><h3>Game Title</h3></div>
+              <div flex="25"><h3>Genre</h3></div>
+              <div flex="20"><h3>Amount</h3></div>
               <div flex="5"></div>
-
             </div>
+
             <br>
             <div>
               <md-list ng-repeat="items in editingUser.shoppingCartItems">
                 <div layout="row">
                   <div flex="5"></div>
-                  <div flex="35">
-                    <p>{{ items.game.title }}</p>
-                  </div>
-                  <div flex="25">
-                    <p>{{items.platform.name}}</p>
-                  </div>
-                  <div flex="15">
-                    <p>{{items.amount}}</p>
-                  </div>
-
+                  <div flex="35"><p>{{ items.game.title }}</p></div>
+                  <div flex="25"><p>{{items.platform.name}}</p></div>
+                  <div flex="20"><p>{{items.amount}}</p></div>
                   <div flex="5">
                     <md-button ng-click="deleteGameItemFromUser(items)">
                       <i class="glyphicon glyphicon-trash mousePointer"></i>
@@ -217,30 +207,58 @@
 
             <h3 style="border-bottom: 1px solid #cdd0d4;">Orders</h3>
             <br>
+            <div layout="row" style="border-bottom: 1px solid #cdd0d4;" class="bgListHeaderColor">
+              <div flex="5"></div>
+              <div flex="30"><h3>Game Title</h3></div>
+              <div flex="15"><h3>Genre</h3></div>
+              <div flex="15"><h3>Amount</h3></div>
+              <div flex="25"><h3>Date</h3></div>
+              <div flex="5"></div>
+            </div>
+
+            <br>
+            <div ng-repeat="ol in userOrders">
+              <md-list ng-repeat="o in ol.orderlines">
+                <div layout="row">
+                  <div flex="5"></div>
+                  <div flex="30"><p>{{ o.game.title }}</p></div>
+                  <div flex="20"><p>{{ o.platform.name }}</p></div>
+                  <div flex="10"><p>{{ o.amount }}</p></div>
+                  <div flex="25"><p>{{ ol.date }}</p></div>
+                  <div flex="5">
+                    <md-button ng-click="">
+                      <i class="glyphicon glyphicon-trash mousePointer"></i>
+                    </md-button></div>
+                </div>
+                <md-divider class="userListDevider"></md-divider>
+              </md-list>
+            </div>
+
+
             <br>
             <div layout="row">
-            <div flex="45"></div>
-            <div flex="10">
-            <div class="container">
-              <div class="circle lg">
-                <div class="circle md">
-                  <div class="circle sm">
-                    <div class="circle smlr">
+              <div flex="45"></div>
+              <div flex="10">
+                <div class="container">
+                  <div class="circle lg">
+                    <div class="circle md">
+                      <div class="circle sm">
+                        <div class="circle smlr">
+                        </div>
+                      </div>
                     </div>
                   </div>
+                  <span id="loading">Loading...</span>
                 </div>
               </div>
-              <span id="loading">Loading...</span>
-            </div>
-            </div>
-            <div flex="45"></div>
+              <div flex="45"></div>
             </div>
         </form>
 
+        </div>
+        <div flex="5"></div>
       </div>
-      <div flex="5"></div>
     </div>
   </div>
-</div>
 
-<footer></footer>
+  <footer></footer>

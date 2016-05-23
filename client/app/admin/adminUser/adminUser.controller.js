@@ -1,15 +1,17 @@
 'use strict';
 
 angular.module('mvogamesJsApp')
-  .controller('AdminUserCtrl', function ($scope, UserService, socket, $mdDialog, $mdToast) {
+  .controller('AdminUserCtrl', function ($scope, UserService, SpecialOrderService, socket, $mdDialog, $mdToast) {
 
     UserService.query(function(users){
       $scope.Users = users;
-      socket.syncUpdates('user', $scope.Users);
     });
 
     $scope.editUser = function(user){
       $scope.editingUser = angular.copy(user);
+      SpecialOrderService.query({id:user._id}, function(orders) {
+        $scope.userOrders = orders;
+      });
     };
 
     $scope.undoEditUser = function(){

@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('mvogamesJsApp')
-  .controller('CheckoutCtrl', function ($scope, $stateParams, User) {
+  .controller('CheckoutCtrl', function ($scope, $stateParams, Auth) {
 
-    User.get({name: $stateParams.name}, function(user){
-      $scope.me = user;
+    Auth.getCurrentUser(function(user){
+        $scope.me = user;
     });
 
 

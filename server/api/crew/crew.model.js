@@ -9,24 +9,29 @@ var CrewSchema = new mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: 'User'
   },
-  users:[{
+  users: [{
     type: mongoose.Schema.ObjectId,
     ref: 'User'
   }],
-  applicants:[{
+  applicants: [{
     type: mongoose.Schema.ObjectId,
     ref: 'User'
   }],
-  gameSuggestions:[{
+  gameSuggestions: [{
     discount: Number,
     expiration: Date,
-    game:{
+    game: {
       type: mongoose.Schema.ObjectId,
       ref: 'Game'
+    },platform: {
+        name: String,
+        price: Number,
     },
-    users:[{
-      type: mongoose.Schema.ObjectId,
-      ref: 'User',
+    users: [{
+      user: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User'
+      },
       confirmed: Boolean
     }]
   }]

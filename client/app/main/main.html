@@ -1,32 +1,38 @@
+<head>
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+</head>
+
 <navbar></navbar>
 
-<header class="hero-unit" id="banner">
-  <div class="container">
-    <h1>MVO Games Motherfucker!!!!!!!!!</h1>
-    <p class="lead">Kick-start your next web app with Angular Fullstack</p>
-    <img src="assets/images/yeoman.png" alt="I'm Yeoman">
+
+<div class="imageContent ">
+  <h2></h2>
+  <div class="w3-content w3-section w3-display-container">
+    <img class="mySlides w3-animate-fading slideSize" src="https://i.ytimg.com/vi/lECC6eQhnZo/maxresdefault.jpg" >
+    <img class="mySlides w3-animate-fading slideSize" src="http://netwallcraft.com/data/out/16/HQW_779773.png" >
+    <img class="mySlides w3-animate-fading slideSize" src="http://static.fjcdn.com/pictures/Wallpaper+dump+enjoy_6fdc60_5258575.jpg" >
   </div>
-</header>
+</div>
 
 <div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">All y'all features bitches:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in main.awesomeThings">
-        <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}<button type="button" class="close" ng-click="main.deleteThing(thing)">&times;</button></a></li>
-      </ul>
-    </div>
+<div class="jumbotron jumbotronGeneral jumbotron1 " flex=30>
+  <h2>Games</h2>
+  We've got a wide amount of games for all types of platforms. Join us now to buy games at competitive prices,
+  or bring your friends to make use of our exclusive friends benefit system.
+</div>
+  <div class="jumbotron jumbotronGeneral jumbotron2 "flex=30>
+    <h2>Crew</h2>
+    Join a crew and get up to 35% off, on all games. Including brand new games and pre-orders!!!
+    The more crew members who apply for a game, the cheaper it is! So sign up now, and bring your friends!!
   </div>
-
-  <form class="thing-form">
-    <label>Syncs in realtime across clients</label>
-    <p class="input-group">
-      <input type="text" class="form-control" placeholder="Add a new thing here." ng-model="main.newThing">
-      <span class="input-group-btn">
-        <button type="submit" class="btn btn-primary" ng-click="main.addThing()">Add New</button>
-      </span>
-    </p>
-  </form>
+  <div class="jumbotron jumbotronGeneral jumbotron1 "flex=30>
+    <h2>Future of gaming</h2>
+    In the future you will be able to buy games Cross-Platform, ONE game for all platforms. And within a
+        year, the martians and other aliens will join MVOGames and we will RULE the world!!! Muhahahhaha
+    .... lol
+  </div>
 </div>
 
 <footer></footer>
+
+<script src="app/main/mainSpecial.js"></script>

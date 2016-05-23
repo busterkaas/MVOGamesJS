@@ -16,8 +16,8 @@ angular.module('mvogamesJsApp')
       $scope.Games = games;
       var allGenres = [];
       $scope.filterGenres = [];
-      angular.forEach(games, function(game, key) {
-        game.releaseDate = new Date(game.releaseDate);;
+      angular.forEach(games, function(game) {
+        game.releaseDate = new Date(game.releaseDate);
           angular.forEach(game.genres, function(genre) {
           allGenres.push(genre);
         });
@@ -50,10 +50,10 @@ angular.module('mvogamesJsApp')
       $scope.editingGame = angular.copy(game);
       $scope.editingGame.genres.forEach(function(genre){
         var g = _.find($scope.genres, function(o) {
-        return o._lowername == genre.name.toLowerCase();
+        return o._lowername === genre.name.toLowerCase();
         });
         $scope.selectedGenres.push(g);
-      })
+      });
       console.log(game);
     };
 
@@ -104,7 +104,7 @@ angular.module('mvogamesJsApp')
     function querySearch(query) {
       var results = query ? $scope.genres.filter(createFilterFor(query)) : [];
       return results;
-    };
+    }
 
     /**
      * Return the proper object when the append is called.
@@ -151,6 +151,6 @@ angular.module('mvogamesJsApp')
       }
         return genre._lowername.indexOf(lowercaseQuery) >-1;
       };
-  };
+  }
 
 });

@@ -31,6 +31,7 @@ function handleEntityNotFound(res) {
   };
 }
 
+
 function respondWith(res, statusCode) {
   statusCode = statusCode || 200;
   return function() {
@@ -132,6 +133,8 @@ export function update(req, res) {
     delete req.body._id;
   }
   User.findByIdAsync(req.params.id)
+    .populate('addresses shoppingCartItems platform')
+    .execAsync()
     .then(handleEntityNotFound(res))
     .then(saveUpdates(req.body))
     .then(responseWithResult(res))
@@ -140,7 +143,7 @@ export function update(req, res) {
 
 function saveUpdates(updates) {
   return function(entity) {
-    var updated = _.merge(entity, updates);
+    var updated = _.extend(entity, updates);
     return updated.saveAsync()
       .spread(updated => {
         return updated;

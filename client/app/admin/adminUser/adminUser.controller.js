@@ -22,10 +22,35 @@ angular.module('mvogamesJsApp')
       $scope.editingUser = undefined;
     };
 
-    //**Deleting user*
+    //**Updating User**
+    $scope.updateUser = function(user, ev){
+      var confirm = $mdDialog.confirm()
+      .title('Update User')
+      .textContent('Are you sure you want to update: ' + user.email + ' (' + user.name + ')')
+      .ariaLabel('Update')
+      .targetEvent(ev)
+      .openFrom('#left')
+      .ok('YES, I am sure!')
+      .cancel('No');
+      $mdDialog.show(confirm).then(function(){
+        UserService.update({
+          id: $scope.editingUser._id
+        }, $scope.editingUser, function(user){
+          var toast = $mdToast.simple()
+          .textContent(user.email + ' (' + user.name + ')' + ' was updated')
+          .action('Ok')
+          .highlightAction(false)
+          .position('top');
+          $mdToast.show(toast);
+          $scope.editingUser = undefined;
+        });
+      });
+    };
+
+    //**Deleting User*
     $scope.deletUser = function(user, ev){
       var confirm = $mdDialog.confirm()
-      .title('Delete Crew')
+      .title('Delete User')
       .textContent('Are you sure you want to delete: ' + user.email + ' (' + user.name + ')')
       .ariaLabel('Delete')
       .targetEvent(ev)
@@ -35,7 +60,7 @@ angular.module('mvogamesJsApp')
       $mdDialog.show(confirm).then(function(){
         $scope.deleteUser(user);
         var toast = $mdToast.simple()
-        .textContent(user.name + ' was deleted')
+        .textContent(user.email + ' (' + user.name + ')' + ' was deleted')
         .action('Ok')
         .highlightAction(false)
         .position('top');

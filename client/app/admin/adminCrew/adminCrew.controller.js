@@ -10,7 +10,6 @@ angular.module('mvogamesJsApp')
 
     $scope.editCrew = function(crew){
       $scope.editingCrew = angular.copy(crew);
-      $scope.crew = crew;
     };
 
     $scope.undoEditCrew = function(){

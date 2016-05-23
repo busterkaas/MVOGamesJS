@@ -1,24 +1,15 @@
-/*'use strict';
-
-angular.module('mvogamesJsApp')
-  .controller('AdminGameCtrl', function ($scope) {
-    $scope.message = 'Hello';
-  });
-  */
 'use strict';
 
 angular.module('mvogamesJsApp')
-  .controller('AdminGameCtrl', function($scope, GameService, socket, $mdDialog, $state) {
+  .controller('AdminGameDetailsCtrl', function($scope, GameService, socket, $mdDialog, $stateParams) {
 
-
-    //Load all games and genres (Filter genres)
     GameService.query(function(games) {
       $scope.Games = games;
       var allGenres = [];
       $scope.filterGenres = [];
       angular.forEach(games, function(game, key) {
-        game.releaseDate = new Date(game.releaseDate);;
-          angular.forEach(game.genres, function(genre) {
+        game.releaseDate = new Date(game.releaseDate);
+        angular.forEach(game.genres, function(genre, key) {
           allGenres.push(genre);
         });
       });
@@ -28,48 +19,32 @@ angular.module('mvogamesJsApp')
         g._lowername = g.name.toLowerCase();
         return g;
       });
-      $scope.genres = $scope.filterGenres;
+    });
 
-  });
+    GameService.get({
+      id: $stateParams.id
+    }, function(game) {
+      $scope.Game = angular.copy(game);
+      $scope.Game.releaseDate = new Date(game.releaseDate);
 
-
-
-
-
-    $scope.goToGame = function(game){
-      console.log(game.title);
-      $state.go('admingamedetails', {
-        id: game._id,
-      });
-    };
-
-
-
-    $scope.editGame = function(game) {
       $scope.selectedGenres = [];
-      $scope.editingGame = angular.copy(game);
-      $scope.editingGame.genres.forEach(function(genre){
-        var g = _.find($scope.genres, function(o) {
-        return o._lowername == genre.name.toLowerCase();
+      $scope.Game.filterGenres.forEach(function(genre) {
+        var g = _.find($scope.filterGenres, function(o) {
+          return o._lowername == genre.name.toLowerCase();
         });
         $scope.selectedGenres.push(g);
       })
-      console.log(game);
-    };
+    });
 
-
-
-
-    $scope.undoEditGame = function() {
-      $scope.editingGame = undefined;
-    };
+    //DELETE GAME SECTION
 
     $scope.deleteGame = function(game) {
       GameService.delete({
         id: game._id
       });
-      $scope.editingGame = undefined;
+      window.goBack();
     };
+
 
     $scope.confirmDeleteDialog = function(game, ev) {
       var confirm = $mdDialog.confirm()
@@ -87,24 +62,30 @@ angular.module('mvogamesJsApp')
       });
     };
 
-    //update game
+
+    //UPDATE GAME SECTION
     $scope.updateGame = function() {
       GameService.update({
           id: $scope.editingGame._id
         }, $scope.editingGame,
         function(game) {
-          $scope.editingGame = game;
+          $scope.Game = game;
+          window.goBack();
         });
-    };
+    }
 
+
+
+    //GENRE SECTION ////////////////////////////////
 
 
 
     //This is for genre chips
     function querySearch(query) {
-      var results = query ? $scope.genres.filter(createFilterFor(query)) : [];
+      var results = query ? $scope.filterGenres.filter(createFilterFor(query)) : [];
       return results;
     };
+
 
     /**
      * Return the proper object when the append is called.
@@ -121,14 +102,11 @@ angular.module('mvogamesJsApp')
     }
 
 
-
-
     $scope.readonly = false;
     $scope.selectedGenre = null;
     $scope.genreSearchText = null;
     $scope.querySearch = querySearch;
     /*$scope.genres = loadGenres();*/
-    $scope.selectedGenres = [];
     $scope.numberChips = [];
     $scope.numberChips2 = [];
     $scope.numberBuffer = '';
@@ -151,6 +129,7 @@ angular.module('mvogamesJsApp')
       }
         return genre._lowername.indexOf(lowercaseQuery) >-1;
       };
-  };
+    }
 
-});
+
+  });

@@ -1,6 +1,11 @@
 <navbar></navbar>
 <user-navbar></user-navbar>
 
-<div>MY CREW</div>
+  <h1>ALL CREWS FOR NOW !! MUST BE CHAGED</h1>
+<div ng-repeat="crew in Crews">
+  <div class="bgMain" ng-click="goToCrew(crew)">
+  <h1>{{crew.name}}</h1>
+</div>
+</div>
 
 <footer></footer>

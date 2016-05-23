@@ -7,7 +7,7 @@ angular.module('mvogamesJsApp')
       $scope.me = user;
     });
 
-    
+
 
 
   });

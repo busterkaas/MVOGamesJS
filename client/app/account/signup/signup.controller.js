@@ -20,12 +20,12 @@ class SignupController {
         firstName: this.user.firstName,
         lastName: this.user.lastName,
         bDay: this.user.bDay,
-        addresses: [{
+        addresses: {
           city: this.user.city,
           zipCode: this.user.zipCode,
           streetName: this.user.streetName,
           houseNumber: this.user.houseNumber
-        }],
+        },
         name: this.user.name,
         email: this.user.email,
         password: this.user.password

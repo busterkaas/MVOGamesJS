@@ -9,4 +9,10 @@
           method: 'PUT'
         }
       });
-    });
+    })
+      .factory('SpecialOrderService', function($resource){
+        return $resource('/api/orders/user/:id',
+        {'query': { method: 'GET' }},{
+          id: '@id'
+        });
+      });

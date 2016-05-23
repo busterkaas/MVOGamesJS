@@ -31,7 +31,7 @@ function respondWith(res, statusCode) {
  * restriction: 'admin'
  */
 export function index(req, res) {
-  User.findAsync({}, '-salt -password')
+  User.find({}, '-salt -password').populate('addresses').execAsync()
     .then(users => {
       res.status(200).json(users);
     })

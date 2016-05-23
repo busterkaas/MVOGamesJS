@@ -37,6 +37,7 @@
 
 .bgEdit{
   background-color: rgba(255, 71, 26, 0.7);
+    opacity: 0.7;
 }
 
 .editLabel{
@@ -52,4 +53,9 @@
 .frontListHeaderColor{
   color: black;
   font-weight: bold;
+}
+
+.userBG{
+  background-color: rgba(255, 71, 26, 0.7);
+  opacity: 0.9;
 }

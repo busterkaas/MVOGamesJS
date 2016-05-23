@@ -60,11 +60,12 @@ angular.module('mvogamesJsApp')
 
       //update game
       $scope.updateGame = function () {
-      GameService.update({id: $scope.editingGame._id}, $scope.editingGame,
+      GameService.update(
+        {id: $scope.editingGame._id}, $scope.editingGame,
         function (game) {
           $scope.editingGame = game;
         });
-    }
+    };
 
 
 
@@ -86,7 +87,7 @@ angular.module('mvogamesJsApp')
     if (angular.isObject(chip)) {
       return chip;
     }
-    // Otherwise, create a new one
+    // Otherwise, create a new onez
     return { name: chip };
   }
 

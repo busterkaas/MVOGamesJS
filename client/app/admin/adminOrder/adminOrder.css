@@ -1,0 +1,58 @@
+.tableHeader{
+  background-color: rgba(255, 71, 26, 0.8);
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  font-weight: 900;
+}
+
+.tableHeader h2{
+  color: black
+}
+
+.tableContent{
+  background-color:  rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid #ff471a;
+  color:white;
+}
+
+.textField {
+  background-color:  rgba(0, 0, 0, 0.3);
+  border: 1px solid black;
+  color:white;
+}
+
+.tableContentSum {
+  background-color:  rgba(0, 0, 0, 0.3);
+  border-top: 1px solid #ff471a;
+  border-bottom: 2px solid black;
+  color:white;
+  font-weight: 900;
+}
+
+.button {
+  background: black;
+  border: 2px solid #ff471a;
+  color: white;
+  font-weight: 900;
+}
+
+.button:hover {
+  background: linear-gradient(to right, black, #ff471a);
+  border: 2px solid #ff471a;
+  color: white;
+  font-weight: 900;
+}
+
+.headerDivSubheader {
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.headerDivSubheader h1{
+  text-shadow: 0 0 20px #ff471a, 1px 1px 20px #ff471a, 2px 2px 20px #ff471a, -1px -1px 20px orange, -2px -2px 20px #ff471a;
+}
+
+.headerDivSubheader h2{
+  font-size: 20px;
+}

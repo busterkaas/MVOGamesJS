@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('mvogamesJsApp')
+
   .controller('UserNavbarController', function ($scope,$state, Auth) {
 
     Auth.getCurrentUser(function(user){
@@ -28,13 +29,15 @@ angular.module('mvogamesJsApp')
 }
     ];
 
-    $scope.goToState = function(item){
-      $state.go(item.state,{id:null});
+    $scope.goToState = function(item) {
+      $state.go(item.state, {
+        id: null
+      });
     };
 
-    $scope.checkout = function(){
+    $scope.checkout = function() {
       $state.go('checkout');
-    }
+    };
 
 
   });

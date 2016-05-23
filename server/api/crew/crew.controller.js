@@ -74,6 +74,13 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
+// Get all Crews in the DB with the requested UsserID
+export function crewsByUser (req, res) {
+  Crew.find({'users':req.params.id}).populate('leader users applicants gameSuggestions.game gameSuggestions.users').execAsync()
+    .then(responseWithResult(res))
+    .catch(handleError(res));
+}
+
 // Creates a new Crew in the DB
 export function create(req, res) {
   Crew.createAsync(req.body)

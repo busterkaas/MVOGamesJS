@@ -11,21 +11,28 @@
   border-radius: 50%;
     border: 5px solid #DC0B00;
     background-color: #000000;
-    margin: 7px;
+    margin: 20px;
 }
 
 #crewNames {
     font-style: italic;
     font-weight: bold;
     color:#E1B400;
-    padding-top:36px;
+    padding-top:30px;
 }
 
 #crewInfo {
     color:white;
 }
 
-p span
-{
-    display: block;
+#dialogCrewNames {
+  font-style: italic;
+  font-weight: bold;
+  color:orange;
+  padding-top:36px;
+  text-align: center;
+}
+
+#dialogCrewInfo {
+    text-align: center;
 }

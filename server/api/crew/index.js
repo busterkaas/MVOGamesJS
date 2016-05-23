@@ -6,6 +6,7 @@ var controller = require('./crew.controller');
 var router = express.Router();
 
 router.get('/', controller.index);
+router.get('/user/:id', controller.crewsByUser);
 router.get('/:id', controller.show);
 router.post('/', controller.create);
 router.put('/:id', controller.update);

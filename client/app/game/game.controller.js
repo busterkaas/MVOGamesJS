@@ -10,31 +10,30 @@ angular.module('mvogamesJsApp')
 
 
 
-  angular.module('mvogamesJsApp')
-    .controller('GameCtrl', function($scope, GameService, socket, $mdDialog, $mdMedia, Auth, $stateParams, UserService) {
+angular.module('mvogamesJsApp')
+  .controller('GameCtrl', function($scope, GameService, socket, $mdDialog, $mdMedia, Auth) {
 
-      $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
-      $scope.propToSortOn = 'releaseDate';
-      $scope.reverse = false;
+    $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
+    $scope.propToSortOn = 'releaseDate';
+    $scope.reverse = false;
 
-      GameService.query(function(games) {
-        $scope.Games = games;
-        socket.syncUpdates('game', $scope.Games);
-      });
+    GameService.query(function(games) {
+      $scope.Games = games;
+      socket.syncUpdates('game', $scope.Games);
+    });
 
-      $scope.sort = function(keyname){
-        $scope.propToSortOn = keyname;
-        $scope.reverse = !$scope.reverse;
-      };
+    $scope.sort = function(keyname) {
+      $scope.propToSortOn = keyname;
+      $scope.reverse = !$scope.reverse;
+    };
 
 
-      $scope.isCustomer = function() {
-        if(Auth.isAdmin()){
-          return false;
-        }
-        return Auth.isLoggedIn();
-      };
-
+    $scope.isCustomer = function() {
+      if (Auth.isAdmin()) {
+        return false;
+      }
+      return Auth.isLoggedIn();
+    };
 
       function DialogController($scope, $mdDialog, game, Auth, UserService) {
 
@@ -46,16 +45,16 @@ angular.module('mvogamesJsApp')
 
 
       $scope.isCustomer = function() {
-        if(Auth.isAdmin()){
+        if (Auth.isAdmin()) {
           return false;
         }
         return Auth.isLoggedIn();
       };
 
-      $scope.hide = function () {
+      $scope.hide = function() {
         $mdDialog.hide();
       };
-      $scope.cancel = function () {
+      $scope.cancel = function() {
         $mdDialog.cancel();
       };
       $scope.answer = function () {
@@ -77,7 +76,6 @@ angular.module('mvogamesJsApp')
         }
         $mdDialog.hide();
       };
-
 
 
 
@@ -119,10 +117,7 @@ angular.module('mvogamesJsApp')
       });
 
 
-      $scope.AddtoCart = function(){
-
-      };
 
 
 
-    });
+  });

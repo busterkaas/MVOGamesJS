@@ -17,8 +17,8 @@ angular.module('mvogamesJsApp')
       var allGenres = [];
       $scope.filterGenres = [];
       angular.forEach(games, function(game, key) {
-        game.releaseDate = new Date(game.releaseDate);
-        angular.forEach(game.genres, function(genre, key) {
+        game.releaseDate = new Date(game.releaseDate);;
+          angular.forEach(game.genres, function(genre) {
           allGenres.push(genre);
         });
       });
@@ -29,8 +29,12 @@ angular.module('mvogamesJsApp')
         return g;
       });
       $scope.genres = $scope.filterGenres;
-      socket.syncUpdates('Game', $scope.Games);
-    });
+
+  });
+
+
+
+
 
     $scope.goToGame = function(game){
       console.log(game.title);
@@ -52,6 +56,9 @@ angular.module('mvogamesJsApp')
       })
       console.log(game);
     };
+
+
+
 
     $scope.undoEditGame = function() {
       $scope.editingGame = undefined;
@@ -88,7 +95,9 @@ angular.module('mvogamesJsApp')
         function(game) {
           $scope.editingGame = game;
         });
-    }
+    };
+
+
 
 
     //This is for genre chips
@@ -110,39 +119,8 @@ angular.module('mvogamesJsApp')
         name: chip
       };
     }
-    /*   function loadGenres() {
-         var genries = [
-           {
-             'name': 'Action',
-           },
-           {
-             'name': 'FPS',
-           },
-           {
-             'name': 'Shooter',
-           },
-           {
-             'name': 'RPG',
-           },
-           {
-             'name': 'RTS',
-           },
-           {
-             'name': 'Sport',
-           },
-           {
-             'name': 'Racing',
-           },
-           {
-             'name': 'Third Person',
-           }
-         ];
-         return genries.map(function (g) {
-           g._lowername = g.name.toLowerCase();
-           return g;
-         });
-     }
-     */
+
+
 
 
     $scope.readonly = false;
@@ -171,9 +149,8 @@ angular.module('mvogamesJsApp')
         }
         });
       }
-
         return genre._lowername.indexOf(lowercaseQuery) >-1;
       };
-    }
+  };
 
-  });
+});

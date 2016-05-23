@@ -1,10 +1,18 @@
 'use strict';
 
 angular.module('mvogamesJsApp')
-  .controller('MyCrewCtrl', function ($scope, $state, CrewService) {
-    CrewService.query(function(crews) {
-      $scope.Crews = crews;
+  .controller('MyCrewCtrl', function ($scope, $state, SpecialCrewService, Auth) {
+
+    Auth.getCurrentUser(function(user){
+        $scope.me = user;
+
+        SpecialCrewService.query({id: user._id}, function(crews){
+          $scope.Crews = crews;
+        })
     });
+
+
+
 
     $scope.goToCrew = function(crew){
       console.log(crew.name);

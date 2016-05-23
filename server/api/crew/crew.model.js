@@ -23,6 +23,9 @@ var CrewSchema = new mongoose.Schema({
     game: {
       type: mongoose.Schema.ObjectId,
       ref: 'Game'
+    },platform: {
+        name: String,
+        price: Number,
     },
     users: [{
       user: {

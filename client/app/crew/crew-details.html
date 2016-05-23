@@ -8,6 +8,8 @@
 <div layout="row" class="crewDetailContent">
 
   <div class="contentLeft" flex="20">
+
+    <img id="crewDetailImg" src="{{crew.crewImgUrl}}">
     <h2 class="specialh4">Crewmembers   ({{crew.users.length}}/10)</h2>
     <md-list-item ng-repeat="user in crew.users">
       <div flex="5"></div>
@@ -23,13 +25,36 @@
     </md-list-item>
   </div>
 
-  <div class="contentMid" flex="60">
+  <div class="contentRight" flex="80" layout="row">
+    <div class="msgDiv" flex="60"></div>
 
+    <div class="gameSugDiv" flex="40">
+    <div class="gameSugHeader">
+    <h2>Game(s) suggested by your crew</h2>
+    </div>
+    <div class="gameListItemSelected" ng-if="gameSugSelected">
+      <img id="gameSugCover" src="{{gameSugSelected.game.coverUrl}}">
+      <label>Game: {{gameSugSelected.game.title}}</label>
+    </br>
+      <label>Platform: {{gameSugSelected.platform.name}}</label>
+</br>
+</br>
+      <md-button class="btnGameItem" ng-click="undoGameSuggestionDetails()">Hide</md-button>
+    </div>
+
+    <md-list-item ng-if="!gameSugSelected" class="gameListItem" ng-repeat="item in crew.gameSuggestions" ng-click="gameSugDetails(item)">
+      <label flex="50">{{item.game.title}}, {{item.platform.name}}</label>
+      <div flex></div>
+      <div flex="20">
+        <label>
+          DKK {{item.platform.price}},-
+        </label>
+      </div>
+    </md-list-item>
   </div>
+</div>
 
-  <div class="contentRight" flex="20">
 
-  </div>
 </div>
 
 

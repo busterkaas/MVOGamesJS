@@ -71,7 +71,8 @@ export function index(req, res) {
 
 // Gets a single Crew from the DB
 export function show(req, res) {
-  Crew.findByIdAsync(req.params.id)
+  Crew.findById(req.params.id)
+    .populate('leader users applicants gameSuggestions gameSuggestions.game gameSuggestions.users gameSuggestions.users.user').execAsync()
     .then(handleEntityNotFound(res))
     .then(responseWithResult(res))
     .catch(handleError(res));
@@ -96,9 +97,9 @@ export function update(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
+
   Crew.findById(req.params.id)
-    .populate('leader users applicants gameSuggestions gameSuggestions.game gameSuggestions.users gameSuggestions.users.user')
-    .execAsync()
+    .populate('leader users applicants gameSuggestions gameSuggestions.game gameSuggestions.users gameSuggestions.users.user').execAsync()
     .then(handleEntityNotFound(res))
     .then(saveUpdates(req.body))
     .then(responseWithResult(res))

@@ -158,7 +158,6 @@ function saveUpdates(updates) {
  */
 export function me(req, res, next) {
   var userId = req.user._id;
-
   User.findOne({ _id: userId }, '-salt -password').populate('shoppingCartItems.game').execAsync()
     .then(user => { // don't ever give out the password or salt
       if (!user) {

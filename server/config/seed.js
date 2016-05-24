@@ -84,9 +84,24 @@ User.find({}).removeAsync()
           streetName: 'Stormgade',
           houseNumber: '18, 3.th'
         },
-        phoneNumber: 123456789,
+        shoppingCartItems: [{
+          game: '5726edd9eah7kj341c83091e',
+          platform: {
+            name: 'Playstation 4',
+            price: 300
+          },
+          amount: 5
+        }, {
+          game: '5726edd9eah7kj341c83091e',
+          platform: {
+            name: 'PC',
+            price: 450
+          },
+          amount: 1
+        }],
+        phoneNumber: 22335435,
         provider: 'local',
-        name: 'Hardy',
+        name: 'hardydrachmann',
         email: 'hardy@mvo.com',
         password: 'hardy'
       }, {
@@ -100,7 +115,21 @@ User.find({}).removeAsync()
           streetName: 'KillerG',
           houseNumber: '5'
         },
-        shoppingCartItems:[{game:'5726edd9eah7kj341c83091e', platform: {name: 'Playstation 4', price: 300}, amount:5 },{game:'5726edd9eah7kj341c83091e', platform:{name: 'PC', price: 450}, amount:1}],
+        shoppingCartItems: [{
+          game: '5726edd9eah7kj341c83091e',
+          platform: {
+            name: 'Playstation 4',
+            price: 300
+          },
+          amount: 5
+        }, {
+          game: '5726edd9eah7kj341c83091e',
+          platform: {
+            name: 'PC',
+            price: 450
+          },
+          amount: 1
+        }],
         phoneNumber: 25236584,
         provider: 'local',
         name: 'Buster',
@@ -297,8 +326,9 @@ Game.find({}).removeAsync()
               expiration: new Date('2017-10-10'),
               game: {
                 _id: '5726edd9eah7kj341c83091e'
-              }, platform:{
-                name:'Playstation 4',
+              },
+              platform: {
+                name: 'Playstation 4',
                 price: '300'
               },
               users: [{
@@ -308,13 +338,14 @@ Game.find({}).removeAsync()
                 _id: '5726edd9ea894ae41c83091j',
                 confirmed: 'true'
               }]
-            },{
+            }, {
               discount: 0,
               expiration: new Date('2017-09-01'),
               game: {
                 _id: '5726edd9eah7kj341c83091e'
-              }, platform:{
-                name:'PC',
+              },
+              platform: {
+                name: 'PC',
                 price: '450'
               },
               users: [{

@@ -1,3 +1,40 @@
+.fireBigWallpaper {
+  position: fixed;
+	width: 25%;
+	height: auto;
+  top: -500px;
+  right: -150px;
+	opacity: 0.4;
+  z-index: 0;
+}
+
+.fireSmallWallpaper {
+  position: fixed;
+	width: 15%;
+	height: auto;
+  top: -150px;
+  right: -53px;
+	opacity: 0.3;
+}
+
+.mkCoinWallpaper {
+  position: fixed;
+	width: 7%;
+	height: auto;
+  bottom: 710px;
+  right: 25px;
+	opacity: 0.5;
+}
+
+.streetFighterWallpaper {
+  position: absolute;
+	width: 6%;
+	height: auto;
+  bottom: 72px;
+  right: 25px;
+	opacity: 0.5;
+}
+
 .welcome {
   color:white
 }
@@ -18,21 +55,11 @@
     font-style: italic;
     font-weight: bold;
     color:#E1B400;
-    padding-top:30px;
+    padding-top:2px;
+    padding-left: 10px;
 }
 
 #crewInfo {
     color:white;
-}
-
-#dialogCrewNames {
-  font-style: italic;
-  font-weight: bold;
-  color:orange;
-  padding-top:36px;
-  text-align: center;
-}
-
-#dialogCrewInfo {
-    text-align: center;
+    padding-left: 50px;
 }

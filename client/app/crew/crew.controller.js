@@ -13,7 +13,7 @@ angular.module('mvogamesJsApp')
     };
 
     $scope.getLeaderName = function(crew) {
-      return crew.leader.firstName + " " + crew.leader.lastName;
+      return crew.leader.firstName + ' ' + crew.leader.lastName;
     };
 
     $scope.getApplicantsCount = function(crew) {
@@ -22,6 +22,7 @@ angular.module('mvogamesJsApp')
 
     function DialogController($scope, $mdDialog, crew) {
       if (crew !== null) {
+        $scope.crewLeader = crew.leader;
         $scope.crewMembers = crew.users;
         $scope.crewApplicants = crew.applicants;
       }
@@ -33,7 +34,7 @@ angular.module('mvogamesJsApp')
     $scope.showMembersDialog = function(chosenCrew, ev) {
       $mdDialog.show({
         controller: DialogController,
-        templateUrl: '/app/crew/dialogTemplate.html',
+        templateUrl: 'app/crew/dialogTemplate.html',
         parent: angular.element(document.body),
         targetEvent: ev,
         locals: {
@@ -42,5 +43,4 @@ angular.module('mvogamesJsApp')
         clickOutsideToClose: false
       });
     };
-
   });

@@ -23,6 +23,15 @@ angular.module('mvogamesJsApp')
       $scope.editingUser = undefined;
     };
 
+
+    $scope.editOrder = function(orders){
+      $scope.editingUserOrder = orders;
+    };
+
+    $scope.unduEditOrder = function(){
+      $scope.editingUserOrder = undefined;
+    };
+
     //**Updating User**
     $scope.updateUser = function(user, ev){
       var confirm = $mdDialog.confirm()
@@ -69,33 +78,5 @@ angular.module('mvogamesJsApp')
       });
       };
 
-
-  //**Deleting Item in cart from User**
-  $scope.deleteGameItemFromUser = function(items, ev){
-    var confirm = $mdDialog.confirm()
-    .title('Delete Item from User')
-    .textContent('Are you sure you want to delete: ' + items.game.title)
-    .ariaLabel('Delete')
-    .targetEvent(ev)
-    .openFrom('#left')
-    .ok('YES, I am sure!')
-    .cancel('No');
-    $mdDialog.show(confirm).then(function(){
-      _.remove($scope.editingUser.shoppingCartItems, function(u){
-        return u._id === items._id;
-      });
-      UserService.update({
-        id: $scope.editingUser._id
-      }, $scope.editingUser, function(item){
-        $scope.editingUser = item;
-        var toast = $mdToast.simple()
-        .textContent(items.game.title + ' was deleted')
-        .action('Ok')
-        .highlightAction(false)
-        .position('top');
-        $mdToast.show(toast);
-      });
-    });
-  };
 
     });

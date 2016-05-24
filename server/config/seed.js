@@ -293,13 +293,29 @@ Game.find({}).removeAsync()
               _id: '5726edd9ea894ae41c83091d'
             }],
             gameSuggestions: [{
-              discount: 5,
+              discount: 0,
               expiration: new Date('2017-10-10'),
               game: {
                 _id: '5726edd9eah7kj341c83091e'
               }, platform:{
                 name:'Playstation 4',
                 price: '300'
+              },
+              users: [{
+                _id: '57304deab36dc6042532eecg',
+                confirmed: 'true'
+              }, {
+                _id: '5726edd9ea894ae41c83091j',
+                confirmed: 'true'
+              }]
+            },{
+              discount: 0,
+              expiration: new Date('2017-09-01'),
+              game: {
+                _id: '5726edd9eah7kj341c83091e'
+              }, platform:{
+                name:'PC',
+                price: '450'
               },
               users: [{
                 _id: '57304deab36dc6042532eecg',

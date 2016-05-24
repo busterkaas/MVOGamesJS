@@ -1,5 +1,7 @@
 <navbar></navbar>
 
+<img src="assets/images/1up.png" class="gameBackgroundLogo">
+
 <div class="headerDiv"><h1>There are currently {{Crews.length}} crews on MVO Games</h1></div>
     <md-list>
       <md-list-item class="md-3-line" ng-repeat="crew in Crews" ng-click="showMembersDialog(crew, $event)">
@@ -9,13 +11,13 @@
 <img  class="iconify" src="{{crew.crewImgUrl}}"></img>
 </div>
 <div flex>
-        <h3 id="crewNames">crew tag : {{crew.name}}</h3>
+        <h3 id="crewNames">crew tag : {{crew.name}}<i class="fa fa-cog fa-spin fa-3x fa-fw"></i></h3>
 
   <ul id="crewInfo">
    <li>leader name : <font color="orange">{{getLeaderName(crew)}}</font></li>
    <li>members count : <font color="orange">{{getMembersCount(crew)}}</font></li>
    <li>applicants count : <font color="orange">{{getApplicantsCount(crew)}}</font></li>
- </ul>
+    </ul>
 
 </div>
     </div>

@@ -29,7 +29,6 @@ module.exports = function(grunt) {
 
     // Project settings
     pkg: grunt.file.readJSON('package.json'),
-
     yeoman: {
       // configurable paths
       client: require('./bower.json').appPath || 'client',

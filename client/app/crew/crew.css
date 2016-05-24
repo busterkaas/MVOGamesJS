@@ -1,3 +1,12 @@
+.gameBackgroundLogo {
+  position: fixed;
+	width: 1900px;
+	height: 1060px;
+  bottom: -1;
+  right: 0;
+	opacity: 0.1;
+}
+
 .welcome {
   color:white
 }
@@ -18,21 +27,9 @@
     font-style: italic;
     font-weight: bold;
     color:#E1B400;
-    padding-top:30px;
+    padding-top:2px;
 }
 
 #crewInfo {
     color:white;
-}
-
-#dialogCrewNames {
-  font-style: italic;
-  font-weight: bold;
-  color:orange;
-  padding-top:36px;
-  text-align: center;
-}
-
-#dialogCrewInfo {
-    text-align: center;
 }

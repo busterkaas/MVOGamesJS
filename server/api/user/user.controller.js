@@ -4,6 +4,27 @@ import User from './user.model';
 import passport from 'passport';
 import config from '../../config/environment';
 import jwt from 'jsonwebtoken';
+import _ from 'lodash';
+
+function responseWithResult(res, statusCode) {
+  statusCode = statusCode || 200;
+  return function(entity) {
+    if (entity) {
+      res.status(statusCode).json(entity);
+    }
+  };
+}
+
+function handleEntityNotFound(res) {
+  return function(entity) {
+    if (!entity) {
+      res.status(404).end();
+      return null;
+    }
+    return entity;
+  };
+}
+
 
 function validationError(res, statusCode) {
   statusCode = statusCode || 422;
@@ -47,10 +68,14 @@ export function create(req, res, next) {
   newUser.role = 'user';
   newUser.saveAsync()
     .spread(function(user) {
-      var token = jwt.sign({ _id: user._id }, config.secrets.session, {
+      var token = jwt.sign({
+        _id: user._id
+      }, config.secrets.session, {
         expiresIn: 60 * 60 * 5
       });
-      res.json({ token });
+      res.json({
+        token
+      });
     })
     .catch(validationError(res));
 }
@@ -59,16 +84,10 @@ export function create(req, res, next) {
  * Get a single user
  */
 export function show(req, res, next) {
-  var userId = req.params.id;
-
-  User.findByIdAsync(userId)
-    .then(user => {
-      if (!user) {
-        return res.status(404).end();
-      }
-      res.json(user.profile);
-    })
-    .catch(err => next(err));
+  User.findByIdAsync(req.params.id)
+    .then(handleEntityNotFound(res))
+    .then(responseWithResult(res))
+    .catch(handleError(res));
 }
 
 /**
@@ -106,13 +125,37 @@ export function changePassword(req, res, next) {
     });
 }
 
+function saveUpdates(updates) {
+  return function(entity) {
+    var updated = _.assign(entity, updates);
+    return updated.saveAsync()
+      .spread(updated => {
+        return updated;
+      });
+  };
+}
+
+// Updates an existing User in the DB
+export function update(req, res) {
+  if (req.body._id) {
+    delete req.body._id;
+  }
+  User.findByIdAsync(req.params.id)
+    .then(handleEntityNotFound(res))
+    .then(saveUpdates(req.body))
+    .then(responseWithResult(res))
+    .catch(handleError(res));
+}
+
 /**
  * Get my info
  */
 export function me(req, res, next) {
   var userId = req.user._id;
 
-  User.findOneAsync({ _id: userId }, '-salt -password')
+  User.findOneAsync({
+      _id: userId
+    }, '-salt -password')
     .then(user => { // don't ever give out the password or salt
       if (!user) {
         return res.status(401).end();

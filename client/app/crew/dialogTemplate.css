@@ -1,0 +1,12 @@
+#dialogCrewNames {
+  font-style: italic;
+  font-weight: bold;
+  color:orange;
+  padding-top:36px;
+  text-align: center;
+}
+
+#dialogCrewInfo {
+  color:black;
+    text-align: center;
+}

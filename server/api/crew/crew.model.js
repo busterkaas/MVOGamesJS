@@ -17,6 +17,13 @@ var CrewSchema = new mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: 'User'
   }],
+  crewMessages:[{
+    user:{
+      type: mongoose.Schema.ObjectId,
+      ref: 'User'
+    },
+    message:String,
+  }],
   gameSuggestions: [{
     discount: Number,
     expiration: Date,

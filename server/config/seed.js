@@ -324,17 +324,29 @@ Game.find({}).removeAsync()
                 _id: '5726edd9ea894ae41c83091j',
                 confirmed: 'true'
               }]
-            }]
+            }], crewMessages:[
+              {
+                user:'5726edd9ea894ae41c83091j',
+                message: 'Hello'
+              },
+              {
+                user:'57304deab36dc6042532eecg',
+                message: 'Hello'
+                },
+                {
+                  user:'5726edd9ea894ae41c83091j',
+                  message: 'Whats up maaan'
+                }]
           }, {
             name: 'Esbjerg Homies',
             crewImgUrl: 'http://prod.cloud.rockstargames.com/crews/sc/1510/10088/publish/emblem/emblem_128.png',
-            leader: '5726edd9ea894ae41c83091a',
+            leader: '5726edd9ea333ae55c83091a',
             users: [{
               _id: '5726edd9ea894ae41c83091f'
             }, {
               _id: '5726edd9ea894ae41c83091d'
             }, {
-              _id: '5726edd9ea894ae41c83091a'
+              _id: '5726edd9ea333ae55c83091a'
             }, {
               _id: '57304deab36dc6042532eecg'
             }],
@@ -358,13 +370,13 @@ Game.find({}).removeAsync()
           }, {
             name: 'MVO',
             crewImgUrl: 'http://prod.cloud.rockstargames.com/crews/sc/1510/10088/publish/emblem/emblem_128.png',
-            leader: '5726edd9ea894ae41c83091a',
+            leader: '5726edd9ea333ae55c83091a',
             users: [{
               _id: '5726edd9ea894ae41c83091f'
             }, {
               _id: '5726edd9ea894ae41c83091d'
             }, {
-              _id: '5726edd9ea894ae41c83091a'
+              _id: '5726edd9ea333ae55c83091a'
             }],
             applicants: [{
               _id: '5726edd9ea894ae41c83091j'

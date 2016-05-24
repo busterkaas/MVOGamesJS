@@ -135,7 +135,7 @@ export function update(req, res) {
     delete req.body._id;
   }
   User.findById(req.params.id)
-    .populate('addresses shoppingCartItems shoppingCartItems.game shoppingCartItems.platform')
+    .populate('shoppingCartItems.game')
     .execAsync()
     .then(handleEntityNotFound(res))
     .then(saveUpdates(req.body))

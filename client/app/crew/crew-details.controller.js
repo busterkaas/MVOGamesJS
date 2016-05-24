@@ -1,9 +1,10 @@
 'use strict';
 
 angular.module('mvogamesJsApp')
-  .controller('CrewDetailsCtrl', function($scope, $stateParams, CrewService, $mdDialog, Auth, $mdToast) {
+  .controller('CrewDetailsCtrl', function(socket, $scope, $stateParams, CrewService, $mdDialog, Auth, $mdToast) {
 
 $scope.gameSugSelected = undefined;
+$scope.newComment;
 
 Auth.getCurrentUser(function(user){
     $scope.me = user;
@@ -11,7 +12,23 @@ Auth.getCurrentUser(function(user){
 
 CrewService.get({id:$stateParams.id}, function(crew){
   $scope.crew = crew;
-})
+  socket.syncUpdates('crew', $scope.crews);
+
+});
+
+$scope.addComment = function(){
+  console.log('here');
+  if($scope.newComment!=null){
+    var crewMessage = {
+      user:$scope.me,
+      message: $scope.newComment
+    };
+    console.log(crewMessage);
+    $scope.crew.crewMessages.push(crewMessage);
+  };
+  console.log('no comment');
+  $scope.newComment = undefined;
+}
 
 $scope.isCrewLeader = function(){
   if($scope.crew.crewleader._id===$scope.me._id){

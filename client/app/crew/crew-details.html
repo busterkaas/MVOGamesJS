@@ -18,7 +18,7 @@
       </div>
       <md-divider class="listDevider"></md-divider>
       <div flex="20">
-      <md-button class="md-icon-button" ng-click="deleteUserFromCrew(user)">
+      <md-button aria-label="btn delete user from crew" class="md-icon-button" ng-click="deleteUserFromCrew(user)">
         <i class="fa fa-minus-circle"></i>
       </md-button>
       </div>
@@ -33,10 +33,10 @@
         </div>
         <md-divider class="listDevider"></md-divider>
         <div flex="20" layout="row">
-          <md-button class="md-icon-button" ng-click="deleteApplicantFromCrew(user, $event)">
+          <md-button aria-label="remove applicant and deny" class="md-icon-button" ng-click="deleteApplicantFromCrew(user, $event)">
             <i class="fa fa-minus-circle"></i>
           </md-button>
-        <md-button class="md-icon-button" ng-click="acceptCrewApplicant(user, $event)">
+        <md-button aria-label="accept applicant" class="md-icon-button" ng-click="acceptCrewApplicant(user, $event)">
           <i class="fa fa-check-circle-o"></i>
         </md-button>
         </div>
@@ -51,8 +51,43 @@
 
   </div>
 
-  <div class="contentRight" flex="80" layout="row">
-    <div class="msgDiv" flex="60"></div>
+
+
+<div class="contentRight" flex="80" layout="row">
+      <div class="msgDiv" flex="60" layout="column">
+
+        <div class="commentInput">
+          <h1>Chat with crew members</h1>
+        </br>
+      </br>
+          <md-input-container>
+            <label>Please enter comment</label>
+                  <input ng-model="newComment" placeholder=" ">
+          </md-input-container>
+          <i class="fa fa-paper-plane-o sendBtn fa-2x"  ng-click="addComment()" aria-hidden="true"></i>
+        </div>
+
+        <div class="commentfield">
+          <div class="innerCommentField">
+          <div class="comment" ng-repeat="message in crew.crewMessages">
+            <h3>{{message.user.name}} says:</h3>
+            <p>{{message.message}}</p>
+          </div>
+        </div>
+      </div>
+      <div layout="row">
+        <span flex=""></span>
+      <md-button flex="20" class="btnClear">Clear chat</md-button>
+      </div>
+      </div>
+
+
+
+
+
+
+
+
 
     <div class="gameSugDiv" flex="40">
     <div class="gameSugHeader">

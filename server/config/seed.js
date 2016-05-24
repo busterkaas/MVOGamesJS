@@ -285,14 +285,12 @@ Game.find({}).removeAsync()
             users: [{
               _id: '5726edd9ea894ae41c83091j'
             }, {
-              _id: '5726edd9ea894ae41c83091a'
+              _id: '57304deab36dc6042532eecg'
             }],
             applicants: [{
               _id: '5726edd9ea894ae41c83091f'
             }, {
               _id: '5726edd9ea894ae41c83091d'
-            }, {
-              _id: '57304deab36dc6042532eecg'
             }],
             gameSuggestions: [{
               discount: 5,
@@ -304,7 +302,7 @@ Game.find({}).removeAsync()
                 price: '300'
               },
               users: [{
-                _id: '5726edd9ea894ae41c83091f',
+                _id: '57304deab36dc6042532eecg',
                 confirmed: 'false'
               }, {
                 _id: '5726edd9ea894ae41c83091j',

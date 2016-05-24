@@ -32,13 +32,11 @@ font-size: 1.5rem;
   color: #FF471a;
 }
 
+.sCon{
+  width: 100%;
+}
 
 
 .jumbotron h2{
   text-align: center;
-}
-
-.container{
-  width: 100%;
-
 }

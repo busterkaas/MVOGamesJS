@@ -1,5 +1,7 @@
 .crewDetailContent{
+  min-height: 1000px;
   border-top: 1px solid #ff471a;
+  border-bottom: 1px solid #ff471a;
 }
 
 .contentLeft{
@@ -21,13 +23,38 @@
 }
 
 .gameListItem{
-  margin: 0 10px;
+
+  margin: 2px 10px;
   background-color: rgba(255, 71, 26, 0.6);
 }
 
 .gameListItemSelected{
     padding: 20px;
+    margin: 0 10px;
     background-color: rgba(255, 71, 26, 0.6);
+}
+.userItem{
+  background-color: rgba(255, 71, 26, 0.6);
+}
+
+.red{
+  background-color:red;
+
+  font-size: 25px;
+}
+.red:hover{
+  box-shadow: 0 0 5px red, 0 0 10px red, 0 0 15px red, 0 0 20px red, 0 0 35px red, 0 0 40px red, 0 0 50px red, 0 0 75px red;
+background-color: red;
+  font-size: 25px;
+}
+.gameSugDiv{
+    background-color: rgba(26, 26, 26,0.8);
+}
+
+.seeUsers{
+  font-size: 16px;
+  font-weight: 900;
+  color:black;
 }
 
 #crewDetailImg{

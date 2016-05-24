@@ -251,31 +251,31 @@
             <div layout="row">
               <div flex="5"></div>
               <div flex="90">
-              <label>Date: {{editingUserOrder.date}}</label>
+                <label>Date: {{editingUserOrder.date}}</label>
 
-                  <h2>Orderlines</h2>
+                <h2>Orderlines</h2>
 
-                  <md-list class="bgListHeaderColor">
-                    <div layout="row">
-                      <div flex="30">Game</div>
-                      <div flex="30">Platform</div>
-                      <div flex="20">Amount</div>
-                      <div flex="20">Unit price</div>
-                      <div flex="10">Total</div>
-                    </div>
-                  </md-list>
+                <md-list class="bgListHeaderColor">
+                  <div layout="row">
+                    <div flex="30">Game</div>
+                    <div flex="30">Platform</div>
+                    <div flex="20">Amount</div>
+                    <div flex="20">Unit price</div>
+                    <div flex="10">Total</div>
+                  </div>
+                </md-list>
 
 
-                    <div layout="row">
+                <div layout="row">
                   <md-list-item>
-                      <div flex="30">{{o.game.title}}</div>
-                      <div flex="35">{{o.platform.name}}</div>
-                      <div flex="20">{{o.amount}}</div>
-                      <div flex="20">{{o.platform.price}}</div>
-                      <div flex="10">{{o.platform.price * o.amount}}</div>
+                    <div flex="30">{{o.game.title}}</div>
+                    <div flex="35">{{o.platform.name}}</div>
+                    <div flex="20">{{o.amount}}</div>
+                    <div flex="20">{{o.platform.price}}</div>
+                    <div flex="10">{{o.platform.price * o.amount}}</div>
                     <md-divider class="listDevider"></md-divider>
                   </md-list-item>
-                  </div>
+                </div>
                 <br>
                 <div>
                   <div layout="row">
@@ -296,33 +296,16 @@
 
                 </div>
 
-                </div>
-                <div flex="5"></div>
               </div>
+              <div flex="5"></div>
+            </div>
           </md-list>
         </div>
         </div>
         <br>
         <div flex="5"></div>
-        <div layout="row">
-          <div flex="45"></div>
-          <div flex="10">
-            <div class="container">
-              <div class="circle lg">
-                <div class="circle md">
-                  <div class="circle sm">
-                    <div class="circle smlr">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <span id="loading">Loading...</span>
-            </div>
-          </div>
-          <div flex="45"></div>
-        </div>
-        </div>
       </div>
     </div>
+  </div>
 
-    <footer></footer>
+  <footer></footer>

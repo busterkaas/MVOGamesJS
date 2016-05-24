@@ -2,12 +2,97 @@
 <user-navbar></user-navbar>
 
 <div class="headerDiv"><h1>Checkout</h1></div>
-<div ng-repeat="item in me.shoppingCartItems"
-</div>
-<h1>
-{{item.game.title}}
 
-</h1>
+<div layout="row">
+  <div flex=70 class="shoppingCart">
+
+<md-list>
+  <div layout="row">
+  <div style="width:100%;">
+    <div layout="row" class="tableHeader">
+      <md-list-item>
+    <div flex=25>
+      <h2>Game</h2>
+    </div>
+    <div flex=25>
+      <h2>Platform</h2>
+    </div>
+    <div flex=25>
+      <h2>Amount</h2>
+    </div>
+    <div flex=25>
+      <h2>Price</h2>
+    </div>
+  </md-list-item>
 </div>
+</div>
+</div>
+
+<div layout="row">
+<div style="width:100%;">
+<md-list-item  class="tableContent" ng-repeat="item in me.shoppingCartItems" ng-click="gameDetails(item.game)">
+<div flex=25 >
+    {{item.game.title}}
+</div>
+<div flex=25>
+    {{item.platform.name}}
+</div>
+<div flex=25>
+  <md-button ng-click="subtractAmount(item)" class="md-icon-button" aria-label="Open sample menu">
+    <i class="fa fa-minus"></i>
+  </md-button>
+    {{item.amount}}
+    <md-button ng-click="addAmount(item)" class="md-icon-button" aria-label="Open sample menu">
+      <i class="fa fa-plus"></i>
+    </md-button>
+</div>
+<div flex=25 >
+    {{item.platform.price}} kr
+</div>
+</md-list-item>
+<md-list-item class="tableContentSum">
+<div flex=25>
+  Total Price
+</div>
+<div flex=50></div>
+<div flex=25>
+  {{calculateTotalPrice(me)}} kr
+</div>
+</md-list-item>
+
+</div>
+</md-list>
+
+</div>
+<md-button aria-label="Delete game" class="button button-right" ng-click="checkoutShoppingCart()">
+  Checkout
+</md-button>
+</div>
+
+<div flex=30 class="gameDetails">
+  <div ng-if="!viewGameDetails">
+    <div class="noGameSelectedText">Select a game to view details</div>
+  </div>
+
+  <div ng-if="viewGameDetails">
+    <h1 class="gameDetailsTitle specialh4">{{viewGameDetails.title}}</h1>
+    <div layout="row">
+    <img src="{{viewGameDetails.coverUrl}}" class="gameDetailCover">
+    <div class="gameDetailsInfo">{{viewGameDetails.info}}</div>
+  </div>
+
+  </div>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
 
 <footer></footer>

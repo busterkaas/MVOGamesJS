@@ -84,9 +84,24 @@ User.find({}).removeAsync()
           streetName: 'Stormgade',
           houseNumber: '18, 3.th'
         },
-        phoneNumber: 123456789,
+        shoppingCartItems: [{
+          game: '5726edd9eah7kj341c83091e',
+          platform: {
+            name: 'Playstation 4',
+            price: 300
+          },
+          amount: 5
+        }, {
+          game: '5726edd9eah7kj341c83091e',
+          platform: {
+            name: 'PC',
+            price: 450
+          },
+          amount: 1
+        }],
+        phoneNumber: 22335435,
         provider: 'local',
-        name: 'Hardy',
+        name: 'hardydrachmann',
         email: 'hardy@mvo.com',
         password: 'hardy'
       }, {
@@ -100,7 +115,21 @@ User.find({}).removeAsync()
           streetName: 'KillerG',
           houseNumber: '5'
         },
-        shoppingCartItems:[{game:'5726edd9eah7kj341c83091e', platform: {name: 'Playstation 4', price: 300}, amount:5 },{game:'5726edd9eah7kj341c83091e', platform:{name: 'PC', price: 450}, amount:1}],
+        shoppingCartItems: [{
+          game: '5726edd9eah7kj341c83091e',
+          platform: {
+            name: 'Playstation 4',
+            price: 300
+          },
+          amount: 5
+        }, {
+          game: '5726edd9eah7kj341c83091e',
+          platform: {
+            name: 'PC',
+            price: 450
+          },
+          amount: 1
+        }],
         phoneNumber: 25236584,
         provider: 'local',
         name: 'Buster',
@@ -285,26 +314,42 @@ Game.find({}).removeAsync()
             users: [{
               _id: '5726edd9ea894ae41c83091j'
             }, {
-              _id: '5726edd9ea894ae41c83091a'
+              _id: '57304deab36dc6042532eecg'
             }],
             applicants: [{
               _id: '5726edd9ea894ae41c83091f'
             }, {
               _id: '5726edd9ea894ae41c83091d'
-            }, {
-              _id: '57304deab36dc6042532eecg'
             }],
             gameSuggestions: [{
-              discount: 5,
+              discount: 0,
               expiration: new Date('2017-10-10'),
               game: {
                 _id: '5726edd9eah7kj341c83091e'
-              }, platform:{
-                name:'Playstation 4',
+              },
+              platform: {
+                name: 'Playstation 4',
                 price: '300'
               },
               users: [{
-                _id: '5726edd9ea894ae41c83091f',
+                _id: '57304deab36dc6042532eecg',
+                confirmed: 'true'
+              }, {
+                _id: '5726edd9ea894ae41c83091j',
+                confirmed: 'true'
+              }]
+            }, {
+              discount: 0,
+              expiration: new Date('2017-09-01'),
+              game: {
+                _id: '5726edd9eah7kj341c83091e'
+              },
+              platform: {
+                name: 'PC',
+                price: '450'
+              },
+              users: [{
+                _id: '57304deab36dc6042532eecg',
                 confirmed: 'false'
               }, {
                 _id: '5726edd9ea894ae41c83091j',
@@ -314,7 +359,7 @@ Game.find({}).removeAsync()
           }, {
             name: 'Esbjerg Homies',
             crewImgUrl: 'http://prod.cloud.rockstargames.com/crews/sc/1510/10088/publish/emblem/emblem_128.png',
-            leader: '5726edd9ea894ae41c83091a',
+            leader: '5726edd9ea894ae41c83091f',
             users: [{
               _id: '5726edd9ea894ae41c83091f'
             }, {
@@ -344,7 +389,7 @@ Game.find({}).removeAsync()
           }, {
             name: 'MVO',
             crewImgUrl: 'http://prod.cloud.rockstargames.com/crews/sc/1510/10088/publish/emblem/emblem_128.png',
-            leader: '5726edd9ea894ae41c83091a',
+            leader: '57304deab36dc6042532eecg',
             users: [{
               _id: '5726edd9ea894ae41c83091f'
             }, {

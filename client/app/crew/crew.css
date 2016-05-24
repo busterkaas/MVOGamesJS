@@ -1,3 +1,12 @@
+.toadBackgroundLogo {
+  position: absolute;
+	width: 100%;
+	height: 100%;
+  bottom: 540px;
+  right: -3px;
+	opacity: 0.3;
+}
+
 .welcome {
   color:white
 }
@@ -18,21 +27,11 @@
     font-style: italic;
     font-weight: bold;
     color:#E1B400;
-    padding-top:30px;
+    padding-top:2px;
+    padding-left: 10px;
 }
 
 #crewInfo {
     color:white;
-}
-
-#dialogCrewNames {
-  font-style: italic;
-  font-weight: bold;
-  color:orange;
-  padding-top:36px;
-  text-align: center;
-}
-
-#dialogCrewInfo {
-    text-align: center;
+    padding-left: 50px;
 }

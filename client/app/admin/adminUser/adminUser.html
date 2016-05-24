@@ -167,7 +167,7 @@
               <div flex="65">
                 <md-button aria-label="Undo changes" ng-click="undoEditUser()" class="btnGameItem">Cancel</md-button>
                 <md-button aria-label="Save changes" ng-click="updateUser(editingUser, $event)" class="btnGameItem">Save</md-button>
-                <md-button aria-label="Delete Crew" ng-click="deletUser(editingUser, $event)" class="btnGameItem">Delete</md-button>
+                <md-button aria-label="Delete User" ng-click="deletUser(editingUser, $event)" class="btnGameItem">Delete</md-button>
               </div>
               <div flex="10"></div>
             </div>
@@ -180,9 +180,12 @@
             <br>
             <div layout="row" style="border-bottom: 1px solid #cdd0d4;" class="bgListHeaderColor">
               <div flex="5"></div>
-              <div flex="35"><h3>Game Title</h3></div>
-              <div flex="25"><h3>Genre</h3></div>
-              <div flex="20"><h3>Amount</h3></div>
+              <div flex="35">
+                <h3>Game Title</h3></div>
+              <div flex="25">
+                <h3>Genre</h3></div>
+              <div flex="20">
+                <h3>Amount</h3></div>
               <div flex="5"></div>
             </div>
 
@@ -191,9 +194,15 @@
               <md-list ng-repeat="items in editingUser.shoppingCartItems">
                 <div layout="row">
                   <div flex="5"></div>
-                  <div flex="35"><p>{{ items.game.title }}</p></div>
-                  <div flex="25"><p>{{items.platform.name}}</p></div>
-                  <div flex="20"><p>{{items.amount}}</p></div>
+                  <div flex="35">
+                    <p>{{ items.game.title }}</p>
+                  </div>
+                  <div flex="25">
+                    <p>{{items.platform.name}}</p>
+                  </div>
+                  <div flex="20">
+                    <p>{{items.amount}}</p>
+                  </div>
                   <div flex="5">
                     <md-button ng-click="deleteGameItemFromUser(items)">
                       <i class="glyphicon glyphicon-trash mousePointer"></i>
@@ -209,56 +218,111 @@
             <br>
             <div layout="row" style="border-bottom: 1px solid #cdd0d4;" class="bgListHeaderColor">
               <div flex="5"></div>
-              <div flex="30"><h3>Game Title</h3></div>
-              <div flex="15"><h3>Genre</h3></div>
-              <div flex="15"><h3>Amount</h3></div>
-              <div flex="25"><h3>Date</h3></div>
+              <div flex="40">
+                <h3>Date</h3></div>
+              <div flex="">
+                <h3>Game Title</h3></div>
               <div flex="5"></div>
             </div>
+        </form>
+        <br>
+        <br>
+        <br>
+        <md-list ng-repeat="ol in userOrders" ng-if="!editingUserOrder" ng-click="editOrder(ol)" class="mousePointer">
+          <div layout="row">
+            <md-list-item ng-repeat="o in ol.orderlines">
 
-            <br>
-            <div ng-repeat="ol in userOrders">
-              <md-list ng-repeat="o in ol.orderlines">
-                <div layout="row">
-                  <div flex="5"></div>
-                  <div flex="30"><p>{{ o.game.title }}</p></div>
-                  <div flex="20"><p>{{ o.platform.name }}</p></div>
-                  <div flex="10"><p>{{ o.amount }}</p></div>
-                  <div flex="25"><p>{{ ol.date }}</p></div>
-                  <div flex="5">
-                    <md-button ng-click="">
-                      <i class="glyphicon glyphicon-trash mousePointer"></i>
-                    </md-button></div>
-                </div>
-                <md-divider class="userListDevider"></md-divider>
-              </md-list>
-            </div>
+              <div flex="5"></div>
+              <div flex="40">
+                <p>{{ ol.date }}</p>
+              </div>
+              <div flex="">
+                <p>{{ o.game.title }}</p>
+              </div>
+              <div flex="5"></div>
+              <md-divider class="userListDevider"></md-divider>
+            </md-list-item>
 
+          </div>
+        </md-list>
 
-            <br>
+        <div ng-if="editingUserOrder" class="gamesuggBG">
+          <md-list ng-repeat="o in editingUserOrder.orderlines">
             <div layout="row">
-              <div flex="45"></div>
-              <div flex="10">
-                <div class="container">
-                  <div class="circle lg">
-                    <div class="circle md">
-                      <div class="circle sm">
-                        <div class="circle smlr">
-                        </div>
-                      </div>
+              <div flex="5"></div>
+              <div flex="90">
+              <label>Date: {{editingUserOrder.date}}</label>
+
+                  <h2>Orderlines</h2>
+
+                  <md-list class="bgListHeaderColor">
+                    <div layout="row">
+                      <div flex="30">Game</div>
+                      <div flex="30">Platform</div>
+                      <div flex="20">Amount</div>
+                      <div flex="20">Unit price</div>
+                      <div flex="10">Total</div>
+                    </div>
+                  </md-list>
+
+
+                    <div layout="row">
+                  <md-list-item>
+                      <div flex="30">{{o.game.title}}</div>
+                      <div flex="35">{{o.platform.name}}</div>
+                      <div flex="20">{{o.amount}}</div>
+                      <div flex="20">{{o.platform.price}}</div>
+                      <div flex="10">{{o.platform.price * o.amount}}</div>
+                    <md-divider class="listDevider"></md-divider>
+                  </md-list-item>
+                  </div>
+                <br>
+                <div>
+                  <div layout="row">
+                    <div flex="45"></div>
+                    <div flex="">
+                      <label>Comment</label>
                     </div>
                   </div>
-                  <span id="loading">Loading...</span>
+                  <textarea disabled>{{editingUserOrder.comment}}</textarea>
+                </div>
+
+                <br>
+                <div layout="row">
+                  <div flex="45"></div>
+                  <div flex="">
+                    <md-button class="btnGameItem" ng-click="unduEditOrder()">Hide</md-button>
+                  </div>
+
+                </div>
+
+                </div>
+                <div flex="5"></div>
+              </div>
+          </md-list>
+        </div>
+        </div>
+        <br>
+        <div flex="5"></div>
+        <div layout="row">
+          <div flex="45"></div>
+          <div flex="10">
+            <div class="container">
+              <div class="circle lg">
+                <div class="circle md">
+                  <div class="circle sm">
+                    <div class="circle smlr">
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div flex="45"></div>
+              <span id="loading">Loading...</span>
             </div>
-        </form>
-
+          </div>
+          <div flex="45"></div>
         </div>
-        <div flex="5"></div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <footer></footer>
+    <footer></footer>

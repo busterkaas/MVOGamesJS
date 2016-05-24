@@ -1,66 +1,66 @@
-.adminSubhead{
+.adminSubhead {
   background-color: inherit;
-  color:white;
+  color: white;
 }
-
-.adminUserItem{
-  background-color:  rgba(50, 50, 50, 0.3);
-  color:white;
+.adminUserItem {
+  background-color: rgba(50, 50, 50, 0.3);
+  color: white;
 }
-.editLabelColor{
-  color:white;
+.editLabelColor {
+  color: white;
 }
-
-.listDevider{
+.listDevider {
   background-color: black;
-  color:black;
+  color: black;
 }
-
-.imgContainer{
+.imgContainer {
   max-height: auto;
   max-width: 90px;
-  margin:4px;
+  margin: 4px;
   padding-right: 20px;
 }
-
-.agImg{
-  max-width:100%;
-  max-height:auto;
+.agImg {
+  max-width: 100%;
+  max-height: auto;
 }
-.btnAdmin{
+.btnAdmin {
   background-color: rgba(255, 71, 26, 0.5);
 }
-
-.bgInherit{
+.bgInherit {
   background-color: inherit;
 }
-
-.bgEdit{
+.bgEdit {
   background-color: rgba(255, 71, 26, 0.7);
-    opacity: 0.7;
+  opacity: 0.7;
 }
-
-.editLabel{
+.editLabel {
   width: 200px;
   color: red;
 }
-
-.bgListHeaderColor{
+.bgListHeaderColor {
   background-color: rgba(255, 71, 26, 0.7);
   border-bottom-style: double;
 }
-
-.frontListHeaderColor{
+.frontListHeaderColor {
   color: black;
   font-weight: bold;
 }
-
-.userBG{
+.userBG {
   background-color: rgba(255, 71, 26, 0.7);
   opacity: 0.9;
 }
-
-.userListDevider{
+.userListDevider {
   background-color: rgba(255, 71, 26, 0.7);
-  color:black;
+  color: black;
+}
+
+textarea {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: black;
+  width: 500px;
+  height: 200px;
+  background-color: rgba(255, 71, 26, 0.7);
+  resize: none;
 }

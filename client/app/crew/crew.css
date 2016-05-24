@@ -1,10 +1,19 @@
-.toadBackgroundLogo {
-  position: absolute;
+.skeletonBackgroundLogo {
+  position: fixed;
 	width: 100%;
 	height: 100%;
-  bottom: 540px;
+  bottom: 450px;
   right: -3px;
-	opacity: 0.3;
+	opacity: 0.7;
+}
+
+.fireBackgroundLogo {
+  position: fixed;
+	width: 90%;
+	height: 90%;
+  top: -490px;
+  right: -750px;
+	opacity: 0.4;
 }
 
 .welcome {

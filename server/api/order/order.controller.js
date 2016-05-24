@@ -81,6 +81,13 @@ export function create(req, res) {
     .catch(handleError(res));
 }
 
+export function getOrderByUser (req, res) {
+  Order.find({'user':req.params.id})
+    .populate('orderlines orderlines.game')
+    .execAsync()
+    .then(responseWithResult(res))
+    .catch(handleError(res));
+}
 // Updates an existing Order in the DB
 export function update(req, res) {
   if (req.body._id) {

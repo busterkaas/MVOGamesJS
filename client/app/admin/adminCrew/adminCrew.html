@@ -94,7 +94,7 @@
 
       <md-list>
       <label>Games suggestion: </label>
-        <md-list-item ng-repeat="gamesugg in editingCrew.gameSuggestions" ng-click="editGameSuggestion(gamesugg)"  name="CrewGameSuggestion" class="mousePointer">
+        <md-list-item ng-repeat="gamesugg in editingCrew.gameSuggestions" ng-if="!editingCrewGameSuggestion" ng-click="editGameSuggestion(gamesugg)"  name="CrewGameSuggestion" class="mousePointer">
           <p>{{gamesugg.game.title}}</p>
         </md-list-item>
       </md-list>
@@ -103,7 +103,8 @@
         <div layout="row">
           <div flex="5"></div>
           <div flex="90">
-
+            <br>
+            <label>Game: {{editingCrewGameSuggestion.game.title}}</label>
         <br>
         <label>Expire date: </label>
         <md-datepicker class="bgInherit" ng-model="gamesugg.expiration" md-placeholder="Enter date" ng-change="expireDate.expiration = dt.toString()">
@@ -120,14 +121,14 @@
             </div>
         </md-input-container>
 
-        <md-list>
+
           <div layout="row">
             <div flex="65"><label>Username</label></div>
           <div flex=""><label>Confirmed</label></div>
         </div>
           <md-list-item ng-repeat="user in gamesugg.users">
-            <p ng-model="user.name"></p>
-            <p>{{user.name}}</p>
+            <p ng-model="user.user.name"></p>
+            <p>{{user.user.name}}</p>
           <md-divider class="listDevider"></md-divider>
           <label>
             <input type="checkbox" ng-model="user.confirmed" class="mousePointer">
@@ -135,8 +136,7 @@
             <md-button  ng-click="deleteUserFromGameSuggestion(user)">
               <i class="glyphicon glyphicon-trash"></i>
             </md-button>
-          </md-list-item>
-        </md-list>
+        </md-list-item>
         <md-button class="btnGameItem" ng-click="undoEditGameSuggestion()">Hide</md-button>
     </div>
       <div flex="5"></div>

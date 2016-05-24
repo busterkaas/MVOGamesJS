@@ -53,6 +53,8 @@ function responseWithResult(res, statusCode) {
  */
 export function index(req, res) {
   User.find({}, '-salt -password')
+  .populate('shoppingCartItems shoppingCartItems.game')
+  .execAsync()
     .then(users => {
       res.status(200).json(users);
     })
@@ -132,8 +134,8 @@ export function update(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
-  User.findByIdAsync(req.params.id)
-    .populate('addresses shoppingCartItems platform')
+  User.findById(req.params.id)
+    .populate('addresses shoppingCartItems shoppingCartItems.game shoppingCartItems.platform')
     .execAsync()
     .then(handleEntityNotFound(res))
     .then(saveUpdates(req.body))
@@ -157,7 +159,7 @@ function saveUpdates(updates) {
 export function me(req, res, next) {
   var userId = req.user._id;
 
-  User.findOne({ _id: userId }, '-salt -password').populate('shoppingCartItem.game').execAsync()
+  User.findOne({ _id: userId }, '-salt -password').populate('shoppingCartItems.game').execAsync()
     .then(user => { // don't ever give out the password or salt
       if (!user) {
         return res.status(401).end();

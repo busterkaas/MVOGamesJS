@@ -9,4 +9,5 @@ angular.module('mvogamesJsApp')
         controller: 'AdminOrderCtrl',
         authenticate: 'admin'
       });
+
   });

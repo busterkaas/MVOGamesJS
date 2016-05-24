@@ -6,6 +6,7 @@ angular.module('mvogamesJsApp')
     CrewService.query(function(crews){
       $scope.Crews = crews;
       socket.syncUpdates('crew', $scope.Crews);
+      console.log('all crews', crews);
     });
 
     $scope.editCrew = function(crew){

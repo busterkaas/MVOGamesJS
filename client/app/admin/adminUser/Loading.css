@@ -63,3 +63,26 @@ html {
     transform: rotate(-359deg);
   }
 }
+
+/***
+/*Dette kode skal i html, hvis du vil have en loading
+/***
+/*
+<div layout="row">
+  <div flex="45"></div>
+  <div flex="10">
+    <div class="container">
+      <div class="circle lg">
+        <div class="circle md">
+          <div class="circle sm">
+            <div class="circle smlr">
+            </div>
+          </div>
+        </div>
+      </div>
+      <span id="loading">Loading...</span>
+    </div>
+  </div>
+  <div flex="45"></div>
+</div>
+*/

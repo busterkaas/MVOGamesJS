@@ -4,7 +4,6 @@
 
 #banner {
   border-bottom: none;
-  margin-top: -20px;
 }
 
 #banner h1 {
@@ -20,8 +19,4 @@
   text-align: center;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
   background: #0B323E;
-}
-
-.navbar-text {
-  margin-left: 15px;
 }

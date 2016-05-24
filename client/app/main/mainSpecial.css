@@ -1,0 +1,42 @@
+.slideSize{
+  width: 100%;
+}
+
+.imageContent{
+  padding-top: 50px;
+  padding-bottom: 40px;
+  text-align: center;
+  color: white;
+  width: 100%;
+  background-color: black;
+}
+
+.jumbotron{
+float: left;
+font-size: 1.5rem;
+  margin: 30px 30px;
+}
+
+.jumbotron1{
+  background: #801a00;
+
+}
+
+.jumbotron2{
+  background: #000000;
+  color: white;
+}
+
+.jumbotron2 h2{
+  background: #000000;
+  color: #FF471a;
+}
+
+.sCon{
+  width: 100%;
+}
+
+
+.jumbotron h2{
+  text-align: center;
+}

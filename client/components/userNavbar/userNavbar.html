@@ -1,3 +1,5 @@
+
+
 <nav class="navbar navbar-default adminNavbar">
   <div class="container">
 
@@ -11,10 +13,9 @@
             <a ng-click="goToState(item)">{{item.title}}</a>
           </li>
         </ul>
-
-        <ul class="nav navbar-nav navRight">
+        <ul class="nav navbar-nav">
           <li ui-sref-active="active">
-            <a ng-click="checkout()">Checkout</a>
+            <a ng-click="checkout()">Checkout ({{itemsCount()}})</a>
           </li>
         </ul>
 

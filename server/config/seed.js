@@ -9,6 +9,7 @@ import Game from '../api/game/game.model';
 import Crew from '../api/crew/crew.model';
 import Order from '../api/order/order.model';
 
+
 User.find({}).removeAsync()
   .then(() => {
     User.createAsync({
@@ -29,28 +30,28 @@ User.find({}).removeAsync()
         firstName: 'Tasin',
         lastName: 'Akdeniz',
         bDay: 2016,
-        addresses: [{
+        addresses: {
           city: 'Varde',
           zipCode: 1234,
           streetName: 'Vardevej',
           houseNumber: '123'
-        }],
+        },
         phoneNumber: 99887766,
         provider: 'local',
         name: 'Tasin',
         email: 'tasin@mvo.com',
         password: 'tasin'
       }, {
-        _id: '5726edd9ea894ae41c83091a',
+        _id: '5726edd9ea333ae55c83091a',
         firstName: 'Kennie',
         lastName: 'Anker',
         bDay: 1992,
-        addresses: [{
+        addresses: {
           city: 'Esbjerg',
           zipCode: 6700,
           streetName: 'ST136',
           houseNumber: '136'
-        }],
+        },
         phoneNumber: 20361212,
         provider: 'local',
         name: 'Kennie',
@@ -61,12 +62,12 @@ User.find({}).removeAsync()
         firstName: 'Dennis',
         lastName: 'PP',
         bDay: 1991,
-        addresses: [{
+        addresses: {
           city: 'Esbjerg',
           zipCode: 6700,
           streetName: 'ST108',
           houseNumber: '108'
-        }],
+        },
         phoneNumber: 10101010,
         provider: 'local',
         name: 'Dennis',
@@ -77,15 +78,30 @@ User.find({}).removeAsync()
         firstName: 'Hardy',
         lastName: 'Drachmann',
         bDay: 1981,
-        addresses: [{
+        addresses: {
           city: 'Esbjerg',
           zipCode: 6700,
           streetName: 'Stormgade',
           houseNumber: '18, 3.th'
+        },
+        shoppingCartItems: [{
+          game: '5726edd9eah7kj341c83091e',
+          platform: {
+            name: 'Playstation 4',
+            price: 300
+          },
+          amount: 5
+        }, {
+          game: '5726edd9eah7kj341c83091e',
+          platform: {
+            name: 'PC',
+            price: 450
+          },
+          amount: 1
         }],
-        phoneNumber: 123456789,
+        phoneNumber: 22335435,
         provider: 'local',
-        name: 'Hardy',
+        name: 'hardydrachmann',
         email: 'hardy@mvo.com',
         password: 'hardy'
       }, {
@@ -93,11 +109,26 @@ User.find({}).removeAsync()
         firstName: 'Buster',
         lastName: 'Kaas',
         bDay: 1980,
-        addresses: [{
+        addresses: {
           city: 'KBH',
           zipCode: 3000,
           streetName: 'KillerG',
           houseNumber: '5'
+        },
+        shoppingCartItems: [{
+          game: '5726edd9eah7kj341c83091e',
+          platform: {
+            name: 'Playstation 4',
+            price: 300
+          },
+          amount: 5
+        }, {
+          game: '5726edd9eah7kj341c83091e',
+          platform: {
+            name: 'PC',
+            price: 450
+          },
+          amount: 1
         }],
         phoneNumber: 25236584,
         provider: 'local',
@@ -116,7 +147,7 @@ Game.find({}).removeAsync()
       gameArray.push({
         title: 'Battlefield 4',
         info: 'Be a soldier and compete against your opponents in this realistic war game',
-        releaseDate: new Date(2010, 10, 10),
+        releaseDate: new Date('2010, 10, 10'),
         coverUrl: 'http://static.europosters.cz/image/750/plakater/battlefield-4-cover-i14536.jpg',
         trailerUrl: 'https://www.youtube.com/embed/JOddp-nlNvQ',
 
@@ -143,7 +174,7 @@ Game.find({}).removeAsync()
       gameArray.push({
         title: 'GTA V',
         info: 'Go crazy ín los santos!! The city of oppotunities.',
-        releaseDate: new Date(2012, 11, 11),
+        releaseDate: new Date('2012, 11, 11'),
         coverUrl: 'http://media.rockstargames.com/rockstargames/img/global/news/upload/actual_1364906194.jpg',
         trailerUrl: 'https://www.youtube.com/embed/JOddp-nlNvQ',
 
@@ -165,7 +196,7 @@ Game.find({}).removeAsync()
       gameArray.push({
         title: 'Rainbow Six - Siege',
         info: 'Become an terrorist or fight the terrorrists in this new and exiting FPS game.',
-        releaseDate: new Date(2016, 1, 1),
+        releaseDate: new Date('2016, 1, 1'),
         coverUrl: 'https://upload.wikimedia.org/wikipedia/en/4/47/Tom_Clancy%27s_Rainbow_Six_Siege_cover_art.jpg',
         trailerUrl: 'https://www.youtube.com/embed/JOddp-nlNvQ',
 
@@ -200,7 +231,7 @@ Game.find({}).removeAsync()
         _id: '5726edd9eah7kj341c83091e',
         title: 'Rocket league',
         info: 'Very very nice game',
-        releaseDate: new Date(2000, 1, 1),
+        releaseDate: new Date('2000, 1, 1'),
         coverUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Rocket_League_coverart.jpg',
         trailerUrl: 'https://youtu.be/hT21dzS-IQ4',
 
@@ -231,7 +262,7 @@ Game.find({}).removeAsync()
     Order.find({}).removeAsync()
       .then(() => {
         Order.createAsync({
-          date: new Date(2016, 1, 1),
+          date: new Date('2016, 1, 1'),
           comment: 'This is a test order',
 
           orderlines: [{
@@ -250,7 +281,7 @@ Game.find({}).removeAsync()
             _id: '5726edd9ea894ae41c83091d'
           }
         }, {
-          date: new Date(2009, 3, 6),
+          date: new Date('2009, 3, 6'),
           comment: 'this is a comment.. blaah',
           orderlines: [{
             amount: 3,
@@ -279,27 +310,46 @@ Game.find({}).removeAsync()
         Crew.createAsync({
             name: 'SOB',
             crewImgUrl: 'http://prod.cloud.rockstargames.com/crews/sc/1510/10088/publish/emblem/emblem_128.png',
-            leader: '5726edd9ea894ae41c83091f',
+            leader: '5726edd9ea894ae41c83091j',
             users: [{
-              _id: '5726edd9ea894ae41c83091f'
-            }, {
-              _id: '5726edd9ea894ae41c83091a'
-            }],
-            applicants: [{
               _id: '5726edd9ea894ae41c83091j'
-            }, {
-              _id: '5726edd9ea894ae41c83091d'
             }, {
               _id: '57304deab36dc6042532eecg'
             }],
+            applicants: [{
+              _id: '5726edd9ea894ae41c83091f'
+            }, {
+              _id: '5726edd9ea894ae41c83091d'
+            }],
             gameSuggestions: [{
               discount: 0,
-              expiration: new Date(2017, 10, 10),
+              expiration: new Date('2017-10-10'),
               game: {
                 _id: '5726edd9eah7kj341c83091e'
               },
+              platform: {
+                name: 'Playstation 4',
+                price: '300'
+              },
               users: [{
-                _id: '5726edd9ea894ae41c83091f',
+                _id: '57304deab36dc6042532eecg',
+                confirmed: 'true'
+              }, {
+                _id: '5726edd9ea894ae41c83091j',
+                confirmed: 'true'
+              }]
+            }, {
+              discount: 0,
+              expiration: new Date('2017-09-01'),
+              game: {
+                _id: '5726edd9eah7kj341c83091e'
+              },
+              platform: {
+                name: 'PC',
+                price: '450'
+              },
+              users: [{
+                _id: '57304deab36dc6042532eecg',
                 confirmed: 'false'
               }, {
                 _id: '5726edd9ea894ae41c83091j',
@@ -309,7 +359,7 @@ Game.find({}).removeAsync()
           }, {
             name: 'Esbjerg Homies',
             crewImgUrl: 'http://prod.cloud.rockstargames.com/crews/sc/1510/10088/publish/emblem/emblem_128.png',
-            leader: '5726edd9ea894ae41c83091a',
+            leader: '5726edd9ea894ae41c83091f',
             users: [{
               _id: '5726edd9ea894ae41c83091f'
             }, {
@@ -323,8 +373,8 @@ Game.find({}).removeAsync()
               _id: '5726edd9ea894ae41c83091j'
             }],
             gameSuggestions: [{
-              discount: 0,
-              expiration: new Date(2017, 10, 10),
+              discount: 1,
+              expiration: new Date('2017-10-10'),
               game: {
                 _id: '5726edd9eah7kj341c83091e'
               },
@@ -339,7 +389,7 @@ Game.find({}).removeAsync()
           }, {
             name: 'MVO',
             crewImgUrl: 'http://prod.cloud.rockstargames.com/crews/sc/1510/10088/publish/emblem/emblem_128.png',
-            leader: '5726edd9ea894ae41c83091a',
+            leader: '57304deab36dc6042532eecg',
             users: [{
               _id: '5726edd9ea894ae41c83091f'
             }, {
@@ -351,9 +401,11 @@ Game.find({}).removeAsync()
               _id: '5726edd9ea894ae41c83091j'
             }],
             gameSuggestions: [{
-              _id: '5726edd9eah7kj341c83091e',
               discount: 0,
-              expiration: new Date(2017, 10, 10),
+              expiration: new Date('2017-10-10'),
+              game: {
+                _id: '5726edd9eah7kj341c83091e'
+              },
               users: [{
                 _id: '5726edd9ea894ae41c83091f',
                 confirmed: 'false'

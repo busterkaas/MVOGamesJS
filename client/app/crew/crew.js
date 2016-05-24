@@ -7,5 +7,11 @@ angular.module('mvogamesJsApp')
         url: '/crews',
         templateUrl: 'app/crew/crew.html',
         controller: 'CrewCtrl'
+      })
+      .state('crewdetails', {
+        url: '/crews/:id',
+        templateUrl: 'app/crew/crew-details.html',
+        controller:'CrewDetailsCtrl',
+        authenticate: 'user'
       });
   });

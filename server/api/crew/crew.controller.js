@@ -15,6 +15,7 @@ var Crew = require('./crew.model');
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
   return function(err) {
+    console.log(err);
     res.status(statusCode).send(err);
   };
 }
@@ -40,7 +41,7 @@ function handleEntityNotFound(res) {
 
 function saveUpdates(updates) {
   return function(entity) {
-    var updated = _.assign(entity, updates);
+    var updated = _.extend(entity, updates);
     return updated.saveAsync()
       .spread(updated => {
         return updated;
@@ -61,15 +62,26 @@ function removeEntity(res) {
 
 // Gets a list of Crews
 export function index(req, res) {
-  Crew.find().populate('leader users applicants gameSuggestions.game gameSuggestions.users').execAsync()
+  Crew.find()
+    .populate('leader users applicants gameSuggestions gameSuggestions.game gameSuggestions.users gameSuggestions.users.user')
+    .execAsync()
     .then(responseWithResult(res))
     .catch(handleError(res));
 }
 
+
 // Gets a single Crew from the DB
 export function show(req, res) {
-  Crew.findByIdAsync(req.params.id)
+  Crew.findById(req.params.id)
+    .populate('leader users applicants gameSuggestions gameSuggestions.game gameSuggestions.users gameSuggestions.users.user').execAsync()
     .then(handleEntityNotFound(res))
+    .then(responseWithResult(res))
+    .catch(handleError(res));
+}
+
+// Get all Crews in the DB with the requested UsserID
+export function crewsByUser (req, res) {
+  Crew.find({'users':req.params.id}).populate('leader users applicants gameSuggestions.game gameSuggestions.users').execAsync()
     .then(responseWithResult(res))
     .catch(handleError(res));
 }
@@ -86,7 +98,9 @@ export function update(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
-  Crew.findByIdAsync(req.params.id)
+
+  Crew.findById(req.params.id)
+    .populate('leader users applicants gameSuggestions gameSuggestions.game gameSuggestions.users gameSuggestions.users.user').execAsync()
     .then(handleEntityNotFound(res))
     .then(saveUpdates(req.body))
     .then(responseWithResult(res))

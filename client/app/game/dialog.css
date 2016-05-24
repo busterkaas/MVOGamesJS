@@ -7,6 +7,19 @@
 
 }
 
+.dialogRight{
+  padding-left: 20px;
+}
+.dialogMid{
+  padding-left: 2rem;
+  border-left: 1px solid black;
+  width: 60rem;
+}
+
+#platformLogo{
+  height: 40px;
+}
+
 .md-dialog-content{
   background: black;
   background-color: #ff471a;
@@ -32,7 +45,7 @@ md-dialog{
 
 .dialogImg{
   margin-right: 2px;
-  max-height: 400px;
-  max-width: 300px;
+  height: 300px;
+  width: 210px;
   padding-bottom:30px;
 }

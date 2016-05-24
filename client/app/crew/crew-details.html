@@ -1,0 +1,97 @@
+<navbar></navbar>
+<user-navbar></user-navbar>
+
+
+<div class="headerDiv largeHeader">
+<h1>{{crew.name}} CREW</h1>
+</div>
+<div layout="row" class="crewDetailContent">
+
+  <div class="contentLeft" flex="20">
+
+    <img id="crewDetailImg" src="{{crew.crewImgUrl}}">
+    <h2 class="specialh4">Crewmembers   ({{crew.users.length}}/10)</h2>
+    <md-list-item class="userItem" ng-repeat="user in crew.users">
+      <div flex="5"></div>
+      <div flex="65">
+        <p>{{user.name}}</p>
+      </div>
+      <md-divider class="listDevider"></md-divider>
+      <div flex="20">
+      <md-button class="md-icon-button" ng-click="deleteUserFromCrew(user)">
+        <i class="fa fa-minus-circle"></i>
+      </md-button>
+      </div>
+    </md-list-item>
+
+    <div ng-if="isCrewLeader">
+      <h2 class="specialh4">Applicants   ({{crew.applicants.length}})</h2>
+      <md-list-item class="userItem" ng-repeat="user in crew.applicants">
+        <div flex="5"></div>
+        <div flex="65">
+          <p>{{user.name}}</p>
+        </div>
+        <md-divider class="listDevider"></md-divider>
+        <div flex="20" layout="row">
+          <md-button class="md-icon-button" ng-click="deleteApplicantFromCrew(user, $event)">
+            <i class="fa fa-minus-circle"></i>
+          </md-button>
+        <md-button class="md-icon-button" ng-click="acceptCrewApplicant(user, $event)">
+          <i class="fa fa-check-circle-o"></i>
+        </md-button>
+        </div>
+      </md-list-item>
+    </div>
+
+
+  </br>
+</br>
+</br>
+<md-button class="fa fa-exclamation-circle red"  ng-click="deleteCrew($event)" aria-hidden="true"> DELETE {{crew.name}}</md-button>
+
+  </div>
+
+  <div class="contentRight" flex="80" layout="row">
+    <div class="msgDiv" flex="60"></div>
+
+    <div class="gameSugDiv" flex="40">
+    <div class="gameSugHeader">
+    <h2>Game(s) suggested by your crew</h2>
+    </div>
+    <div class="gameListItemSelected" ng-if="gameSugSelected">
+      <img id="gameSugCover" src="{{gameSugSelected.game.coverUrl}}">
+      <label>Game: {{gameSugSelected.game.title}}</label>
+    </br>
+      <label>Platform: {{gameSugSelected.platform.name}}</label>
+    </br>
+  </br>
+  <label>Full price: &nbsp;&nbsp;DKK{{gameSugSelected.platform.price}},-</label>
+</br>
+  <label>Your current CREW-PRICE:&nbsp;&nbsp; DKK{{gameSugSelected.platform.price}},-</label>
+</br>
+</br>
+  <label>Users confirmed:&nbsp;&nbsp; {{usersConfirmed()}}</label> <label ng-click="showConfUsers($event)" class="seeUsers">&nbsp;&nbsp;See users</label>
+</br>
+  <label>Users declined:&nbsp;&nbsp; {{usersDeclined()}}</label> <label ng-click="showDeclUsers($event)" class="seeUsers">&nbsp;&nbsp;See users</label>
+</br>
+</br>
+      <md-button class="btnGameItem" ng-click="undoGameSuggestionDetails()">Hide</md-button>
+    </div>
+
+    <md-list-item ng-if="!gameSugSelected" class="gameListItem" ng-repeat="item in crew.gameSuggestions" ng-click="gameSugDetails(item)">
+      <label flex="50">{{item.game.title}}, {{item.platform.name}}</label>
+      <div flex></div>
+      <div flex="20">
+        <label>
+          DKK {{item.platform.price}},-
+        </label>
+      </div>
+    </md-list-item>
+  </div>
+</div>
+
+
+</div>
+
+
+<footer></footer>

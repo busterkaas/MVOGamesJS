@@ -1,15 +1,33 @@
 'use strict';
 
 angular.module('mvogamesJsApp')
-  .controller('UserNavbarController', function($scope, $state) {
 
-    $scope.userMenu = [{
-      'title': 'My Crew',
-      'state': 'myCrew'
-    }, {
-      'title': 'My Profile',
-      'state': 'user'
-    }];
+  .controller('UserNavbarController', function ($scope,$state, Auth) {
+
+    Auth.getCurrentUser(function(user){
+        $scope.me = user;
+
+    });
+
+    $scope.itemsCount = function(){
+      var number = 0;
+      $scope.me.shoppingCartItems.forEach(function(item){
+        number += item.amount;
+      });
+      return number;
+    }
+
+
+
+    $scope.userMenu = [
+      {
+    'title': 'My Crews',
+    'state': 'myCrew'
+  },{
+  'title': 'My Profile',
+  'state': 'user'
+}
+    ];
 
     $scope.goToState = function(item) {
       $state.go(item.state, {

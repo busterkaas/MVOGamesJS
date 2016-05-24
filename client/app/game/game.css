@@ -1,11 +1,41 @@
 .gameItem{
   background: rgba(255, 71, 26, 0.7);
-  max-height: 500px;
-  max-width: 250px;
 
+    height: 490px;
+  width: 250px;
+margin: 15px;
+margin-left: 30px;
 }
+.gameContainer{
+  margin-top: 70px;
+}
+.specialh4{
+  text-shadow: 0 0 20px #ff471a, 1px 1px 20px #ff471a, 2px 2px 20px #ff471a, -1px -1px 20px orange, -2px -2px 20px #ff471a;
+}
+
+.gameLeftDiv{
+  padding: 70px 20px 0 20px;
+  border-right: 1px solid  rgba(255, 71, 26, 0.9);
+}
+
+.gameLeftDiv .md-button{
+  background: #ff471a;
+  color:black;
+}
+.gameLeftDiv .md-button:hover{
+  background: #ff471a;
+  box-shadow: 0 0 20px #ff471a, 1px 1px 20px #ff471a, 2px 2px 20px #ff471a, -1px -1px 20px orange, -2px -2px 20px #ff471a;
+}
+
+.gameItem:hover{
+  background: rgba(255, 71, 26, 0.9);
+
+  box-shadow: 0px 0px 7px 6px rgba(255, 71, 26, 0.8);
+}
+
 .gameItem img{
-  max-height: 280px;
+  height: 280px;
+
 }
 .gameItem p, h1, h2, h3,{
   color:white;

@@ -8,23 +8,25 @@ var UserSchema = new Schema({
   firstName: String,
   lastName: String,
   bDay: Number,
-  addresses: [{
+  addresses: {
   city: String,
   zipCode: Number,
   streetName: String,
   houseNumber: String
-}],
+},
 phoneNumber: Number,
 
-shoppingCart: [{
+shoppingCartItems: [{
   game:{
     type: mongoose.Schema.ObjectId,
     ref: 'Game'
 },
   platform: {
-    type: mongoose.Schema.ObjectId,
-    ref: 'Game.Platform'
-  }
+      name: String,
+      price: Number,
+  },
+  amount: Number,
+
 }],
 
 //Name is equal to "username"

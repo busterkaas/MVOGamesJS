@@ -2,171 +2,263 @@
 <admin-navbar></admin-navbar>
 
 <div ng-if="!editingUser">
-<div class="headerDiv"><h1>This is the Admin User view.</h1></div>
-  <div class="headerDiv"><h1>Manage Users</h1></div>
+  <div class="headerDiv">
+    <h1>Manage Users</h1></div>
   <md-list>
     <div layout="row">
-    <div flex = "5"></div>
-    <div flex = "90">
-      <div class="col-md-2 bgListHeaderColor">
-        <h4 class="frontListHeaderColor">First name</h4>
+      <div flex="5"></div>
+      <div flex="90">
+        <div class="col-md-2 bgListHeaderColor">
+          <h4 class="frontListHeaderColor">First name</h4>
+        </div>
+        <div class="col-md-2 bgListHeaderColor">
+          <h4 class="frontListHeaderColor">Last name</h4>
+        </div>
+        <div class="col-md-4 bgListHeaderColor">
+          <h4 class="frontListHeaderColor">Email</h4>
+        </div>
+        <div class="col-md-4 bgListHeaderColor">
+          <h4 class="frontListHeaderColor">User name</h4>
+        </div>
       </div>
-      <div class="col-md-2 bgListHeaderColor">
-        <h4 class="frontListHeaderColor">Last name</h4>
-      </div>
-      <div class="col-md-4 bgListHeaderColor">
-        <h4 class="frontListHeaderColor">Email</h4>
-      </div>
-      <div class="col-md-4 bgListHeaderColor">
-        <h4 class="frontListHeaderColor">User name</h4>
-    </div>
-  </div>
-      <div flex = "5"></div>
+      <div flex="5"></div>
     </div>
 
     <div layout="row">
-    <div flex = "5"></div>
-    <div flex = "90">
-    <md-list-item ng-repeat="user in Users" ng-click="editUser(user)" class="noright adminUserItem">
-      <div class="col-md-2">
-        <p>{{ user.firstName }}</p>
+      <div flex="5"></div>
+      <div flex="90">
+        <md-list-item ng-repeat="user in Users" ng-click="editUser(user)" class="noright adminUserItem">
+          <div class="col-md-2">
+            <p>{{ user.firstName }}</p>
+          </div>
+          <div class="col-md-2">
+            <p>{{ user.lastName }}</p>
+          </div>
+          <div class="col-md-4">
+            <p>{{ user.email }}</p>
+          </div>
+          <div class="col-md-4">
+            <p>{{ user.name }}</p>
+            <p>{{ user.streetName }}</p>
+          </div>
+          <md-divider class="listDevider"></md-divider>
+        </md-list-item>
       </div>
-      <div class="col-md-2">
-        <p>{{ user.lastName }}</p>
-      </div>
-      <div class="col-md-4">
-        <p>{{ user.email }}</p>
-      </div>
-      <div class="col-md-4">
-        <p>{{ user.name }}</p>
-        <p>{{ user.streetName }}</p>
-      </div>
-      <md-divider class="listDevider"></md-divider>
-    </md-list-item>
-  </div>
-      <div flex = "5"></div>
+      <div flex="5"></div>
     </div>
   </md-list>
-    </div>
+</div>
 
-    <div ng-if="editingUser">
-      <div class="headerDiv"><h1>Edit {{editingUser.email}} ( {{editingUser.name}} )</h1></div>
-      <div class="bgMain">
-        <div layout="row">
-        <div flex = "5"></div>
-        <div flex = "90">
+<div ng-if="editingUser">
+  <div class="headerDiv">
+    <h1>Edit {{editingUser.email}} ( {{editingUser.name}} )</h1></div>
+  <div class="bgMain">
+    <div layout="row">
+      <div flex="5"></div>
+      <div flex="90">
         <form name="editUserForm">
-        <br/>
-        <div class="col-sm-6" style="border-right: 1px solid #cdd0d4;">
-          <h2 style="border-bottom: 1px solid #cdd0d4;">Personal Information</h2>
-          <br>
-          <md-input-container flex="90" class="md-block">
-            <label>First name</label>
-            <input md-maxlength="25" required ng-model="editingUser.firstName" name="userFirstName">
+          <br/>
+          <div class="col-sm-6" style="border-right: 1px solid #cdd0d4;">
+
+            <h2 style="border-bottom: 1px solid #cdd0d4;">User Information</h2>
+            <br>
+            <md-input-container flex="90" class="md-block">
+              <label>User name</label>
+              <input md-maxlength="25" required ng-model="editingUser.name" name="userName">
+              <div ng-messages="editUserForm.name.$error" role="alert">
+                <div ng-message="required">User name is REQUIRED!</div>
+                <div ng-message="md-maxlength">User name has be less than 25 characters long.</div>
+              </div>
+            </md-input-container>
+
+            <md-input-container flex="90" class="md-block">
+              <label>Email</label>
+              <input md-maxlength="25" required ng-model="editingUser.email" name="userEmail">
+              <div ng-messages="editUserForm.email.$error" role="alert">
+                <div ng-message="required">Email is REQUIRED!</div>
+                <div ng-message="md-maxlength">Email has be less than 25 characters long.</div>
+              </div>
+            </md-input-container>
+
+
+            <br>
+            <h2 style="border-bottom: 1px solid #cdd0d4;">Personal Information</h2>
+            <br>
+            <md-input-container flex="90" class="md-block">
+              <label>First name</label>
+              <input md-maxlength="25" required ng-model="editingUser.firstName" name="userFirstName">
               <div ng-messages="editUserForm.firstName.$error" role="alert">
                 <div ng-message="required">First name is REQUIRED!</div>
                 <div ng-message="md-maxlength">First name has be less than 25 characters long.</div>
               </div>
-          </md-input-container>
+            </md-input-container>
 
-          <md-input-container flex="90" class="md-block">
-            <label>Last name</label>
-            <input md-maxlength="25" required ng-model="editingUser.lastName" name="userLastName">
+            <md-input-container flex="90" class="md-block">
+              <label>Last name</label>
+              <input md-maxlength="25" required ng-model="editingUser.lastName" name="userLastName">
               <div ng-messages="editUserForm.lastName.$error" role="alert">
                 <div ng-message="required">Last name is REQUIRED!</div>
                 <div ng-message="md-maxlength">Last name has be less than 25 characters long.</div>
               </div>
-          </md-input-container>
+            </md-input-container>
 
-          <md-input-container flex="90" class="md-block">
-            <label>Birth year</label>
-            <input md-maxlength="25" required ng-model="editingUser.bDay" name="userbDay">
+            <md-input-container flex="90" class="md-block">
+              <label>Birth year</label>
+              <input md-maxlength="25" required ng-model="editingUser.bDay" name="userbDay">
               <div ng-messages="editUserForm.bDay.$error" role="alert">
                 <div ng-message="required">Birth year is REQUIRED!</div>
                 <div ng-message="md-maxlength">Birth Year has be less than 25 characters long.</div>
               </div>
-          </md-input-container>
+            </md-input-container>
 
-          <md-input-container flex="90" class="md-block">
-            <label>Phone number</label>
-            <input md-maxlength="25" required ng-model="editingUser.phoneNumber" name="userPhoneNumber">
+            <md-input-container flex="90" class="md-block">
+              <label>Phone number</label>
+              <input md-maxlength="25" required ng-model="editingUser.phoneNumber" name="userPhoneNumber">
               <div ng-messages="editUserForm.phoneNumber.$error" role="alert">
                 <div ng-message="required">Phone number is REQUIRED!</div>
                 <div ng-message="md-maxlength">Phone number has be less than 25 characters long.</div>
               </div>
-          </md-input-container>
-          <br>
-          <h3>Address</h3>
+            </md-input-container>
 
-          <md-input-container flex="90" class="md-block">
-            <label>Street name</label>
-            <input md-maxlength="25" required ng-model="editingUser.addresses.streetName" name="userStreetName">
+
+            <br>
+            <h3 style="border-bottom: 1px solid #cdd0d4;">Address</h3>
+            <br>
+            <md-input-container flex="90" class="md-block">
+              <label>Street name</label>
+              <input md-maxlength="25" required ng-model="editingUser.addresses.streetName" name="userStreetName">
               <div ng-messages="editUserForm.addresses.streetName.$error" role="alert">
                 <div ng-message="required">Street name is REQUIRED!</div>
                 <div ng-message="md-maxlength">Street name has be less than 25 characters long.</div>
               </div>
-          </md-input-container>
+            </md-input-container>
 
-          <md-input-container flex="90" class="md-block">
-            <label>House nr.</label>
-            <input md-maxlength="25" required ng-model="editingUser.houseNumber" name="userHouseNumber">
+            <md-input-container flex="90" class="md-block">
+              <label>House nr.</label>
+              <input md-maxlength="25" required ng-model="editingUser.addresses.houseNumber" name="userHouseNumber">
               <div ng-messages="editUserForm.houseNumber.$error" role="alert">
                 <div ng-message="required">House number is REQUIRED!</div>
                 <div ng-message="md-maxlength">House number has be less than 25 characters long.</div>
               </div>
-          </md-input-container>
+            </md-input-container>
 
-          <md-input-container flex="90" class="md-block">
-            <label>City</label>
-            <input md-maxlength="25" required ng-model="editingUser.city" name="userCity">
+            <md-input-container flex="90" class="md-block">
+              <label>City</label>
+              <input md-maxlength="25" required ng-model="editingUser.addresses.city" name="userCity">
               <div ng-messages="editUserForm.city.$error" role="alert">
                 <div ng-message="required">city is REQUIRED!</div>
                 <div ng-message="md-maxlength">city has be less than 25 characters long.</div>
               </div>
-          </md-input-container>
+            </md-input-container>
 
-          <md-input-container flex="90" class="md-block">
-            <label>Zip code</label>
-            <input md-maxlength="25" required ng-model="editingUser.zipCode" name="userZipCode">
+            <md-input-container flex="90" class="md-block">
+              <label>Zip code</label>
+              <input md-maxlength="25" required ng-model="editingUser.addresses.zipCode" name="userZipCode">
               <div ng-messages="editUserForm.zipCode.$error" role="alert">
                 <div ng-message="required">Zip code is REQUIRED!</div>
                 <div ng-message="md-maxlength">Zip code has be less than 25 characters long.</div>
               </div>
-          </md-input-container>
-        <br><br><br>
-
-      </div>
-      <div class="col-sm-6">
-        <h2 style="border-bottom: 1px solid #cdd0d4;">User Information</h2>
-        <br>
-        <md-input-container flex="90" class="md-block">
-          <label>User name</label>
-          <input md-maxlength="25" required ng-model="editingUser.name" name="userName">
-            <div ng-messages="editUserForm.name.$error" role="alert">
-              <div ng-message="required">User name is REQUIRED!</div>
-              <div ng-message="md-maxlength">User name has be less than 25 characters long.</div>
+            </md-input-container>
+            <br>
+            <br>
+            <br>
+            <div layout-gt-xs="row">
+              <div flex="25"></div>
+              <div flex="65">
+                <md-button aria-label="Undo changes" ng-click="undoEditUser()" class="btnGameItem">Cancel</md-button>
+                <md-button aria-label="Save changes" ng-click="updateUser(editingUser, $event)" class="btnGameItem">Save</md-button>
+                <md-button aria-label="Delete Crew" ng-click="deletUser(editingUser, $event)" class="btnGameItem">Delete</md-button>
+              </div>
+              <div flex="10"></div>
             </div>
-        </md-input-container>
-
-        <md-input-container flex="90" class="md-block">
-          <label>Email</label>
-          <input md-maxlength="25" required ng-model="editingUser.email" name="userEmail">
-            <div ng-messages="editUserForm.email.$error" role="alert">
-              <div ng-message="required">Email is REQUIRED!</div>
-              <div ng-message="md-maxlength">Email has be less than 25 characters long.</div>
+            <br>
+            <br>
+          </div>
+          <div class="col-sm-6" style="1px solid #cdd0d4;">
+            <h3 style="border-bottom: 1px solid #cdd0d4;">Shopping Cart Items</h3>
+            <br>
+            <br>
+            <div layout="row" style="border-bottom: 1px solid #cdd0d4;" class="bgListHeaderColor">
+              <div flex="5"></div>
+              <div flex="35"><h3>Game Title</h3></div>
+              <div flex="25"><h3>Genre</h3></div>
+              <div flex="20"><h3>Amount</h3></div>
+              <div flex="5"></div>
             </div>
-        </md-input-container>
+
+            <br>
+            <div>
+              <md-list ng-repeat="items in editingUser.shoppingCartItems">
+                <div layout="row">
+                  <div flex="5"></div>
+                  <div flex="35"><p>{{ items.game.title }}</p></div>
+                  <div flex="25"><p>{{items.platform.name}}</p></div>
+                  <div flex="20"><p>{{items.amount}}</p></div>
+                  <div flex="5">
+                    <md-button ng-click="deleteGameItemFromUser(items)">
+                      <i class="glyphicon glyphicon-trash mousePointer"></i>
+                    </md-button>
+                  </div>
+
+                </div>
+                <md-divider class="userListDevider"></md-divider>
+              </md-list>
+            </div>
+
+            <h3 style="border-bottom: 1px solid #cdd0d4;">Orders</h3>
+            <br>
+            <div layout="row" style="border-bottom: 1px solid #cdd0d4;" class="bgListHeaderColor">
+              <div flex="5"></div>
+              <div flex="30"><h3>Game Title</h3></div>
+              <div flex="15"><h3>Genre</h3></div>
+              <div flex="15"><h3>Amount</h3></div>
+              <div flex="25"><h3>Date</h3></div>
+              <div flex="5"></div>
+            </div>
+
+            <br>
+            <div ng-repeat="ol in userOrders">
+              <md-list ng-repeat="o in ol.orderlines">
+                <div layout="row">
+                  <div flex="5"></div>
+                  <div flex="30"><p>{{ o.game.title }}</p></div>
+                  <div flex="20"><p>{{ o.platform.name }}</p></div>
+                  <div flex="10"><p>{{ o.amount }}</p></div>
+                  <div flex="25"><p>{{ ol.date }}</p></div>
+                  <div flex="5">
+                    <md-button ng-click="">
+                      <i class="glyphicon glyphicon-trash mousePointer"></i>
+                    </md-button></div>
+                </div>
+                <md-divider class="userListDevider"></md-divider>
+              </md-list>
+            </div>
 
 
-      </div>
-      </form>
-      <div align="center">
-      <button ui-sref="settings">Change Password</button>
-    </div>
+            <br>
+            <div layout="row">
+              <div flex="45"></div>
+              <div flex="10">
+                <div class="container">
+                  <div class="circle lg">
+                    <div class="circle md">
+                      <div class="circle sm">
+                        <div class="circle smlr">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <span id="loading">Loading...</span>
+                </div>
+              </div>
+              <div flex="45"></div>
+            </div>
+        </form>
+
         </div>
-        <div flex = "5"></div>
-      </div>
+        <div flex="5"></div>
       </div>
     </div>
+  </div>
 
-<footer></footer>
+  <footer></footer>

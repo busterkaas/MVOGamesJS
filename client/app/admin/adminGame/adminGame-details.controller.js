@@ -33,7 +33,7 @@ angular.module('mvogamesJsApp')
           return o._lowername == genre.name.toLowerCase();
         });
         $scope.selectedGenres.push(g);
-      })
+      });
     });
 
     //DELETE GAME SECTION
@@ -84,7 +84,7 @@ angular.module('mvogamesJsApp')
     function querySearch(query) {
       var results = query ? $scope.filterGenres.filter(createFilterFor(query)) : [];
       return results;
-    };
+    }
 
 
     /**
@@ -120,14 +120,14 @@ angular.module('mvogamesJsApp')
     function createFilterFor(query) {
       var lowercaseQuery = angular.lowercase(query);
       return function filterFn(genre) {
-        if($scope.selectedGenres){
-        $scope.selectedGenres.forEach(function(g){
-          if(g._lowername.indexOf(lowercaseQuery) >-1){
-          return false;
+        if ($scope.selectedGenres) {
+          $scope.selectedGenres.forEach(function(g) {
+            if (g._lowername.indexOf(lowercaseQuery) > -1) {
+              return false;
+            }
+          });
         }
-        });
-      }
-        return genre._lowername.indexOf(lowercaseQuery) >-1;
+        return genre._lowername.indexOf(lowercaseQuery) > -1;
       };
     }
 

@@ -2,163 +2,169 @@
 <admin-navbar></admin-navbar>
 
 <div ng-if="!editingCrew">
-  <div class="headerDiv"><h1>Manage Crews</h1></div>
+  <div class="headerDiv">
+    <h1>Manage Crews</h1></div>
   <md-list>
     <div layout="row">
-    <div flex = "10"></div>
-    <div flex = "80">
-    <md-list-item ng-repeat="crew in Crews" ng-click="editCrew(crew)" class="adminCrewItem">
-      <div class="imgContainer">
-        <img ng-src="{{crew.crewImgUrl}}" class="md-user-avatar agImg" />
+      <div flex="10"></div>
+      <div flex="80">
+        <md-list-item ng-repeat="crew in Crews" ng-click="editCrew(crew)" class="adminCrewItem">
+          <div class="imgContainer">
+            <img ng-src="{{crew.crewImgUrl}}" class="md-user-avatar agImg" />
+          </div>
+          <div class="col-md-4">
+            <p>{{ crew.name }}</p>
+          </div>
+          <md-divider class="listDevider"></md-divider>
+        </md-list-item>
       </div>
-      <div class="col-md-4">
-        <p>{{ crew.name }}</p>
-      </div>
-      <md-divider class="listDevider"></md-divider>
-    </md-list-item>
-    </div>
-        <div flex = "10"></div>
+      <div flex="10"></div>
   </md-list>
-</div>
+  </div>
 </div>
 
 
 <div ng-if="editingCrew">
-<div class="headerDiv"><h1>Edit {{editingCrew.name}}</h1></div>
+  <div class="headerDiv">
+    <h1>Edit {{editingCrew.name}}</h1></div>
   <div class="bgMain">
     <form name="editCrewForm">
-    <div layout="row">
-    <div flex = "15"></div>
-    <div flex = "30">
-        <br>
-      <md-input-container flex="100" class="md-block">
+      <div layout="row">
+        <div flex="15"></div>
+        <div flex="30">
+          <br>
+          <md-input-container flex="100" class="md-block">
 
-        <input md-maxlength="25" required ng-model="editingCrew.name" name="crewName">
-                <label>Crew name</label>
-          <div ng-messages="editCrewForm.name.$error" role="alert">
-            <div ng-message="required">Crew name is REQUIRED!</div>
-            <div ng-message="md-maxlength">The name has be less than 25 characters long.</div>
-          </div>
-      </md-input-container>
-
-      <md-input-container flex="100" class="md-block">
-        <label>Crew image</label>
-        <input required ng-model="editingCrew.crewImgUrl" name="crewImg">
-          <div ng-messages="editCrewForm.crewImgUrl.$error" role="alert">
-            <div ng-message="required">Crew image is REQUIRED!</div>
-          </div>
-      </md-input-container>
-
-      <md-container flex="100" class="md-block">
-        <label>Crew leader:</label>
-        <label ng-model="editingCrew" name="crewLeader">
-          <p>{{ editingCrew.leader.name }}</p>
-      </md-container>
-
-      <md-list>
-        <label>Users</label>
-        <md-list-item ng-repeat="user in editingCrew.users" class="gamesuggBG">
-          <div flex="5"></div>
-          <div flex="75">
-            <p>{{ user.name }}</p>
-          </div>
-          <md-divider class="listDevider"></md-divider>
-          <div flex="10">
-          <md-button ng-click="deleteUserFromCrew(user)">
-            <i class="glyphicon glyphicon-trash"></i>
-          </md-button>
-          </div>
-        </md-list-item>
-      </md-list>
-
-      <md-list>
-        <label>Applicants</label>
-        <md-list-item ng-repeat="applicant in editingCrew.applicants" class="gamesuggBG" >
-        <div flex="5"></div>
-        <div flex="75">
-          <p>{{applicant.name}}</p>
-        </div>
-          <md-divider class="listDevider"></md-divider>
-        <div flex="10">
-          <md-button  ng-click="deleteApplicantFromCrew(applicant)">
-            <i class="glyphicon glyphicon-trash"></i>
-          </md-button>
-        </div>
-        </md-list-item>
-      </md-list>
-
-    </div>
-    <div flex="10"></div>
-    <div flex="25">
-    <br>
-
-      <md-list>
-      <label>Games suggestion: </label>
-        <md-list-item ng-repeat="gamesugg in editingCrew.gameSuggestions" ng-if="!editingCrewGameSuggestion" ng-click="editGameSuggestion(gamesugg)"  name="CrewGameSuggestion" class="mousePointer">
-          <p>{{gamesugg.game.title}}</p>
-        </md-list-item>
-      </md-list>
-      <md-list ng-repeat="gamesugg in editingCrew.gameSuggestions">
-      <div ng-if="editingCrewGameSuggestion" class="gamesuggBG">
-        <div layout="row">
-          <div flex="5"></div>
-          <div flex="90">
-            <br>
-            <label>Game: {{editingCrewGameSuggestion.game.title}}</label>
-        <br>
-        <label>Expire date: </label>
-        <md-datepicker class="bgInherit" ng-model="gamesugg.expiration" md-placeholder="Enter date" ng-change="expireDate.expiration = dt.toString()">
-        </md-datepicker>
-        <br>
-        <br>
-
-        <md-input-container flex="100" class="md-block">
-          <label>Discount: </label>
-          <input md-maxlength="2" required ng-model="gamesugg.discount" name="gameSuggDiscount">
-            <div ng-messages="gamesugg.discount.$error" role="alert">
-              <div ng-message="required">Discount is REQUIRED!</div>
-              <div ng-message="md-maxlength">Discount must be between 0-99</div>
+            <input md-maxlength="25" required ng-model="editingCrew.name" name="crewName">
+            <label>Crew name</label>
+            <div ng-messages="editCrewForm.name.$error" role="alert">
+              <div ng-message="required">Crew name is REQUIRED!</div>
+              <div ng-message="md-maxlength">The name has be less than 25 characters long.</div>
             </div>
-        </md-input-container>
+          </md-input-container>
 
+          <md-input-container flex="100" class="md-block">
+            <label>Crew image</label>
+            <input required ng-model="editingCrew.crewImgUrl" name="crewImg">
+            <div ng-messages="editCrewForm.crewImgUrl.$error" role="alert">
+              <div ng-message="required">Crew image is REQUIRED!</div>
+            </div>
+          </md-input-container>
 
-          <div layout="row">
-            <div flex="65"><label>Username</label></div>
-          <div flex=""><label>Confirmed</label></div>
+          <md-container flex="100" class="md-block">
+            <label>Crew leader:</label>
+            <label ng-model="editingCrew" name="crewLeader">
+              <p>{{ editingCrew.leader.name }}</p>
+          </md-container>
+
+          <md-list>
+            <label>Users</label>
+            <md-list-item ng-repeat="user in editingCrew.users" class="gamesuggBG">
+              <div flex="5"></div>
+              <div flex="75">
+                <p>{{ user.name }}</p>
+              </div>
+              <md-divider class="listDevider"></md-divider>
+              <div flex="10">
+                <md-button ng-click="deleteUserFromCrew(user)">
+                  <i class="glyphicon glyphicon-trash"></i>
+                </md-button>
+              </div>
+            </md-list-item>
+          </md-list>
+
+          <md-list>
+            <label>Applicants</label>
+            <md-list-item ng-repeat="applicant in editingCrew.applicants" class="gamesuggBG">
+              <div flex="5"></div>
+              <div flex="75">
+                <p>{{applicant.name}}</p>
+              </div>
+              <md-divider class="listDevider"></md-divider>
+              <div flex="10">
+                <md-button ng-click="deleteApplicantFromCrew(applicant)">
+                  <i class="glyphicon glyphicon-trash"></i>
+                </md-button>
+              </div>
+            </md-list-item>
+          </md-list>
+
         </div>
-          <md-list-item ng-repeat="user in gamesugg.users">
-            <p ng-model="user.user.name"></p>
-            <p>{{user.user.name}}</p>
-          <md-divider class="listDevider"></md-divider>
-          <label>
-            <input type="checkbox" ng-model="user.confirmed" class="mousePointer">
-          </label>
-            <md-button  ng-click="deleteUserFromGameSuggestion(user)">
-              <i class="glyphicon glyphicon-trash"></i>
-            </md-button>
-        </md-list-item>
-        <md-button class="btnGameItem" ng-click="undoEditGameSuggestion()">Hide</md-button>
-    </div>
-      <div flex="5"></div>
-      </div>
-      </div>
-</md-list>
+        <div flex="10"></div>
+        <div flex="25">
+          <br>
 
+          <md-list>
+            <label>Games suggestion: </label>
+            <md-list-item ng-repeat="gamesugg in editingCrew.gameSuggestions" ng-if="!editingCrewGameSuggestion" ng-click="editGameSuggestion(gamesugg)" name="CrewGameSuggestion" class="mousePointer">
+              <p>{{gamesugg.game.title}}</p>
+            </md-list-item>
+          </md-list>
+          <md-list ng-repeat="gamesugg in editingCrew.gameSuggestions" >
+            <div ng-if="editingCrewGameSuggestion" class="gamesuggBG">
+              <div layout="row">
+                <div flex="5"></div>
+                <div flex="90">
+                  <br>
+                  <label>Game: {{editingCrewGameSuggestion.game.title}}</label>
+                  <br>
+                  <label>Expire date: </label>
+                  <md-datepicker class="bgInherit" ng-model="gamesugg.expiration" md-placeholder="Enter date" ng-change="expireDate.expiration = dt.toString()">
+                  </md-datepicker>
+                  <br>
+                  <br>
+
+                  <md-input-container flex="100" class="md-block">
+                    <label>Discount: </label>
+                    <input md-maxlength="2" required ng-model="gamesugg.discount" name="gameSuggDiscount">
+                    <div ng-messages="gamesugg.discount.$error" role="alert">
+                      <div ng-message="required">Discount is REQUIRED!</div>
+                      <div ng-message="md-maxlength">Discount must be between 0-99</div>
+                    </div>
+                  </md-input-container>
+
+
+                  <div layout="row">
+                    <div flex="65">
+                      <label>Username</label>
+                    </div>
+                    <div flex="">
+                      <label>Confirmed</label>
+                    </div>
+                  </div>
+                  <md-list-item ng-repeat="user in gamesugg.users">
+                    <p ng-model="user.user.name"></p>
+                    <p>{{user.user.name}}</p>
+                    <md-divider class="listDevider"></md-divider>
+                    <label>
+                      <input type="checkbox" ng-model="user.confirmed" class="mousePointer">
+                    </label>
+                    <md-button ng-click="deleteUserFromGameSuggestion(user)">
+                      <i class="glyphicon glyphicon-trash"></i>
+                    </md-button>
+                  </md-list-item>
+                  <md-button class="btnGameItem" ng-click="undoEditGameSuggestion()">Hide</md-button>
+                </div>
+                <div flex="5"></div>
+              </div>
+            </div>
+          </md-list>
+
+        </div>
+        <div flex="10"></div>
+      </div>
+    </form>
+    <br>
+    <div layout-gt-xs="row">
+      <div flex="15"></div>
+      <div flex="75">
+        <md-button aria-label="Undo changes" ng-click="undoEditCrew()" class="btnGameItem">Cancel</md-button>
+        <md-button aria-label="Save changes" ng-click="updateCrew(editingCrew, $event)" class="btnGameItem">Save</md-button>
+        <md-button aria-label="Delete Crew" ng-click="deletCrew(editingCrew, $event)" class="btnGameItem">Delete</md-button>
+      </div>
+      <div flex="10"></div>
     </div>
-    <div flex = "10"></div>
-  </div>
-  </form>
-<br>
-  <div layout-gt-xs="row">
-    <div flex="15"></div>
-    <div flex="75">
-      <md-button aria-label="Undo changes" ng-click="undoEditCrew()" class="btnGameItem">Cancel</md-button>
-      <md-button aria-label="Save changes" ng-click="updateCrew(editingCrew, $event)" class="btnGameItem">Save</md-button>
-      <md-button aria-label="Delete Crew"  ng-click="deletCrew(editingCrew, $event)" class="btnGameItem">Delete</md-button>
-    </div>
-    <div flex="10"></div>
-  </div>
-<br>
+    <br>
   </div>
 </div>
 

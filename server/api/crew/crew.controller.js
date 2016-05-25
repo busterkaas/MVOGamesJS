@@ -83,7 +83,8 @@ export function show(req, res) {
 
 // Get all Crews in the DB with the requested UsserID
 export function crewsByUser (req, res) {
-  Crew.find({'users':req.params.id}).deepPopulate('leader users gameSuggestions crewMessages.user applicants gameSuggestions.game gameSuggestions.users user.user').execAsync()
+  Crew.find({'users':req.params.id}).deepPopulate('leader users gameSuggestions crewMessages.user applicants gameSuggestions.game gameSuggestions.users user.user')
+  .execAsync()
     .then(responseWithResult(res))
     .catch(handleError(res));
 }
@@ -102,7 +103,8 @@ export function update(req, res) {
   }
 
   Crew.findById(req.params.id)
-    .deepPopulate('leader users applicants crewMessages.user gameSuggestions gameSuggestions.game gameSuggestions.users users.user').execAsync()
+    .deepPopulate('leader users applicants crewMessages.user gameSuggestions gameSuggestions.game gameSuggestions.users users.user')
+    .execAsync()
     .then(handleEntityNotFound(res))
     .then(saveUpdates(req.body))
     .then(responseWithResult(res))

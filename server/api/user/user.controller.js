@@ -53,8 +53,8 @@ function responseWithResult(res, statusCode) {
  */
 export function index(req, res) {
   User.find({}, '-salt -password')
-  .populate('shoppingCartItems shoppingCartItems.game')
-  .execAsync()
+    .populate('shoppingCartItems shoppingCartItems.game')
+    .execAsync()
     .then(users => {
       res.status(200).json(users);
     })
@@ -70,10 +70,14 @@ export function create(req, res, next) {
   newUser.role = 'user';
   newUser.saveAsync()
     .spread(function(user) {
-      var token = jwt.sign({ _id: user._id }, config.secrets.session, {
+      var token = jwt.sign({
+        _id: user._id
+      }, config.secrets.session, {
         expiresIn: 60 * 60 * 5
       });
-      res.json({ token });
+      res.json({
+        token
+      });
     })
     .catch(validationError(res));
 }
@@ -81,17 +85,11 @@ export function create(req, res, next) {
 /**
  * Get a single user
  */
-export function show(req, res, next) {
-  var userId = req.params.id;
-
-  User.findByIdAsync(userId)
-    .then(user => {
-      if (!user) {
-        return res.status(404).end();
-      }
-      res.json(user.profile);
-    })
-    .catch(err => next(err));
+export function show(req, res) {
+  User.findById(req.params.id)
+    .then(handleEntityNotFound(res))
+    .then(responseWithResult(res))
+    .catch(handleError(res));
 }
 
 /**
@@ -158,7 +156,9 @@ function saveUpdates(updates) {
  */
 export function me(req, res, next) {
   var userId = req.user._id;
-  User.findOne({ _id: userId }, '-salt -password').populate('shoppingCartItems.game').execAsync()
+  User.findOne({
+      _id: userId
+    }, '-salt -password').populate('shoppingCartItems.game').execAsync()
     .then(user => { // don't ever give out the password or salt
       if (!user) {
         return res.status(401).end();

@@ -13,7 +13,9 @@ var OrderSchema = new mongoose.Schema({
     },
     platform:{
       name: String,
-      price: Number
+      price: Number,
+      stock: Number,
+      platformImgUrl: String
     }
   }],
   user:{

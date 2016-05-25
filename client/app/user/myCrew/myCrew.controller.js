@@ -20,11 +20,11 @@ $scope.ableToCreate = function(){
     return true;
   }
   return false;
-}
+};
 
 $scope.goToCreate = function(){
   $state.go('createCrew');
-}
+};
 
 
     $scope.goToCrew = function(crew) {

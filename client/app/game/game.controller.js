@@ -35,11 +35,11 @@ angular.module('mvogamesJsApp')
       return Auth.isLoggedIn();
     };
 
-      function DialogController($scope, $mdDialog, game, Auth, UserService) {
+    function DialogController($scope, $mdDialog, game, Auth, UserService) {
 
-        Auth.getCurrentUser(function(user){
-            $scope.me = user;
-        });
+      Auth.getCurrentUser(function(user) {
+        $scope.me = user;
+      });
       $scope.selectedGame = game;
       $scope.selectedPlatform = undefined;
 
@@ -57,22 +57,27 @@ angular.module('mvogamesJsApp')
       $scope.cancel = function() {
         $mdDialog.cancel();
       };
-      $scope.answer = function () {
+      $scope.answer = function() {
 
-        if($scope.selectedGame && $scope.selectedPlatform){
+        if ($scope.selectedGame && $scope.selectedPlatform) {
           $scope.me.shoppingCartItems.push({
             game: $scope.selectedGame,
-            platform: {name: $scope.selectedPlatform.name, price: $scope.selectedPlatform.price},
+            platform: {
+              name: $scope.selectedPlatform.name,
+              price: $scope.selectedPlatform.price
+            },
             amount: 1
-          })
+          });
 
-          UserService.update({id: $scope.me._id}, $scope.me, function(user){
+          UserService.update({
+            id: $scope.me._id
+          }, $scope.me, function(user) {
             $scope.me = user;
-          })
+          });
 
-          console.log($scope.me.shoppingCartItems.length+"");
-        }else{
-          console.log("No info")
+          console.log($scope.me.shoppingCartItems.length + '');
+        } else {
+          console.log('No info');
         }
         $mdDialog.hide();
       };
@@ -81,40 +86,42 @@ angular.module('mvogamesJsApp')
 
 
 
-  /*    $scope.loadCrews = function(){
-        return $setTimeout(function () {
-          $scope.crews = { id: 1, name: 'Scooby Doo' },
-        { id: 2, name: 'Shaggy Rodgers' },
-        { id: 3, name: 'Fred Jones' },
-        { id: 4, name: 'Daphne Blake' },
-        { id: 5, name: 'Velma Dinkley' }
-        }, 500);
-      };
-      */
+      /*    $scope.loadCrews = function(){
+            return $setTimeout(function () {
+              $scope.crews = { id: 1, name: 'Scooby Doo' },
+            { id: 2, name: 'Shaggy Rodgers' },
+            { id: 3, name: 'Fred Jones' },
+            { id: 4, name: 'Daphne Blake' },
+            { id: 5, name: 'Velma Dinkley' }
+            }, 500);
+          };
+          */
+    }
+
+    $scope.showAdvanced = function(gameToSee, ev) {
+      $mdDialog.show({
+          controller: DialogController,
+          templateUrl: 'app/game/dialog.html',
+          parent: angular.element(document.body),
+          targetEvent: ev,
+          locals: {
+            game: gameToSee
+          },
+          clickOutsideToClose: true,
+        })
+        .then(function() {
+          $scope.status = 'You cancelled the dialog.';
+          console.log('Id did one');
+        }, function() {
+          $scope.status = 'You cancelled the dialog.';
+          console.log('Id did two');
+        });
     };
 
-      $scope.showAdvanced = function(gameToSee, ev) {
-      $mdDialog.show({
-      controller: DialogController,
-      templateUrl: 'app/game/dialog.html',
-      parent: angular.element(document.body),
-      targetEvent: ev,
-      locals: {game: gameToSee},
-      clickOutsideToClose:true,
-      })
-      .then(function() {
-        $scope.status = 'You cancelled the dialog.';
-          console.log("Id did one");
-    }, function() {
-      $scope.status = 'You cancelled the dialog.';
-        console.log("Id did two");
-      });
-      };
 
-
-      $scope.$on('$destroy', function(){
-        socket.unsyncUpdates('game');
-      });
+    $scope.$on('$destroy', function() {
+      socket.unsyncUpdates('game');
+    });
 
 
 

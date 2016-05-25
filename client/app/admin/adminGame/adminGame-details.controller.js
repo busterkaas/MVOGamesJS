@@ -7,9 +7,9 @@ angular.module('mvogamesJsApp')
       $scope.Games = games;
       var allGenres = [];
       $scope.filterGenres = [];
-      angular.forEach(games, function(game, key) {
+      angular.forEach(games, function(game) {
         game.releaseDate = new Date(game.releaseDate);
-        angular.forEach(game.genres, function(genre, key) {
+        angular.forEach(game.genres, function(genre) {
           allGenres.push(genre);
         });
       });
@@ -30,7 +30,7 @@ angular.module('mvogamesJsApp')
       $scope.selectedGenres = [];
       $scope.Game.filterGenres.forEach(function(genre) {
         var g = _.find($scope.filterGenres, function(o) {
-          return o._lowername == genre.name.toLowerCase();
+          return o._lowername === genre.name.toLowerCase();
         });
         $scope.selectedGenres.push(g);
       });
@@ -72,13 +72,28 @@ angular.module('mvogamesJsApp')
           $scope.Game = game;
           window.goBack();
         });
-    }
+    };
 
 
 
     //GENRE SECTION ////////////////////////////////
 
-
+    /**
+     * Create filter function for a query string
+     */
+    function createFilterFor(query) {
+      var lowercaseQuery = angular.lowercase(query);
+      return function filterFn(genre) {
+        if ($scope.selectedGenres) {
+          $scope.selectedGenres.forEach(function(g) {
+            if (g._lowername.indexOf(lowercaseQuery) > -1) {
+              return false;
+            }
+          });
+        }
+        return genre._lowername.indexOf(lowercaseQuery) > -1;
+      };
+    }
 
     //This is for genre chips
     function querySearch(query) {
@@ -114,22 +129,7 @@ angular.module('mvogamesJsApp')
     $scope.transformChip = transformChip;
 
 
-    /**
-     * Create filter function for a query string
-     */
-    function createFilterFor(query) {
-      var lowercaseQuery = angular.lowercase(query);
-      return function filterFn(genre) {
-        if ($scope.selectedGenres) {
-          $scope.selectedGenres.forEach(function(g) {
-            if (g._lowername.indexOf(lowercaseQuery) > -1) {
-              return false;
-            }
-          });
-        }
-        return genre._lowername.indexOf(lowercaseQuery) > -1;
-      };
-    }
+
 
 
   });

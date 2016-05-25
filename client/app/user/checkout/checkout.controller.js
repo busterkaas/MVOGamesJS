@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('mvogamesJsApp')
-  .controller('CheckoutCtrl', function ($scope, $stateParams, Auth, OrderService) {
+  .controller('CheckoutCtrl', function($scope, $stateParams, Auth) {
 
-    Auth.getCurrentUser(function(user){
-        $scope.me = user;
+    Auth.getCurrentUser(function(user) {
+      $scope.me = user;
     });
 
     $scope.gameDetails = function(game) {
@@ -13,7 +13,7 @@ angular.module('mvogamesJsApp')
 
     $scope.calculateTotalPrice = function(user) {
       var totalPrice = 0;
-      user.shoppingCartItems.forEach(function(item){
+      user.shoppingCartItems.forEach(function(item) {
         totalPrice += item.platform.price * item.amount;
       });
       return totalPrice;
@@ -45,7 +45,7 @@ angular.module('mvogamesJsApp')
       order.comment
       OrderService.create($scope.me.shoppingCartItems);
     };*/
-    
+
 
 
 

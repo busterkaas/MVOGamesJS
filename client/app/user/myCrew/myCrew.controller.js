@@ -20,6 +20,10 @@ $scope.ableToCreate = function(){
   return false;
 }
 
+$scope.goToCreate = function(){
+  $state.go('createCrew');
+}
+
 
     $scope.goToCrew = function(crew) {
       console.log(crew.name);

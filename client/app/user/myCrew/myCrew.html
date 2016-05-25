@@ -1,11 +1,17 @@
 <navbar></navbar>
 <user-navbar></user-navbar>
-
-  <h1>ALL CREWS FOR NOW !! MUST BE CHAGED</h1>
-<div ng-repeat="crew in Crews">
-  <div class="bgMain" ng-click="goToCrew(crew)">
-  <h1>{{crew.name}}</h1>
+<div class="headerDiv">
+  <h1>My crews</h1>
+</br>
+<md-button class="button" ng-if="ableToCreate()" ng-click="goToCreate()">Create new Crew</md-button>
+<label ng-if="!ableToCreate()">MAX CREWS JOINED (3)</label>
 </div>
+
+<div ng-repeat="crew in Crews">
+  <md-list-item ng-click="goToCrew(crew)">
+
+  <h1>{{crew.name}}</h1>
+</md-list-item>
 </div>
 
 <footer></footer>

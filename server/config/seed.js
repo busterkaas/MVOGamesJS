@@ -390,6 +390,10 @@ Game.find({}).removeAsync()
               game: {
                 _id: '5726edd9eah7kj341c83091e'
               },
+              platform: {
+                name: 'PC',
+                price: '450'
+              },
               users: [{
                 _id: '5726edd9ea894ae41c83091f',
                 confirmed: 'false'
@@ -417,6 +421,10 @@ Game.find({}).removeAsync()
               expiration: new Date('2017-10-10'),
               game: {
                 _id: '5726edd9eah7kj341c83091e'
+              },
+              platform: {
+                name: 'Playstation 4',
+                price: '300'
               },
               users: [{
                 _id: '5726edd9ea894ae41c83091f',

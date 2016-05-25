@@ -11,7 +11,12 @@ angular.module('mvogamesJsApp')
         })
     });
 
-
+$scope.ableToCreate = function(){
+  if($scope.Crews.length <3){
+    return true;
+  }
+  return false;
+}
 
 
     $scope.goToCrew = function(crew){

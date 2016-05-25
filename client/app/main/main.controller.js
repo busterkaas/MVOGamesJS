@@ -28,8 +28,11 @@ class MainController {
   deleteThing(thing) {
     this.$http.delete('/api/things/' + thing._id);
   }
+//Test
+  changeImage(a) {
+        document.getElementById("img").src=a;
+    }
 }
-
 angular.module('mvogamesJsApp')
   .controller('MainController', MainController);
 

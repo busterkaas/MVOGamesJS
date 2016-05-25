@@ -40,3 +40,8 @@ font-size: 1.5rem;
 .jumbotron h2{
   text-align: center;
 }
+
+.mySlides{
+  width: 1000px;
+  margin: 0 25% 0 25%;
+}

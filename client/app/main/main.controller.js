@@ -30,7 +30,7 @@ class MainController {
   }
 //Test
   changeImage(a) {
-        document.getElementById("img").src=a;
+        document.getElementById('img').src=a;
     }
 }
 angular.module('mvogamesJsApp')

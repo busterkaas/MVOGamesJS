@@ -3,6 +3,8 @@
 angular.module('mvogamesJsApp')
   .controller('MyCrewCtrl', function($scope, $state, SpecialCrewService, Auth) {
 
+    $scope.Crews = [];
+
     Auth.getCurrentUser(function(user) {
       $scope.me = user;
 

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('mvogamesJsApp')
-  .controller('CrewDetailsCtrl', function(socket, $scope, $stateParams, CrewService, $mdDialog, Auth, $mdToast) {
+  .controller('CrewDetailsCtrl', function(socket, $scope, $stateParams, CrewService, $mdDialog, Auth, $mdToast, $state) {
 
     $scope.gameSugSelected = undefined;
     $scope.newComment = undefined;
@@ -135,13 +135,13 @@ angular.module('mvogamesJsApp')
           id: $scope.crew._id
         });
         var toast = $mdToast.simple()
-          .textContent($scope.crew.name + ' was deleted')
+          .textContent('Crew was deleted')
           .action('Ok')
           .highlightAction(false)
           .position('top');
         $mdToast.show(toast);
       });
-      // $window.history.back();
+     $state.go('user');
     };
 
     //**Updating Crew**

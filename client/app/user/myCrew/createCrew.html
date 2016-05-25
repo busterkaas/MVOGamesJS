@@ -1,4 +1,33 @@
 <navbar></navbar>
 <user-navbar></user-navbar>
 
+<div class="headerDiv">
+<h1>Create crew</h1>
+</div>
+
+
+  <div class="bgMain userProfileDiv">
+  </br>
+</br>
+    <form name="crewForm">
+      <div layout-gt-xs="row">
+  <md-input-container class="md-block" flex-gt-xs>
+    <label>Crew name</label>
+    <input ng-model="newCrew.name">
+  </md-input-container>
+  <md-input-container class="md-block" flex-gt-xs>
+    <label>Crew image URL</label>
+    <input ng-model="newCrew.crewImgUrl" >
+  </md-input-container>
+
+</div>
+</form>
+</br>
+</br>
+<md-button class="button btnRight" ng-click="createCrew()">Create crew!</md-button>
+</div>
+
+
+
+
 <footer></footer>

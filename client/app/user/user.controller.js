@@ -10,17 +10,8 @@ angular.module('mvogamesJsApp')
 
 
     $scope.updateMe = function(){
-        console.log($scope.me._id);
         UserService.update({id: $scope.me._id}, $scope.me, function(user){
           $scope.me = user;
-
-
-
-        console.log(user.firstName);
       });
     };
-
-
-
-
   });

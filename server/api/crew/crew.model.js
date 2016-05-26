@@ -1,7 +1,6 @@
 'use strict';
 
 var mongoose = require('bluebird').promisifyAll(require('mongoose'));
-var deepPopulate = require('mongoose-deep-populate')(mongoose);
 
 var CrewSchema = new mongoose.Schema({
   name: String,
@@ -45,5 +44,4 @@ var CrewSchema = new mongoose.Schema({
   }]
 });
 
-CrewSchema.plugin(deepPopulate);
 export default mongoose.model('Crew', CrewSchema);

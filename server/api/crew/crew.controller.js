@@ -63,7 +63,7 @@ function removeEntity(res) {
 // Gets a list of Crews
 export function index(req, res) {
   Crew.find()
-    .deepPopulate('leader users applicants gameSuggestions gameSuggestions.game gameSuggestions.users users.user')
+    .populate('leader users applicants gameSuggestions gameSuggestions.game gameSuggestions.users users.user')
     .execAsync()
     .then(responseWithResult(res))
     .catch(handleError(res));
@@ -74,7 +74,7 @@ export function index(req, res) {
 export function show(req, res) {
 
   Crew.findById(req.params.id)
-    .deepPopulate('leader gameSuggestions.users.user users applicants gameSuggestions crewMessages.user gameSuggestions.game gameSuggestions.users users.user')
+    .populate('leader gameSuggestions.users.user users applicants gameSuggestions crewMessages.user gameSuggestions.game gameSuggestions.users users.user')
     .execAsync()
     .then(handleEntityNotFound(res))
     .then(responseWithResult(res))
@@ -83,7 +83,7 @@ export function show(req, res) {
 
 // Get all Crews in the DB with the requested UsserID
 export function crewsByUser (req, res) {
-  Crew.find({'users':req.params.id}).deepPopulate('leader users gameSuggestions crewMessages.user applicants gameSuggestions.game gameSuggestions.users user.user')
+  Crew.find({'users':req.params.id}).populate('leader users gameSuggestions crewMessages.user applicants gameSuggestions.game gameSuggestions.users user.user')
   .execAsync()
     .then(responseWithResult(res))
     .catch(handleError(res));
@@ -103,7 +103,7 @@ export function update(req, res) {
   }
 
   Crew.findById(req.params.id)
-    .deepPopulate('leader users applicants crewMessages.user gameSuggestions gameSuggestions.game gameSuggestions.users users.user')
+    .populate('leader users applicants crewMessages.user gameSuggestions gameSuggestions.game gameSuggestions.users users.user')
     .execAsync()
     .then(handleEntityNotFound(res))
     .then(saveUpdates(req.body))

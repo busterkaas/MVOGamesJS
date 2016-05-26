@@ -77,16 +77,14 @@ angular.module('mvogamesJsApp')
     }
 
     $scope.SaveOrderAndClearCart = function(){
+
       OrderService.save($scope.newOrder, function(order){
         $scope.me.shoppingCartItems = [];
-        });
-      
-
-          UserService.update({id: $scope.me._id}, $scope.me, function(user){
-            $scope.me = user;
-          $scope.log(user);
       });
 
+      UserService.update({id: $scope.me._id}, $scope.me, function(user){
+      $scope.me = user;
+      });
     }
 
   });

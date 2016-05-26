@@ -30,6 +30,7 @@ angular.module('mvogamesJsApp')
         console.log('no comment');
         $scope.newComment = undefined;
       }
+  };
 
       $scope.isCrewLeader = function() {
         if ($scope.crew.crewleader._id === $scope.me._id) {
@@ -37,8 +38,6 @@ angular.module('mvogamesJsApp')
         }
         return false;
       };
-
-    };
 
 
     $scope.undoGameSuggestionDetails = function() {

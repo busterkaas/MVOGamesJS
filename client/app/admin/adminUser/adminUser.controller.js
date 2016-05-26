@@ -78,5 +78,33 @@ angular.module('mvogamesJsApp')
       });
       };
 
+      //**Deleting Item from ShoppingCart**
+      $scope.deleteUserFromCrew = function(user, ev){
+        var confirm = $mdDialog.confirm()
+        .title('Delete Item from ShoppingCart')
+        .textContent('Are you sure you want to delete this item')
+        .ariaLabel('Delete')
+        .targetEvent(ev)
+        .openFrom('#left')
+        .ok('YES, I am sure!')
+        .cancel('No');
+        $mdDialog.show(confirm).then(function(){
+          _.remove($scope.editingUser.shoppingCartItems, function(u){
+            return u._id === user._id;
+          });
+          UserService.update({
+            id: $scope.editingUser._id
+          }, $scope.editingUser, function(user){
+            $scope.editingUser = user;
+            var toast = $mdToast.simple()
+            .textContent('Item was deleted')
+            .action('Ok')
+            .highlightAction(false)
+            .position('top');
+            $mdToast.show(toast);
+          });
+        });
+      };
+
 
     });

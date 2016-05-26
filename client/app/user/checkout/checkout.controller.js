@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('mvogamesJsApp')
-  .controller('CheckoutCtrl', function($scope, $stateParams, Auth, OrderService, UserService) {
+  .controller('CheckoutCtrl', function($scope, $stateParams, Auth, OrderService, UserService, $mdDialog, $mdToast) {
 
     $scope.newOrder = {
       date: new Date(),
@@ -33,6 +33,8 @@ angular.module('mvogamesJsApp')
       });
       return totalPrice;*/
     };
+
+
 /*
     $scope.subtractAmount = function(item) {
 
@@ -77,15 +79,44 @@ angular.module('mvogamesJsApp')
     };
 
     $scope.SaveOrderAndClearCart = function(){
-      OrderService.save($scope.newOrder, function(order){
-        $scope.me.shoppingCartItems = [];
-        });
+      OrderService.save($scope.newOrder, function(){
 
+        });
+        $scope.me.shoppingCartItems = [];
 
           UserService.update({id: $scope.me._id}, $scope.me, function(user){
             $scope.me = user;
       });
 
+    };
+
+
+    //**Deleting Item from ShoppingCart**
+    $scope.deleteItemFromShoppingCart = function(item, ev){
+      var confirm = $mdDialog.confirm()
+      .title('Delete item from Shopping Cart')
+      .textContent('Are you sure you want to this item')
+      .ariaLabel('Delete')
+      .targetEvent(ev)
+      .openFrom('#left')
+      .ok('YES, I am sure!')
+      .cancel('No');
+      $mdDialog.show(confirm).then(function(){
+        _.remove($scope.me.shoppingCartItems, function(u){
+          return u._id === item._id;
+        });
+        UserService.update({
+          id: $scope.me._id
+        }, $scope.me, function(item){
+          $scope.me = item;
+          var toast = $mdToast.simple()
+          .textContent('Item was deleted')
+          .action('Ok')
+          .highlightAction(false)
+          .position('top');
+          $mdToast.show(toast);
+        });
+      });
     };
 
   });

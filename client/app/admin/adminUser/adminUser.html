@@ -191,20 +191,21 @@
 
             <br>
             <div>
-              <md-list ng-repeat="items in editingUser.shoppingCartItems">
+              <md-list ng-repeat="item in editingUser.shoppingCartItems">
                 <div layout="row">
                   <div flex="5"></div>
                   <div flex="35">
-                    <p>{{ items.game.title }}</p>
+                    <p>{{ item.game.title }}</p>
                   </div>
                   <div flex="25">
-                    <p>{{items.platform.name}}</p>
+                    <p>{{item.platform.name}}</p>
                   </div>
                   <div flex="20">
-                    <p>{{items.amount}}</p>
+                    <p>{{item.amount}}</p>
                   </div>
+
                   <div flex="5">
-                    <md-button ng-click="deleteGameItemFromUser(items)">
+                    <md-button ng-click="deleteUserFromCrew(item)">
                       <i class="glyphicon glyphicon-trash mousePointer"></i>
                     </md-button>
                   </div>

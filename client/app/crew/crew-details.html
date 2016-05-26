@@ -19,7 +19,7 @@
       </div>
       <md-divider class="listDevider"></md-divider>
       <div flex="20">
-      <md-button aria-label="btn delete user from crew" class="md-icon-button" ng-click="deleteUserFromCrew(user)">
+      <md-button ng-if="isCrewLeader" aria-label="btn delete user from crew" class="md-icon-button" ng-click="deleteUserFromCrew(user)">
         <i class="fa fa-minus-circle"></i>
       </md-button>
       </div>

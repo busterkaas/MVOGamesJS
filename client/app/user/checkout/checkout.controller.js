@@ -64,7 +64,7 @@ angular.module('mvogamesJsApp')
         angular.forEach($scope.me.shoppingCartItems, function(orderline){
           var newLine = {
           amount : orderline.amount,
-          game : { _id: orderline.game._id},
+          game : { id: orderline.game._id},
           platform : {
             name : orderline.platform.name,
             price : orderline.platform.price

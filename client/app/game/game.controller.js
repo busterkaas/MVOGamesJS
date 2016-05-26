@@ -64,7 +64,7 @@ angular.module('mvogamesJsApp')
             game: $scope.selectedGame,
             platform: {
               name: $scope.selectedPlatform.name,
-              price: $scope.selectedPlatform.price
+              price: $scope.selectedPlatform.price,
             },
             amount: 1
           });

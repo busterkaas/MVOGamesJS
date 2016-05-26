@@ -24,6 +24,8 @@ shoppingCartItems: [{
   platform: {
       name: String,
       price: Number,
+      stock: Number,
+      platformImgUrl: String
   },
   amount: Number,
 

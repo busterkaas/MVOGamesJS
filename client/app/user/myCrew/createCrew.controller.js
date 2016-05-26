@@ -11,11 +11,11 @@ angular.module('mvogamesJsApp')
       applicants:[],
       crewMessages:[],
       gameSuggestions:[]
-    }
+    };
 
     Auth.getCurrentUser(function(user){
       $scope.me = user;
-    })
+    });
 
     $scope.createCrew = function(){
       if($scope.newCrew.name.length>0 && $scope.newCrew.crewImgUrl.length>0){
@@ -29,7 +29,7 @@ angular.module('mvogamesJsApp')
           $state.go('crewdetails', {id:crew._id});
         });
       }
-      console.log("hello2");
-    }
+      console.log('hello2');
+    };
 
-  })
+  });

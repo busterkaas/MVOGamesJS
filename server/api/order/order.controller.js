@@ -15,7 +15,9 @@ var Order = require('./order.model');
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
   return function(err) {
+    console.log(err);
     res.status(statusCode).send(err);
+
   };
 }
 
